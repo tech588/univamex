@@ -8,7 +8,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
@@ -27,17 +27,13 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.18]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const mobileImageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
-  const mobileImageY = useTransform(scrollYProgress, [0, 1], [0, -24]);
-  const mobileContentY = useTransform(scrollYProgress, [0, 1], [0, -56]);
+  const mobileImageScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.18]);
   const imageFilter = useTransform(
     scrollYProgress,
     [0, 0.62, 1],
     ["blur(0px)", "blur(1.5px)", "blur(8px)"],
   );
   const imageOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 0.9, 0.46]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -92]);
   const contentOpacity = useTransform(
     scrollYProgress,
     [0, 0.58, 0.92],
@@ -46,11 +42,11 @@ export function Hero() {
 
   return (
     <div ref={containerRef}>
-      <section className="relative isolate h-[150svh] bg-[#061533] text-white sm:hidden">
-        <div className="sticky top-0 min-h-[100svh] overflow-hidden bg-[#061533]">
+      <section className="relative isolate h-[190svh] bg-[#061533] text-white sm:hidden">
+        <div className="sticky top-0 h-[100svh] overflow-hidden bg-[#061533]">
           <div className="pt-20">
             <motion.div
-              className="relative aspect-[1920/1000] w-full overflow-hidden"
+              className="relative h-[64vw] min-h-[13.5rem] max-h-[22rem] w-full overflow-hidden"
               style={
                 reduceMotion
                   ? undefined
@@ -58,7 +54,6 @@ export function Hero() {
                       filter: imageFilter,
                       opacity: imageOpacity,
                       scale: mobileImageScale,
-                      y: mobileImageY,
                     }
               }
             >
@@ -68,13 +63,13 @@ export function Hero() {
                 fill
                 priority
                 sizes="100vw"
-                className="object-cover object-center"
+                className="object-cover object-[72%_center]"
               />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#061533] via-[#061533]/80 to-transparent" />
             </motion.div>
-            <div className="pointer-events-none absolute inset-x-0 top-[calc(5rem+52vw)] h-16 bg-gradient-to-t from-[#061533] via-[#061533]/78 to-transparent" />
           </div>
 
-          <div className="relative min-h-[calc(100svh-5rem-52vw)] overflow-hidden bg-[radial-gradient(circle_at_18%_0%,rgba(30,64,175,0.5),transparent_36%),linear-gradient(180deg,#061533_0%,#071A3D_100%)] px-5 pb-24 pt-8">
+          <div className="relative min-h-[calc(100svh-5rem-64vw)] overflow-hidden bg-[#061533] px-5 pb-24 pt-7">
             <motion.div
               initial={shouldAnimate ? { y: 24, opacity: 0 } : false}
               animate={{ y: 0, opacity: 1 }}
@@ -83,7 +78,6 @@ export function Hero() {
                   ? undefined
                   : {
                       opacity: contentOpacity,
-                      y: mobileContentY,
                     }
               }
               transition={{ duration: 0.62, ease: "easeOut" }}
@@ -122,13 +116,6 @@ export function Hero() {
                   Ver oferta académica
                   <ArrowRight aria-hidden="true" className="h-4 w-4" />
                 </Link>
-                <a
-                  className="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase text-white/70"
-                  href="#programas"
-                >
-                  Explorar programas
-                  <ChevronDown aria-hidden="true" className="h-4 w-4" />
-                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -141,7 +128,7 @@ export function Hero() {
       </section>
 
       <section
-        className="relative isolate hidden bg-[#061533] text-white sm:block sm:h-[165dvh]"
+        className="relative isolate hidden bg-[#061533] text-white sm:block sm:h-[190dvh]"
       >
       <div className="sticky top-0 h-[100svh] overflow-hidden sm:h-[100dvh]">
         <motion.div
@@ -153,7 +140,6 @@ export function Hero() {
                   filter: imageFilter,
                   opacity: imageOpacity,
                   scale: imageScale,
-                  y: imageY,
                 }
           }
         >
@@ -175,7 +161,7 @@ export function Hero() {
             initial={shouldAnimate ? { y: 30, opacity: 0 } : false}
             animate={{ y: 0, opacity: 1 }}
             style={
-              reduceMotion ? undefined : { opacity: contentOpacity, y: contentY }
+              reduceMotion ? undefined : { opacity: contentOpacity }
             }
             transition={{ duration: 0.72, ease: "easeOut" }}
           >
@@ -213,21 +199,6 @@ export function Hero() {
             </motion.div>
           </motion.div>
         </div>
-
-        <motion.a
-          className="absolute bottom-10 left-1/2 z-20 hidden items-center gap-2 text-xs font-bold uppercase text-white/75 sm:inline-flex"
-          href="#programas"
-          initial={shouldAnimate ? { opacity: 0 } : false}
-          animate={{ opacity: 1, y: shouldAnimate ? [0, 7, 0] : 0 }}
-          style={{ x: "-50%" }}
-          transition={{
-            opacity: { delay: 0.8, duration: 0.4 },
-            y: { duration: 1.8, repeat: Infinity, ease: "easeInOut" },
-          }}
-        >
-          Explorar programas
-          <ChevronDown aria-hidden="true" className="h-4 w-4" />
-        </motion.a>
 
         <div
           aria-hidden="true"

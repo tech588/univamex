@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Variants } from "framer-motion";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -68,18 +68,34 @@ export function ProgramLevelsBento() {
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start end", "start start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [110, -38]);
-  const opacity = useTransform(scrollYProgress, [0, 0.22], [0.86, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [72, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.92, 1]);
+  const exploreOpacity = useTransform(scrollYProgress, [0, 0.38, 0.68], [1, 1, 0]);
 
   return (
     <section
-      className="relative z-20 -mt-[28svh] overflow-hidden bg-[linear-gradient(180deg,rgba(6,21,51,0)_0%,rgba(6,21,51,0.92)_22%,#061533_48%)] px-5 pb-20 pt-16 text-white sm:-mt-[44vh] sm:px-8 sm:pb-24 sm:pt-20 lg:px-10 lg:pb-28"
+      className="relative z-20 -mt-[94svh] bg-[#061533] px-5 pb-20 pt-24 text-white sm:-mt-[94dvh] sm:px-8 sm:pb-24 sm:pt-28 lg:px-10 lg:pb-28"
       id="programas"
       ref={ref}
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+      <div
+        aria-hidden="true"
+        className="hero-concave pointer-events-none absolute inset-x-[-8%] -top-8 h-12 bg-[#061533] sm:-top-12 sm:h-16"
+      />
+      <motion.a
+        className="absolute top-[0.25rem] left-1/2 z-30 inline-flex items-center gap-2 whitespace-nowrap text-xs font-bold uppercase text-white/75 sm:-top-[0.9rem]"
+        href="#programas"
+        animate={{ y: reduceMotion ? 0 : [0, 7, 0] }}
+        style={reduceMotion ? { x: "-50%" } : { x: "-50%", opacity: exploreOpacity }}
+        transition={{
+          y: { duration: 1.8, repeat: Infinity, ease: "easeInOut" },
+        }}
+      >
+        Explorar programas
+        <ChevronDown aria-hidden="true" className="h-4 w-4" />
+      </motion.a>
       <motion.div
         className="mx-auto max-w-7xl"
         style={reduceMotion ? undefined : { y, opacity }}

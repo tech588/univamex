@@ -39,7 +39,12 @@ test("header is a motion-enabled responsive navigation", () => {
   assert.match(header, /"use client"/);
   assert.match(header, /framer-motion/);
   assert.match(header, /Menu/);
+  assert.match(header, /logo-univamex-cropped\.png/);
+  assert.match(header, /x: "100%"/);
+  assert.match(header, /right-0/);
   assert.match(header, /Solicitar informes/);
+  assert.doesNotMatch(header, /GraduationCap/);
+  assert.doesNotMatch(header, /h-11 w-11 items-center justify-center rounded-lg border/);
   assert.doesNotMatch(header, /label="WhatsApp"|>WhatsApp</);
 });
 
@@ -54,6 +59,40 @@ test("hero follows the approved dark editorial structure", () => {
   assert.match(hero, /useTransform/);
   assert.match(hero, /blur\(/);
   assert.doesNotMatch(hero, /por WhatsApp|label="[^"]*WhatsApp|>WhatsApp</);
+});
+
+test("hero keeps a pure sticky parallax handoff into programs", () => {
+  const hero = read("src/components/hero.tsx");
+
+  assert.match(hero, /object-\[72%_center\]/);
+  assert.match(hero, /h-\[64vw\]/);
+  assert.match(hero, /h-\[190svh\]/);
+  assert.match(hero, /sm:h-\[190dvh\]/);
+  assert.doesNotMatch(hero, /Explorar programas/);
+  assert.doesNotMatch(hero, /ChevronDown/);
+  assert.doesNotMatch(hero, /exploreOpacity/);
+  assert.doesNotMatch(hero, /const imageY/);
+  assert.doesNotMatch(hero, /const mobileImageY/);
+});
+
+test("program levels section rises as a solid overlay", () => {
+  const programs = read("src/components/program-levels-bento.tsx");
+
+  assert.match(programs, /-mt-\[94svh\]/);
+  assert.match(programs, /sm:-mt-\[94dvh\]/);
+  assert.match(programs, /bg-\[#061533\]/);
+  assert.doesNotMatch(programs, /rgba\(6,21,51,0\)_0%/);
+});
+
+test("program levels owns the centered explore prompt", () => {
+  const programs = read("src/components/program-levels-bento.tsx");
+
+  assert.match(programs, /ChevronDown/);
+  assert.match(programs, /Explorar programas/);
+  assert.match(programs, /exploreOpacity/);
+  assert.match(programs, /top-\[0\.25rem\]/);
+  assert.match(programs, /left-1\/2/);
+  assert.doesNotMatch(programs, /h-px bg-white\/10/);
 });
 
 test("sticky storytelling centers copy and reveals panels with blur", () => {
