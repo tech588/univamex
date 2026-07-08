@@ -79,8 +79,8 @@ test("hero keeps a pure sticky parallax handoff into programs", () => {
 test("program levels section rises as a solid overlay", () => {
   const programs = read("src/components/program-levels-bento.tsx");
 
-  assert.match(programs, /-mt-\[94svh\]/);
-  assert.match(programs, /sm:-mt-\[94dvh\]/);
+  assert.match(programs, /-mt-\[100svh\]/);
+  assert.match(programs, /sm:-mt-\[100dvh\]/);
   assert.match(programs, /bg-\[#061533\]/);
   assert.match(programs, /scale-x-110/);
   assert.doesNotMatch(programs, /inset-x-\[-8%\]/);

@@ -76,7 +76,7 @@ export function ProgramLevelsBento() {
 
   return (
     <section
-      className="relative z-20 -mt-[94svh] bg-[#061533] px-5 pb-20 pt-24 text-white sm:-mt-[94dvh] sm:px-8 sm:pb-24 sm:pt-28 lg:px-10 lg:pb-28"
+      className="relative z-20 -mt-[100svh] bg-[#061533] px-5 pb-20 pt-24 text-white sm:-mt-[100dvh] sm:px-8 sm:pb-24 sm:pt-28 lg:px-10 lg:pb-28"
       id="programas"
       ref={ref}
     >
