@@ -23,13 +23,16 @@
 
 html {
   background: var(--navy-950);
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
+  max-width: 100%;
   overflow-x: hidden;
+  width: 100%;
 }
 
 button,
@@ -46,6 +49,10 @@ textarea {
 
 main:not(.home-main) {
   padding-top: 5rem;
+}
+
+.home-main {
+  overflow-x: clip;
 }
 
 .hero-concave {

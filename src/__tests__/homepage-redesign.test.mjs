@@ -71,6 +71,7 @@ test("hero keeps a pure sticky parallax handoff into programs", () => {
   assert.doesNotMatch(hero, /Explorar programas/);
   assert.doesNotMatch(hero, /ChevronDown/);
   assert.doesNotMatch(hero, /exploreOpacity/);
+  assert.doesNotMatch(hero, /inset-x-\[-8%\]/);
   assert.doesNotMatch(hero, /const imageY/);
   assert.doesNotMatch(hero, /const mobileImageY/);
 });
@@ -81,7 +82,17 @@ test("program levels section rises as a solid overlay", () => {
   assert.match(programs, /-mt-\[94svh\]/);
   assert.match(programs, /sm:-mt-\[94dvh\]/);
   assert.match(programs, /bg-\[#061533\]/);
+  assert.match(programs, /scale-x-110/);
+  assert.doesNotMatch(programs, /inset-x-\[-8%\]/);
   assert.doesNotMatch(programs, /rgba\(6,21,51,0\)_0%/);
+});
+
+test("homepage clips horizontal overflow on mobile", () => {
+  const globals = read("src/app/globals.css");
+
+  assert.match(globals, /html\s*{[^}]*overflow-x:\s*hidden/s);
+  assert.match(globals, /body\s*{[^}]*max-width:\s*100%/s);
+  assert.match(globals, /\.home-main\s*{[^}]*overflow-x:\s*clip/s);
 });
 
 test("program levels owns the centered explore prompt", () => {

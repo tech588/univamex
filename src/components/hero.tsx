@@ -122,7 +122,7 @@ export function Hero() {
 
           <div
             aria-hidden="true"
-            className="hero-concave absolute inset-x-[-8%] -bottom-px z-10 h-16 bg-[#061533]"
+            className="hero-concave absolute inset-x-0 -bottom-px z-10 h-16 scale-x-110 bg-[#061533]"
           />
         </div>
       </section>
@@ -202,7 +202,7 @@ export function Hero() {
 
         <div
           aria-hidden="true"
-          className="hero-concave absolute inset-x-[-8%] -bottom-px z-10 h-24 bg-[#061533] sm:h-28"
+          className="hero-concave absolute inset-x-0 -bottom-px z-10 h-24 scale-x-110 bg-[#061533] sm:h-28"
         />
       </div>
       </section>

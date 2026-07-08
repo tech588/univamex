@@ -82,7 +82,7 @@ export function ProgramLevelsBento() {
     >
       <div
         aria-hidden="true"
-        className="hero-concave pointer-events-none absolute inset-x-[-8%] -top-8 h-12 bg-[#061533] sm:-top-12 sm:h-16"
+        className="hero-concave pointer-events-none absolute inset-x-0 -top-8 h-12 scale-x-110 bg-[#061533] sm:-top-12 sm:h-16"
       />
       <motion.a
         className="absolute top-[0.25rem] left-1/2 z-30 inline-flex items-center gap-2 whitespace-nowrap text-xs font-bold uppercase text-white/75 sm:-top-[0.9rem]"
