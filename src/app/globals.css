@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f9fc;
+  --foreground: #071a3d;
+  --navy-950: #061533;
+  --navy-900: #071a3d;
+  --blue-700: #1e40af;
+  --gold-700: #b45309;
+  --gold-500: #e7a928;
+  --font-body: var(--font-atkinson), "Atkinson Hyperlegible",
+    "Atkinson Hyperlegible Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-crimson), "Crimson Pro",
+    "Crimson Pro Fallback", ui-serif, Georgia, serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+}
+
+html {
+  background: var(--navy-950);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--blue-700);
+  color: white;
+}
+
+main:not(.home-main) {
+  padding-top: 5rem;
+}
+
+.hero-concave {
+  clip-path: ellipse(74% 100% at 50% 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
