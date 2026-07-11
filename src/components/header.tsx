@@ -17,6 +17,9 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const isHome = pathname === "/";
   const transparent = isHome && !scrolled && !mobileOpen;
+  const logoSrc = transparent
+    ? "/logos/Logo Horizontal/blanco.png"
+    : "/logos/Logo Horizontal/azul.png";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -33,52 +36,61 @@ export function Header() {
         "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300",
         transparent
           ? "border-white/10 bg-transparent text-white"
-          : "border-white/10 bg-[#061533]/95 text-white shadow-xl shadow-[#061533]/15 backdrop-blur-md",
+          : "border-[#d9e0ec] bg-white/95 text-[#04215e] shadow-lg shadow-slate-950/5 backdrop-blur-md",
       )}
       initial={reduceMotion ? false : { y: -18, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
-      <div className="flex min-h-20 w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="flex min-h-[5.25rem] w-full items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="group flex min-h-11 items-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E7A928]"
+          className="group flex min-h-12 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
           onClick={() => setMobileOpen(false)}
         >
           <Image
-            src="/logos/logo-univamex-cropped.png"
+            src={logoSrc}
             alt={`${siteConfig.name} Colegio Universitario`}
-            width={1487}
-            height={519}
+            width={1920}
+            height={1080}
             priority
-            sizes="(min-width: 768px) 178px, 132px"
-            className="h-auto w-[132px] translate-y-1 object-contain brightness-125 contrast-125 sm:w-[178px] sm:translate-y-0.5"
+            sizes="(min-width: 768px) 267px, 207px"
+            className="h-[4.45rem] w-[12.9rem] object-contain object-left sm:h-[4.8rem] sm:w-[16.65rem]"
           />
         </Link>
 
         <nav aria-label="Navegacion principal" className="hidden md:block">
           <ul className="flex items-center gap-1">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  className={cn(
-                    "inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E7A928]",
-                    pathname === item.href
-                      ? "text-[#E7A928]"
-                      : "text-white/80 hover:bg-white/10 hover:text-white",
-                  )}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const active = pathname === item.href;
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    className={cn(
+                      "inline-flex min-h-11 items-center px-3 text-xs font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] lg:px-4",
+                      active
+                        ? transparent
+                          ? "text-white"
+                          : "text-[#04215e]"
+                        : transparent
+                          ? "text-white/78 hover:bg-white/10 hover:text-white"
+                          : "text-[#04215e]/72 hover:bg-[#04215e]/6 hover:text-[#04215e]",
+                    )}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
         <div className="hidden md:block">
           <WhatsAppButton
+            className="min-h-10 border-current px-4 py-2.5 text-xs"
             label="Solicitar informes"
             source="Header"
             variant="secondary"
@@ -89,7 +101,12 @@ export function Header() {
           aria-controls="mobile-navigation"
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
-          className="inline-flex min-h-11 items-center justify-center p-2 text-white transition hover:text-[#E7A928] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E7A928] md:hidden"
+          className={cn(
+            "inline-flex min-h-11 min-w-11 items-center justify-center border p-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] md:hidden",
+            transparent
+              ? "border-white/30 text-white hover:bg-white/10"
+              : "border-[#d9e0ec] text-[#04215e] hover:bg-[#04215e]/6",
+          )}
           type="button"
           onClick={() => setMobileOpen((open) => !open)}
         >
@@ -103,55 +120,43 @@ export function Header() {
 
       <AnimatePresence>
         {mobileOpen ? (
-          <>
-            <motion.button
-              aria-label="Cerrar menu"
-              className="fixed inset-0 z-40 bg-[#061533]/55 backdrop-blur-[2px] md:hidden"
-              type="button"
-              initial={reduceMotion ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={reduceMotion ? undefined : { opacity: 0 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              onClick={() => setMobileOpen(false)}
-            />
-            <motion.div
-              id="mobile-navigation"
-              className="fixed right-0 top-0 z-50 h-dvh w-[82vw] max-w-sm bg-[#061533]/98 px-6 pb-8 pt-24 shadow-2xl shadow-black/30 backdrop-blur-md md:hidden"
-              initial={reduceMotion ? false : { x: "100%", opacity: 0.9 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={reduceMotion ? undefined : { x: "100%", opacity: 0.9 }}
-              transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <nav aria-label="Navegacion movil">
-                <ul className="grid gap-2">
-                  {navItems.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        className={cn(
-                          "flex min-h-12 items-center rounded-lg px-3 text-base font-semibold transition hover:bg-white/10",
-                          pathname === item.href
-                            ? "text-[#E7A928]"
-                            : "text-white/90",
-                        )}
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6">
-                  <WhatsAppButton
-                    className="w-full"
-                    label="Solicitar informes"
-                    source="Header movil"
-                    variant="floating"
-                  />
-                </div>
-              </nav>
-            </motion.div>
-          </>
+          <motion.div
+            id="mobile-navigation"
+            className="fixed inset-x-0 top-[5.25rem] z-50 border-y border-[#d9e0ec] bg-white px-3 py-5 text-[#04215e] shadow-xl shadow-slate-950/10 md:hidden"
+            initial={reduceMotion ? false : { y: -18, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={reduceMotion ? undefined : { y: -18, opacity: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <nav aria-label="Navegacion movil">
+              <ul className="grid">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      className={cn(
+                        "flex min-h-12 items-center border-b border-[#d9e0ec] px-1 text-sm font-bold transition hover:bg-[#04215e]/6",
+                        pathname === item.href
+                          ? "text-[#04215e]"
+                          : "text-[#04215e]/72",
+                      )}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5">
+                <WhatsAppButton
+                  className="w-full border-[#04215e] px-4 text-[#04215e]"
+                  label="Solicitar informes"
+                  source="Header movil"
+                  variant="secondary"
+                />
+              </div>
+            </nav>
+          </motion.div>
         ) : null}
       </AnimatePresence>
     </motion.header>

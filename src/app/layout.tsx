@@ -1,22 +1,8 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible, Crimson_Pro } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
-
-const crimson = Crimson_Pro({
-  subsets: ["latin"],
-  variable: "--font-crimson",
-  display: "swap",
-});
-
-const atkinson = Atkinson_Hyperlegible({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-atkinson",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.univamex.com"),
@@ -44,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="es-MX"
-      className={`${crimson.variable} ${atkinson.variable} h-full scroll-smooth antialiased`}
+      className="h-full scroll-smooth antialiased"
     >
       <body className="flex min-h-full flex-col">
         <Header />

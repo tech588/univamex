@@ -2,173 +2,211 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { Variants } from "framer-motion";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { useRef } from "react";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "framer-motion";
+import { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const levels = [
   {
     title: "Bachilleratos",
+    label: "Bachilleratos",
     description:
-      "Formación integral con enfoque académico y humano para construir tu camino.",
+      "Base académica y formación técnica para avanzar con seguridad hacia la universidad.",
     href: "/oferta-academica/bachilleratos",
     image: "/images/home-students.jpg",
-    className: "lg:col-span-2 lg:row-span-2",
+    detail: "3 años / presencial",
+    accent: "Desde tu primer plan profesional",
   },
   {
     title: "Licenciaturas",
+    label: "Licenciaturas",
     description:
-      "Carreras diseñadas para desarrollar tu talento y abrir más oportunidades.",
+      "Carreras con enfoque práctico, acompañamiento docente y áreas conectadas con el mercado actual.",
     href: "/oferta-academica/licenciaturas",
     image: "/images/negocios-estudiantes.png",
-    className: "lg:col-span-2",
+    detail: "Escolarizada, mixta y presencial",
+    accent: "Construye criterio profesional",
   },
   {
     title: "Maestrías",
+    label: "Maestrías",
     description:
-      "Especialízate, lidera y transforma tu entorno profesional.",
+      "Posgrados para especializar tu experiencia, fortalecer liderazgo y abrir nuevas rutas laborales.",
     href: "/oferta-academica/maestrias",
     image: "/images/educacion-comunidad.png",
-    className: "lg:col-span-1",
+    detail: "1 año 8 meses",
+    accent: "Profundiza con dirección",
   },
   {
     title: "Doctorados",
+    label: "Doctorados",
     description:
-      "Investigación, innovación y conocimiento para generar impacto.",
+      "Investigación aplicada, pensamiento crítico e impacto académico para transformar tu entorno.",
     href: "/oferta-academica/doctorados",
     image: "/images/ia-big-data.png",
-    className: "lg:col-span-1",
+    detail: "Investigación y alto impacto",
+    accent: "Genera conocimiento",
   },
 ] as const;
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.06,
-    },
-  },
-};
-
-const tileVariants: Variants = {
-  hidden: { opacity: 0, y: 34, scale: 0.98 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.58, ease: "easeOut" },
-  },
-};
-
 export function ProgramLevelsBento() {
-  const ref = useRef<HTMLElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "start start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [72, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.92, 1]);
-  const exploreOpacity = useTransform(scrollYProgress, [0, 0.38, 0.68], [1, 1, 0]);
+  const activeLevel = levels[activeIndex];
+  const nextLevel = useMemo(
+    () => levels[(activeIndex + 1) % levels.length],
+    [activeIndex],
+  );
 
   return (
     <section
-      className="relative z-20 -mt-[100svh] bg-[#061533] px-5 pb-20 pt-24 text-white sm:-mt-[100dvh] sm:px-8 sm:pb-24 sm:pt-28 lg:px-10 lg:pb-28"
+      className="relative z-20 bg-white px-0 pb-20 pt-14 text-[#07111f] sm:px-8 sm:pb-24 sm:pt-20 lg:px-10"
       id="programas"
-      ref={ref}
     >
-      <div
-        aria-hidden="true"
-        className="hero-concave pointer-events-none absolute inset-x-0 -top-8 h-12 scale-x-110 bg-[#061533] sm:-top-12 sm:h-16"
-      />
-      <motion.a
-        className="absolute top-[0.25rem] left-1/2 z-30 inline-flex items-center gap-2 whitespace-nowrap text-xs font-bold uppercase text-white/75 sm:-top-[0.9rem]"
-        href="#programas"
-        animate={{ y: reduceMotion ? 0 : [0, 7, 0] }}
-        style={reduceMotion ? { x: "-50%" } : { x: "-50%", opacity: exploreOpacity }}
-        transition={{
-          y: { duration: 1.8, repeat: Infinity, ease: "easeInOut" },
-        }}
-      >
-        Explorar programas
-        <ChevronDown aria-hidden="true" className="h-4 w-4" />
-      </motion.a>
       <motion.div
-        className="mx-auto max-w-7xl"
-        style={reduceMotion ? undefined : { y, opacity }}
+        className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:gap-12"
+        initial={reduceMotion ? false : { opacity: 0, y: 56 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-10% 0px" }}
       >
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="grid gap-4 md:grid-cols-[auto_1fr] md:items-end">
-            <h2 className="font-heading text-4xl font-normal leading-none tracking-normal sm:text-5xl">
-              Programas
-            </h2>
-            <p className="max-w-sm border-l border-[#E7A928] pl-5 text-[0.84rem] leading-[1.55] text-white/72">
-              Elige tu siguiente paso entre nuestras opciones académicas y
-              construye tu futuro.
-            </p>
+        <div className="px-3 sm:px-0 lg:pt-8">
+          <h2 className="max-w-[11ch] text-[2rem] font-semibold leading-[0.96] tracking-normal text-[#04215e] [font-family:var(--font-soft-display)] sm:text-4xl lg:text-5xl">
+            Oferta disponible
+          </h2>
+          <p className="mt-5 max-w-xs border-l-4 border-[#e7a928] pl-4 text-sm font-normal leading-6 text-slate-600">
+            Elige un nivel y mira la ruta académica sin perder el contexto.
+          </p>
+
+          <div className="mt-8 flex gap-2 overflow-x-auto pb-2 sm:grid sm:gap-0 sm:overflow-visible sm:pb-0">
+            {levels.map((level, index) => {
+              const active = index === activeIndex;
+
+              return (
+                <button
+                  className={cn(
+                    "min-h-12 shrink-0 border-b px-3 text-left text-sm font-medium transition sm:w-full sm:border-b sm:px-0",
+                    active
+                      ? "border-[#04215e] text-[#04215e]"
+                      : "border-slate-200 text-slate-500 hover:border-[#e7a928] hover:text-[#04215e]",
+                  )}
+                  key={level.href}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                >
+                  {level.label}
+                </button>
+              );
+            })}
           </div>
-          <Link
-            className="inline-flex min-h-11 items-center gap-2 self-start border-b border-[#E7A928] pb-1 text-sm font-bold text-white transition hover:text-[#E7A928] md:self-auto"
-            href="/oferta-academica"
-          >
-            Ver toda la oferta
-            <ArrowRight aria-hidden="true" className="h-4 w-4" />
-          </Link>
         </div>
 
-        <motion.div
-          className="mt-8 grid gap-4 lg:grid-cols-4 lg:grid-rows-2"
-          variants={containerVariants}
-          initial={reduceMotion ? false : "hidden"}
-          whileInView="visible"
-          viewport={{ once: true, margin: "-12% 0px" }}
-        >
-          {levels.map((level) => (
-            <motion.article
-              className={cn(
-                "group relative min-h-[260px] overflow-hidden rounded-lg border border-white/10 bg-[#071A3D] shadow-2xl shadow-black/20 lg:min-h-[300px]",
-                level.className,
-              )}
-              key={level.href}
-              variants={reduceMotion ? undefined : tileVariants}
-            >
-              <Link
-                className="relative block h-full min-h-[inherit] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E7A928]"
-                href={level.href}
+        <LayoutGroup>
+          <div className="grid gap-4 px-0 sm:px-0 lg:grid-cols-[minmax(0,1fr)_11rem] lg:items-end">
+            <AnimatePresence initial={false} mode="popLayout">
+              <motion.article
+                className="relative min-h-[34rem] overflow-hidden bg-[#04215e] text-white shadow-2xl shadow-slate-950/15 lg:min-h-[40rem]"
+                initial={
+                  reduceMotion
+                    ? false
+                    : {
+                        opacity: 0,
+                        scale: 0.98,
+                        clipPath: "inset(0 10% 0 0)",
+                      }
+                }
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  clipPath: "inset(0 0% 0 0)",
+                }}
+                exit={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        opacity: 0,
+                        scale: 0.98,
+                        clipPath: "inset(0 0 0 12%)",
+                      }
+                }
+                key={activeLevel.href}
+                layoutId={
+                  reduceMotion ? undefined : `program-card-${activeLevel.href}`
+                }
+                transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
               >
-                <Image
-                  src={level.image}
-                  alt={`Ambiente académico para ${level.title.toLowerCase()} en UNIVAMEX`}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,21,51,0.96)_0%,rgba(6,21,51,0.74)_42%,rgba(6,21,51,0.2)_100%)]" />
-                <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-7">
-                  <div>
-                    <h3 className="font-heading text-3xl font-normal leading-none tracking-normal text-white sm:text-4xl">
-                      {level.title}
-                    </h3>
-                    <span className="mt-4 block h-0.5 w-12 bg-[#E7A928]" />
-                    <p className="mt-5 max-w-[16rem] text-[0.82rem] leading-[1.55] text-white/75">
-                      {level.description}
-                    </p>
+                <Link
+                  className="group relative block h-full min-h-[34rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] lg:min-h-[40rem]"
+                  href={activeLevel.href}
+                >
+                  <Image
+                    src={activeLevel.image}
+                    alt={`Ambiente academico para ${activeLevel.label.toLowerCase()} en UNIVAMEX`}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,33,94,0.94)_0%,rgba(4,33,94,0.66)_48%,rgba(4,33,94,0.2)_100%)]" />
+                  <div className="absolute inset-0 flex min-w-0 flex-col justify-between p-5 sm:p-8 lg:p-10">
+                    <span className="text-sm font-medium text-white/72">
+                      0{activeIndex + 1}
+                    </span>
+                    <div className="w-full min-w-0 max-w-full">
+                      <p className="mb-4 max-w-[calc(100vw-2.5rem)] whitespace-normal break-words text-sm font-medium text-[#e7a928] sm:max-w-xs">
+                        {activeLevel.accent}
+                      </p>
+                      <h3 className="max-w-[calc(100vw-2.5rem)] whitespace-normal break-words text-[1.8rem] font-semibold leading-[1] tracking-normal [font-family:var(--font-soft-display)] sm:max-w-[14ch] sm:text-3xl lg:text-[2.35rem]">
+                        {activeLevel.title}
+                      </h3>
+                      <p className="mt-5 w-full max-w-[calc(100vw-2.5rem)] whitespace-normal break-words text-sm font-normal leading-6 text-white/78 sm:max-w-md">
+                        {activeLevel.description}
+                      </p>
+                      <p className="mt-6 w-full max-w-[calc(100vw-2.5rem)] whitespace-normal break-words border-t border-white/25 pt-4 text-xs font-medium text-white/70 sm:max-w-md">
+                        {activeLevel.detail}
+                      </p>
+                    </div>
                   </div>
-                  <span className="inline-flex items-center gap-2 text-sm font-bold text-white transition group-hover:text-[#E7A928]">
-                    Explorar oferta
-                    <ArrowRight
-                      aria-hidden="true"
-                      className="h-4 w-4 transition group-hover:translate-x-1"
-                    />
-                  </span>
-                </div>
-              </Link>
-            </motion.article>
-          ))}
-        </motion.div>
+                </Link>
+              </motion.article>
+            </AnimatePresence>
+
+            <motion.button
+              aria-label={`Ver ${nextLevel.label}`}
+              className="group relative hidden h-[16rem] w-[11rem] overflow-hidden border border-slate-200 bg-slate-50 text-left text-white shadow-xl shadow-slate-950/10 lg:block"
+              initial={reduceMotion ? false : { opacity: 0, scale: 0.9, x: 24 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              key={nextLevel.href}
+              layoutId={
+                reduceMotion ? undefined : `program-card-${nextLevel.href}`
+              }
+              transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+              type="button"
+              onClick={() => setActiveIndex((activeIndex + 1) % levels.length)}
+            >
+              <Image
+                src={nextLevel.image}
+                alt={`Vista previa de ${nextLevel.label.toLowerCase()}`}
+                fill
+                sizes="11rem"
+                className="scale-110 object-cover blur-[2px] transition duration-700 group-hover:scale-[1.16] group-hover:blur-[1px]"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(4,33,94,0.88),rgba(4,33,94,0.36))]" />
+              <div className="absolute inset-0 flex flex-col justify-end p-4">
+                <span className="mb-2 text-[0.7rem] font-medium text-white/68">
+                  Siguiente
+                </span>
+                <p className="max-w-[9ch] text-[1.15rem] font-semibold leading-none [font-family:var(--font-soft-display)]">
+                  {nextLevel.title}
+                </p>
+              </div>
+            </motion.button>
+          </div>
+        </LayoutGroup>
       </motion.div>
     </section>
   );

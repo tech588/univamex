@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AdmissionsChecklist } from "@/components/admissions-checklist";
+import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
 export default function AdmisionesPage() {
   return (
     <main>
+      <PageHero
+        title="Admisiones"
+        description="Conoce los requisitos por nivel y prepara tus documentos con acompañamiento desde el primer paso."
+        image="/images/educacion-comunidad.png"
+        imageClassName="object-[62%_center]"
+      />
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>

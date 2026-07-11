@@ -1,17 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cinzel:wght@400;500;600;700;800;900&family=Noto+Serif+Display:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #f7f9fc;
+  --background: #f3f6fb;
   --foreground: #071a3d;
-  --navy-950: #061533;
+  --navy-950: #04215e;
   --navy-900: #071a3d;
-  --blue-700: #1e40af;
+  --blue-700: #04215e;
   --gold-700: #b45309;
   --gold-500: #e7a928;
-  --font-body: var(--font-atkinson), "Atkinson Hyperlegible",
-    "Atkinson Hyperlegible Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-crimson), "Crimson Pro",
-    "Crimson Pro Fallback", ui-serif, Georgia, serif;
+  --font-body: "Atkinson Hyperlegible", "Atkinson Hyperlegible Fallback",
+    ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cinzel", "Noto Serif Display", "Trajan Pro",
+    "Times New Roman", ui-serif, Georgia, serif;
+  --font-soft-display: "Noto Serif Display", "Times New Roman", ui-serif,
+    Georgia, serif;
 }
 
 @theme inline {
@@ -40,6 +43,12 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
 }
 
 ::selection {

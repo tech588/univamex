@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/page-hero";
 import { ProgramFinder } from "@/components/program-finder";
 import { SectionHeading } from "@/components/section-heading";
 import { programs } from "@/data/programs";
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
 export default function OfertaAcademicaPage() {
   return (
     <main>
+      <PageHero
+        title="Oferta académica"
+        description="Explora bachilleratos, licenciaturas y posgrados en una ruta pensada para avanzar con claridad."
+        image="/images/home-students.jpg"
+        imageClassName="object-[56%_center]"
+      />
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <SectionHeading

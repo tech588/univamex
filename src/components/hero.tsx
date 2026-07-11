@@ -1,211 +1,198 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import {
   motion,
   useReducedMotion,
   useScroll,
   useTransform,
 } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
-import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const heroCopy = {
-  title: "Decídete a llegar más lejos",
-  description:
-    "Programas de bachillerato, licenciatura y posgrado con acompañamiento claro para iniciar tu proceso en UNIVAMEX.",
+  title: "DECÍDETE A LLEGAR MÁS LEJOS",
 };
 
+const particles = [
+  { cx: 18, cy: 24, r: 2.2, delay: 0 },
+  { cx: 34, cy: 14, r: 1.6, delay: 0.32 },
+  { cx: 52, cy: 24, r: 2.8, delay: 0.18 },
+  { cx: 76, cy: 18, r: 1.8, delay: 0.46 },
+  { cx: 86, cy: 42, r: 2.4, delay: 0.1 },
+  { cx: 66, cy: 58, r: 1.7, delay: 0.56 },
+  { cx: 42, cy: 72, r: 2.5, delay: 0.24 },
+  { cx: 18, cy: 64, r: 1.6, delay: 0.68 },
+  { cx: 28, cy: 44, r: 3.1, delay: 0.4 },
+  { cx: 58, cy: 42, r: 1.4, delay: 0.78 },
+] as const;
+
 export function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const shouldAnimate = !reduceMotion;
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.18]);
-  const mobileImageScale = useTransform(scrollYProgress, [0, 1], [1.04, 1.18]);
-  const imageFilter = useTransform(
-    scrollYProgress,
-    [0, 0.62, 1],
-    ["blur(0px)", "blur(1.5px)", "blur(8px)"],
-  );
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 0.9, 0.46]);
-  const contentOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.58, 0.92],
-    [1, 1, 0],
-  );
+
+  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.82], [1, 0.82]);
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 42]);
+  const portraitScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -28]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.74, 1], [1, 1, 0]);
 
   return (
-    <div ref={containerRef}>
-      <section className="relative isolate h-[190svh] bg-[#061533] text-white sm:hidden">
-        <div className="sticky top-0 h-[100svh] overflow-hidden bg-[#061533]">
-          <div className="pt-20">
-            <motion.div
-              className="relative h-[64vw] min-h-[13.5rem] max-h-[22rem] w-full overflow-hidden"
-              style={
+    <section
+      className="relative isolate min-h-[100svh] overflow-hidden bg-[#04215e] text-white"
+      ref={containerRef}
+    >
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={
+          reduceMotion
+            ? undefined
+            : {
+                opacity: backgroundOpacity,
+                scale: backgroundScale,
+              }
+        }
+      >
+        <Image
+          src="/images/home-hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[58%_center]"
+        />
+      </motion.div>
+
+      <div className="absolute inset-0 bg-[#04215e]/32" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,33,94,0.94)_0%,rgba(4,33,94,0.84)_40%,rgba(4,33,94,0.52)_68%,rgba(4,33,94,0.74)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,33,94,0.94)_0%,rgba(4,33,94,0.86)_46%,rgba(4,33,94,0.64)_100%)] sm:hidden" />
+
+      <motion.svg
+        aria-hidden="true"
+        className="absolute inset-x-[-18vw] bottom-0 z-0 h-[58svh] w-[136vw] sm:hidden"
+        viewBox="0 0 136 58"
+        preserveAspectRatio="none"
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        <circle cx="32" cy="36" fill="#244aa8" opacity="0.82" r="9" />
+        <circle cx="86" cy="22" fill="#244aa8" opacity="0.9" r="12" />
+        <circle cx="124" cy="36" fill="#244aa8" opacity="0.84" r="10" />
+        <path
+          d="M20 54 H118"
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="0.7"
+        />
+      </motion.svg>
+
+      <motion.div
+        className="group/portrait pointer-events-auto absolute bottom-0 right-[calc(-28vw+40px)] z-10 h-[82svh] w-[140vw] max-w-[55rem] sm:right-[calc(-15vw+40px)] sm:h-[124dvh] sm:w-[84vw] sm:max-w-[78rem] lg:right-[calc(-5vw+40px)] lg:h-[132dvh] lg:w-[76vw] lg:max-w-[86rem]"
+        style={
+          reduceMotion
+            ? undefined
+            : {
+                y: portraitY,
+                scale: portraitScale,
+              }
+        }
+      >
+        <motion.svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-[4%_0_7%_18%] z-0 opacity-70 transition duration-700 group-hover/portrait:scale-105 group-hover/portrait:opacity-100"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          {particles.map((particle) => (
+            <motion.circle
+              cx={particle.cx}
+              cy={particle.cy}
+              fill="#ffffff"
+              initial={reduceMotion ? false : { opacity: 0.18, scale: 0.86 }}
+              animate={
                 reduceMotion
                   ? undefined
                   : {
-                      filter: imageFilter,
-                      opacity: imageOpacity,
-                      scale: mobileImageScale,
+                      opacity: [0.2, 0.62, 0.2],
+                      scale: [0.86, 1.18, 0.86],
                     }
               }
-            >
-              <Image
-                src="/images/home-hero.jpg"
-                alt="Estudiantes caminando frente a instalaciones universitarias"
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover object-[72%_center]"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#061533] via-[#061533]/80 to-transparent" />
-            </motion.div>
-          </div>
+              key={`${particle.cx}-${particle.cy}`}
+              r={particle.r}
+              transition={{
+                duration: 2.8,
+                delay: particle.delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+          <motion.path
+            d="M10 70 C28 38 48 30 82 16"
+            fill="none"
+            stroke="#ffffff"
+            strokeOpacity="0.22"
+            strokeWidth="0.7"
+            strokeDasharray="2 6"
+            initial={reduceMotion ? false : { pathLength: 0.2, opacity: 0.18 }}
+            animate={
+              reduceMotion
+                ? undefined
+                : { pathLength: [0.2, 1, 0.2], opacity: [0.18, 0.36, 0.18] }
+            }
+            transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.svg>
 
-          <div className="relative min-h-[calc(100svh-5rem-64vw)] overflow-hidden bg-[#061533] px-5 pb-24 pt-7">
-            <motion.div
-              initial={shouldAnimate ? { y: 24, opacity: 0 } : false}
-              animate={{ y: 0, opacity: 1 }}
-              style={
-                reduceMotion
-                  ? undefined
-                  : {
-                      opacity: contentOpacity,
-                    }
-              }
-              transition={{ duration: 0.62, ease: "easeOut" }}
-            >
-              <motion.h1
-                className="max-w-[19rem] font-heading text-[2.05rem] font-normal leading-[1.05] tracking-normal text-balance"
-                initial={shouldAnimate ? { y: 18, opacity: 0 } : false}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.08, duration: 0.58, ease: "easeOut" }}
-              >
-                {heroCopy.title}
-              </motion.h1>
-              <motion.p
-                className="mt-5 max-w-[18.5rem] text-[0.86rem] leading-[1.55] text-white/88"
-                initial={shouldAnimate ? { y: 14, opacity: 0 } : false}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.16, duration: 0.52 }}
-              >
-                {heroCopy.description}
-              </motion.p>
-
-              <motion.div
-                className="mt-7 flex flex-col items-start gap-3"
-                initial={shouldAnimate ? { y: 14, opacity: 0 } : false}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.24, duration: 0.52 }}
-              >
-                <WhatsAppButton
-                  className="min-h-10 px-4 py-2.5"
-                  source="Hero"
-                />
-                <Link
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-white/35 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur transition hover:border-[#E7A928] hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E7A928]"
-                  href="/oferta-academica"
-                >
-                  Ver oferta académica
-                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </Link>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          <div
-            aria-hidden="true"
-            className="hero-concave absolute inset-x-0 -bottom-px z-10 h-16 scale-x-110 bg-[#061533]"
+        <div className="absolute inset-0 z-10 transition duration-700 ease-out group-hover/portrait:scale-[1.035]">
+          <Image
+            src="/images/foto-hero.webp"
+            alt="Estudiante de UNIVAMEX sonriendo con carpeta"
+            fill
+            priority
+            sizes="(min-width: 1024px) 76vw, (min-width: 640px) 84vw, 140vw"
+            className="object-contain object-bottom"
           />
         </div>
-      </section>
+      </motion.div>
 
-      <section
-        className="relative isolate hidden bg-[#061533] text-white sm:block sm:h-[190dvh]"
-      >
-      <div className="sticky top-0 h-[100svh] overflow-hidden sm:h-[100dvh]">
+      <div className="relative z-20 flex min-h-[100svh] w-full items-start justify-center px-4 pb-16 pt-[9.75rem] sm:items-center sm:justify-start sm:px-8 sm:pb-20 sm:pt-28 lg:px-10">
         <motion.div
-          className="absolute inset-0 will-change-transform"
+          className="mx-auto max-w-[22rem] text-center sm:mx-0 sm:ml-[30px] sm:max-w-[45vw] sm:text-left lg:max-w-[40rem]"
+          initial={shouldAnimate ? { opacity: 0, y: 28 } : false}
+          animate={{ opacity: 1, y: 0 }}
           style={
             reduceMotion
               ? undefined
               : {
-                  filter: imageFilter,
-                  opacity: imageOpacity,
-                  scale: imageScale,
+                  opacity: contentOpacity,
+                  y: contentY,
                 }
           }
+          transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Image
-            src="/images/home-hero.jpg"
-            alt="Estudiantes caminando frente a instalaciones universitarias"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,21,51,0.98)_0%,rgba(6,21,51,0.87)_35%,rgba(6,21,51,0.48)_68%,rgba(6,21,51,0.24)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_42%,rgba(30,64,175,0.3),transparent_38%)]" />
-
-        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl items-center px-5 pb-20 pt-24 sm:min-h-[100dvh] sm:px-8 sm:pb-28 sm:pt-28 lg:px-10">
-          <motion.div
-            className="max-w-3xl"
-            initial={shouldAnimate ? { y: 30, opacity: 0 } : false}
-            animate={{ y: 0, opacity: 1 }}
-            style={
-              reduceMotion ? undefined : { opacity: contentOpacity }
-            }
-            transition={{ duration: 0.72, ease: "easeOut" }}
+          <motion.h1
+            className="mx-auto max-w-[12ch] font-heading text-[clamp(2.15rem,9.6vw,3.35rem)] font-semibold leading-[0.96] tracking-normal text-balance sm:mx-0 sm:max-w-[11ch] sm:text-[clamp(3.35rem,4.65vw,5.25rem)]"
+            initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.68, ease: "easeOut" }}
           >
-            <motion.h1
-              className="max-w-[19rem] font-heading text-[2.05rem] font-normal leading-[1.05] tracking-normal text-balance sm:max-w-3xl sm:text-5xl lg:text-7xl"
-              initial={shouldAnimate ? { y: 20, opacity: 0 } : false}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.12, duration: 0.68, ease: "easeOut" }}
-            >
-              {heroCopy.title}
-            </motion.h1>
-            <motion.p
-              className="mt-5 max-w-[18.5rem] text-[0.86rem] leading-[1.55] text-white/88 sm:mt-6 sm:max-w-xl sm:text-base sm:leading-7"
-              initial={shouldAnimate ? { y: 18, opacity: 0 } : false}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.22, duration: 0.58 }}
-            >
-              {heroCopy.description}
-            </motion.p>
-
-            <motion.div
-              className="mt-7 flex flex-col items-start gap-3 sm:mt-9 sm:flex-row"
-              initial={shouldAnimate ? { y: 18, opacity: 0 } : false}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.58 }}
-            >
-              <WhatsAppButton className="min-h-10 px-4 py-2.5" source="Hero" />
-              <Link
-                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-white/35 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur transition hover:border-[#E7A928] hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E7A928] sm:min-h-11 sm:px-5 sm:py-3"
-                href="/oferta-academica"
-              >
-                Ver oferta académica
-                <ArrowRight aria-hidden="true" className="h-4 w-4" />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        <div
-          aria-hidden="true"
-          className="hero-concave absolute inset-x-0 -bottom-px z-10 h-24 scale-x-110 bg-[#061533] sm:h-28"
-        />
+            {heroCopy.title}
+          </motion.h1>
+        </motion.div>
       </div>
-      </section>
-    </div>
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 z-30 h-16 bg-white [clip-path:polygon(0_72%,100%_36%,100%_100%,0_100%)] sm:h-20"
+      />
+    </section>
   );
 }

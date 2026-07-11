@@ -13,12 +13,12 @@ type WhatsAppButtonProps = {
 
 const variants = {
   primary:
-    "bg-[#E7A928] text-[#061533] shadow-sm shadow-slate-950/10 hover:bg-[#F6C954]",
+    "bg-[#04215e] text-white shadow-sm shadow-slate-950/10 hover:bg-[#0b327f]",
   secondary:
-    "border border-white/25 bg-white/10 text-white backdrop-blur hover:border-[#E7A928] hover:bg-white/15",
-  ghost: "text-[#1E3A8A] hover:bg-[#EFF6FF]",
+    "border border-current bg-transparent text-current backdrop-blur hover:border-[#e7a928] hover:bg-white/10",
+  ghost: "text-[#04215e] hover:bg-[#04215e]/6",
   floating:
-    "bg-[#E7A928] text-[#061533] shadow-lg shadow-slate-950/20 hover:bg-[#F6C954]",
+    "bg-[#04215e] text-white shadow-lg shadow-slate-950/20 hover:bg-[#0b327f]",
 };
 
 export function WhatsAppButton({
@@ -32,7 +32,7 @@ export function WhatsAppButton({
   return (
     <a
       className={cn(
-        "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E40AF]",
+        "inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-sm font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]",
         variants[variant],
         className,
       )}

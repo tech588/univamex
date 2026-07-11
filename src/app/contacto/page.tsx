@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, MessageCircle, Phone, Share2 } from "lucide-react";
+import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { siteConfig } from "@/data/site";
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <main>
+      <PageHero
+        title="Contacto"
+        description="Resuelve dudas sobre inscripciones, costos, becas, horarios y ubicación con un asesor de UNIVAMEX."
+        image="/images/campus-americas.jpg"
+        imageClassName="object-center"
+      />
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
