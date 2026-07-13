@@ -7,7 +7,7 @@ type WhatsAppButtonProps = {
   program?: string;
   source?: string;
   question?: string;
-  variant?: "primary" | "secondary" | "ghost" | "floating";
+  variant?: "primary" | "secondary" | "ghost" | "floating" | "light";
   className?: string;
 };
 
@@ -19,6 +19,8 @@ const variants = {
   ghost: "text-[#04215e] hover:bg-[#04215e]/6",
   floating:
     "bg-[#04215e] text-white shadow-lg shadow-slate-950/20 hover:bg-[#0b327f]",
+  light:
+    "border border-white bg-white text-[#04215e] shadow-sm shadow-slate-950/10 hover:bg-[#e7eefb]",
 };
 
 export function WhatsAppButton({

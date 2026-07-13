@@ -11,7 +11,9 @@
   --gold-500: #e7a928;
   --font-body: "Atkinson Hyperlegible", "Atkinson Hyperlegible Fallback",
     ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Cinzel", "Noto Serif Display", "Trajan Pro",
+  --font-display: "Noto Serif Display", "Times New Roman", ui-serif, Georgia,
+    serif;
+  --font-hero: "Cinzel", "Noto Serif Display", "Trajan Pro",
     "Times New Roman", ui-serif, Georgia, serif;
   --font-soft-display: "Noto Serif Display", "Times New Roman", ui-serif,
     Georgia, serif;

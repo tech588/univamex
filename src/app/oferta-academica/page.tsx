@@ -17,15 +17,15 @@ export default function OfertaAcademicaPage() {
     <main>
       <PageHero
         title="Oferta académica"
-        description="Explora bachilleratos, licenciaturas y posgrados en una ruta pensada para avanzar con claridad."
-        image="/images/home-students.jpg"
-        imageClassName="object-[56%_center]"
+        description="Elige una ruta por nivel, área profesional y modalidad antes de hablar con admisiones."
+        image="/images/legacy/estudiantes-campus.jpg"
+        imageClassName="object-[50%_center]"
       />
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
-            title="Oferta académica"
-            description="Encuentra el programa correcto y solicita informes con contexto de tu carrera de interés."
+            title="Compara por nivel y área"
+            description="Encuentra el programa correcto, revisa su ficha y llega a contacto con contexto de tu carrera de interés."
           />
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -56,7 +56,7 @@ export default function OfertaAcademicaPage() {
                 href={item.href}
                 key={item.href}
               >
-                <span className="font-heading text-xl font-bold text-[#0F172A]">
+                <span className="font-heading text-xl font-semibold leading-tight text-[#04215e]">
                   {item.label}
                 </span>
                 <span className="mt-2 block text-sm leading-6 text-slate-600">

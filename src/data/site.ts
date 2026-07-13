@@ -4,6 +4,7 @@ export const siteConfig = {
   name: "UNIVAMEX",
   fullName: "Colegio Universitario del Valle de México - UNIVAMEX",
   phone: "55-80-82-57-96",
+  phoneSecondary: "55-73-14-70-43",
   whatsappDisplay: "55-29-94-53-81",
   whatsappNumber: "525529945381",
   email: "informes@univamex.edu.mx",
@@ -15,7 +16,8 @@ export const siteConfig = {
 export const navItems: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Oferta académica", href: "/oferta-academica" },
-  { label: "Recorrido 360", href: "/#recorrido-360" },
+  { label: "Campus", href: "/campus" },
+  { label: "FAQ", href: "/faq" },
   { label: "Admisiones", href: "/admisiones" },
   { label: "Contacto", href: "/contacto" },
 ];

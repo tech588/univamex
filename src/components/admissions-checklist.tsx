@@ -18,7 +18,7 @@ export function AdmissionsChecklist({ level }: AdmissionsChecklistProps) {
           className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5"
           key={requirement.level}
         >
-          <h3 className="font-heading text-xl font-bold text-[#0F172A]">
+          <h3 className="font-heading text-xl font-semibold leading-tight text-[#04215e]">
             {requirement.level}
           </h3>
           <ul className="mt-4 grid gap-3">

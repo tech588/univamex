@@ -15,12 +15,12 @@ export const programs: Program[] = [
     duration: "3 años",
     subjects: "45 asignaturas",
     rvoe: "956365",
-    image: "/images/tecnologia-aula.png",
-    imageAlt: "Estudiantes usando computadoras en un aula tecnologica",
+    image: "/images/UNIVAMEX23.png",
+    imageAlt: "Estudiantes en una charla académica de UNIVAMEX",
     description:
       "Preparatoria con formación técnica en administración y tecnología para optimizar procesos empresariales, manejar información y apoyar operaciones digitales.",
     promise:
-      "Preparate desde bachillerato con herramientas administrativas, informaticas y digitales.",
+      "Prepárate desde bachillerato con herramientas administrativas, informáticas y digitales.",
     aiApplications: [
       "Automatización de reportes",
       "Análisis de datos de ventas",
@@ -79,21 +79,21 @@ export const programs: Program[] = [
     duration: "3 años",
     subjects: "44 asignaturas",
     rvoe: "901029",
-    image: "/images/educacion-comunidad.png",
-    imageAlt: "Grupo de estudiantes colaborando en una actividad social",
+    image: "/images/UNIVAMEX27.png",
+    imageAlt: "Estudiantes guiando una actividad social con niñas y niños",
     description:
       "Preparatoria técnica enfocada en problemáticas sociales, bienestar, derechos humanos y fortalecimiento comunitario.",
     promise:
-      "Aprende a intervenir con sensibilidad, metodo y compromiso en contextos sociales reales.",
+      "Aprende a intervenir con sensibilidad, método y compromiso en contextos sociales reales.",
     aiApplications: [
       "Investigación de problemáticas sociales",
       "Mapeo de necesidades comunitarias",
       "Organización de proyectos",
       "Materiales de apoyo",
-      "Medicion de impacto social",
+      "Medición de impacto social",
     ],
     graduateProfile: [
-      "Identificacion de problemáticas sociales",
+      "Identificación de problemáticas sociales",
       "Gestión de recursos y programas",
       "Promoción del desarrollo comunitario",
       "Comunicación asertiva",
@@ -113,16 +113,16 @@ export const programs: Program[] = [
         items: [
           "Relaciones humanas",
           "Teoría y práctica de trabajo social",
-          "Tecnicas grupales",
+          "Técnicas grupales",
           "Psicología",
-          "Sociologia",
+          "Sociología",
         ],
       },
       {
-        title: "Intervencion",
+        title: "Intervención",
         items: [
           "Planeación para bienestar social",
-          "Metodos de investigación",
+          "Métodos de investigación",
           "Salud pública",
           "Administración en trabajo social",
           "Trabajo social en instituciones",
@@ -141,15 +141,15 @@ export const programs: Program[] = [
     duration: "3 años",
     subjects: "50 asignaturas",
     rvoe: "944730",
-    image: "/images/turismo-servicios.png",
-    imageAlt: "Estudiantes revisando rutas turísticas y mapas",
+    image: "/images/TURISMO.png",
+    imageAlt: "Estudiantes de turismo en actividad académica",
     description:
       "Preparatoria técnica en hotelería, agencias de viajes, organización de eventos, atención al cliente y promoción turística.",
     promise:
       "Combina preparatoria con habilidades de servicio, hospitalidad y promoción de destinos.",
     aiApplications: [
       "Diseño de rutas inteligentes",
-      "Chatbots multilingues",
+      "Chatbots multilingües",
       "Contenido visual de destinos",
       "Análisis de tendencias de viaje",
       "Gestión de reservaciones",
@@ -203,8 +203,8 @@ export const programs: Program[] = [
     modality: "Mixta",
     duration: "3 años con 4 meses",
     rvoe: "20193623/2019-08-30",
-    image: "/images/negocios-estudiantes.png",
-    imageAlt: "Estudiantes revisando un plan de negocios",
+    image: "/images/ADMINISTRACION.png",
+    imageAlt: "Clase de administración con estudiantes y docente",
     description:
       "Formación en administración, contabilidad, recursos humanos, finanzas, logística, mercadotecnia, calidad y emprendimiento.",
     promise:
@@ -254,23 +254,23 @@ export const programs: Program[] = [
     modality: "Escolarizada",
     duration: "por confirmar",
     rvoe: "20253800",
-    image: "/images/creatividad-diseno.png",
-    imageAlt: "Estudiantes trabajando con planos y modelos de diseño",
+    image: "/images/LICENCIATURAS.png",
+    imageAlt: "Estudiantes de licenciatura en ceremonia académica",
     description:
-      "Programa enfocado en historia, dibujo, proyectos, construccion, CAD, urbanismo, interiores, sustentabilidad y valuacion.",
+      "Programa enfocado en historia, dibujo, proyectos, construcción, CAD, urbanismo, interiores, sustentabilidad y valuación.",
     promise:
       "Aprende arquitectura con enfoque técnico, creativo y orientado a proyectos.",
     aiApplications: [
-      "Ideacion de espacios",
+      "Ideación de espacios",
       "Análisis de referentes",
-      "Visualizacion conceptual",
+      "Visualización conceptual",
       "Apoyo en documentación técnica",
     ],
     graduateProfile: [
-      "Diseño arquitectonico",
-      "Representacion técnica",
+      "Diseño arquitectónico",
+      "Representación técnica",
       "Planeación urbana",
-      "Criterios de construccion",
+      "Criterios de construcción",
       "Sustentabilidad",
     ],
     careerField: [
@@ -307,12 +307,12 @@ export const programs: Program[] = [
     subjects: "50 asignaturas",
     rvoe: "20253797",
     rvoeStatus: "review",
-    image: "/images/negocios-estudiantes.png",
-    imageAlt: "Estudiantes analizando comercio internacional y logística",
+    image: "/images/UNIVAMEX26.png",
+    imageAlt: "Estudiantes recibiendo reconocimientos académicos",
     description:
       "Formación en importación, exportación, logística global, tratados, finanzas internacionales, aduanas, marketing global e idiomas.",
     promise:
-      "Preparate para operar, negociar y crecer en mercados internacionales.",
+      "Prepárate para operar, negociar y crecer en mercados internacionales.",
     aiApplications: [
       "Análisis de mercados globales",
       "Optimización de logística",
@@ -364,10 +364,10 @@ export const programs: Program[] = [
     modality: "Escolarizada",
     duration: "por confirmar",
     rvoe: "20260906",
-    image: "/images/creatividad-diseno.png",
-    imageAlt: "Estudiantes produciendo contenido digital",
+    image: "/images/EVENTOS1.png",
+    imageAlt: "Estudiantes presentando una actividad de comunicación",
     description:
-      "Estudia comunicación, periodismo, cine, radio, television, publicidad, transmedia, redes sociales y comunicación digital.",
+      "Estudia comunicación, periodismo, cine, radio, televisión, publicidad, transmedia, redes sociales y comunicación digital.",
     promise:
       "Crea mensajes, contenidos y estrategias para medios actuales.",
     aiApplications: [
@@ -407,17 +407,17 @@ export const programs: Program[] = [
   },
   {
     slug: "criminologia-criminalistica",
-    name: "Licenciatura en Criminologia y Criminalistica",
-    shortName: "Criminologia y Criminalistica",
+    name: "Licenciatura en Criminología y Criminalística",
+    shortName: "Criminología y Criminalística",
     level: "Licenciatura",
     area: "Derecho y seguridad",
     modality: "Escolarizada",
     duration: "por confirmar",
     rvoe: "20260909",
-    image: "/images/derecho-aula.png",
-    imageAlt: "Estudiantes de derecho y seguridad revisando material académico",
+    image: "/images/UNIVAMEX14.png",
+    imageAlt: "Estudiantes en sala de juicios orales",
     description:
-      "Programa en derecho, criminología, criminalística, psicología criminal, victimas, forense, balistica, grafologia y cadena de custodia.",
+      "Programa en derecho, criminología, criminalística, psicología criminal, víctimas, forense, balística, grafología y cadena de custodia.",
     promise:
       "Comprende fenomenos delictivos y técnicas de investigación con rigor profesional.",
     aiApplications: [
@@ -465,8 +465,8 @@ export const programs: Program[] = [
     duration: "por confirmar",
     rvoe: "20081912/AG2008 y 20193620/2019-08-30",
     rvoeStatus: "review",
-    image: "/images/derecho-aula.png",
-    imageAlt: "Estudiantes en una clase de derecho",
+    image: "/images/DERECHO.png",
+    imageAlt: "Estudiantes de derecho en mesa académica",
     description:
       "Formación en derecho civil, penal, constitucional, fiscal, mercantil, laboral, amparo y práctica forense.",
     promise:
@@ -515,23 +515,23 @@ export const programs: Program[] = [
     modality: "Escolarizada",
     duration: "por confirmar",
     rvoe: "20260908",
-    image: "/images/creatividad-diseno.png",
-    imageAlt: "Estudiantes creando proyectos visuales y multimedia",
+    image: "/images/UNIVAMEX16.png",
+    imageAlt: "Estudiantes en actividad visual y creativa",
     description:
-      "Formación en diseño, ilustracion, fotografia, animacion, video, publicidad, sitios web, marca, contenidos digitales e IA.",
+      "Formación en diseño, ilustración, fotografía, animación, video, publicidad, sitios web, marca, contenidos digitales e IA.",
     promise:
       "Construye portafolio creativo con habilidades digitales aplicadas.",
     aiApplications: [
-      "Exploracion visual",
+      "Exploración visual",
       "Bocetaje asistido",
-      "Ideas de campana",
+      "Ideas de campaña",
       "Prototipos de contenido",
     ],
     graduateProfile: [
       "Identidad visual",
-      "Ilustracion",
-      "Fotografia",
-      "Animacion",
+      "Ilustración",
+      "Fotografía",
+      "Animación",
       "Diseño web",
       "Publicidad",
     ],
@@ -547,9 +547,9 @@ export const programs: Program[] = [
         title: "Diseño y multimedia",
         items: [
           "Diseño",
-          "Ilustracion",
-          "Fotografia",
-          "Animacion",
+          "Ilustración",
+          "Fotografía",
+          "Animación",
           "Video",
           "Marca",
         ],
@@ -567,10 +567,10 @@ export const programs: Program[] = [
     duration: "por confirmar",
     rvoe: "20260907 y 20260910",
     rvoeStatus: "review",
-    image: "/images/tecnologia-aula.png",
-    imageAlt: "Estudiantes trabajando en proyectos de arte digital",
+    image: "/images/UNIVAMEX18.png",
+    imageAlt: "Estudiantes en práctica escénica y creativa",
     description:
-      "Programa en programación, arte digital, UX, videojuegos, animacion 2D/3D, realidad virtual, narrativa, producción y monetizacion.",
+      "Programa en programación, arte digital, UX, videojuegos, animación 2D/3D, realidad virtual, narrativa, producción y monetización.",
     promise:
       "Desarrolla experiencias digitales con base técnica, visual y narrativa.",
     aiApplications: [
@@ -583,12 +583,12 @@ export const programs: Program[] = [
       "Programación",
       "Arte digital",
       "UX",
-      "Animacion 2D/3D",
+      "Animación 2D/3D",
       "Producción de videojuegos",
     ],
     careerField: [
       "Estudios de videojuegos",
-      "Animacion",
+      "Animación",
       "Realidad virtual",
       "UX/UI",
       "Producción digital",
@@ -601,7 +601,7 @@ export const programs: Program[] = [
           "Arte digital",
           "UX",
           "Videojuegos",
-          "Animacion 2D/3D",
+          "Animación 2D/3D",
           "Realidad virtual",
         ],
       },
@@ -619,12 +619,12 @@ export const programs: Program[] = [
     subjects: "50 asignaturas",
     rvoe: "20253798",
     rvoeStatus: "review",
-    image: "/images/ia-big-data.png",
-    imageAlt: "Estudiantes analizando datos y modelos de inteligencia artificial",
+    image: "/images/SISTEMAS-COMPUTACIONALES.png",
+    imageAlt: "Estudiantes en programa de sistemas computacionales",
     description:
       "Programa orientado a resolver problemas complejos usando datos, matemáticas y programación para crear modelos inteligentes y apoyar decisiones.",
     promise:
-      "Aprende a crear soluciones con datos, programación, machine learning y ética tecnologica.",
+      "Aprende a crear soluciones con datos, programación, machine learning y ética tecnológica.",
     aiApplications: [
       "Modelos de machine learning",
       "Análisis predictivo",
@@ -643,7 +643,7 @@ export const programs: Program[] = [
       "Desarrollo de IA",
       "Programación avanzada",
       "Infraestructura de datos",
-      "Visualizacion y toma de decisiones",
+      "Visualización y toma de decisiones",
     ],
     careerField: [
       "Data Scientist",
@@ -658,18 +658,18 @@ export const programs: Program[] = [
         title: "Base técnica",
         items: [
           "Matemáticas",
-          "Logica matematica",
+          "Lógica matemática",
           "Programación",
-          "Calculo",
+          "Cálculo",
           "Probabilidad",
           "Bases de datos",
         ],
       },
       {
-        title: "Especializacion",
+        title: "Especialización",
         items: [
           "Big Data",
-          "Aprendizaje automatico",
+          "Aprendizaje automático",
           "Visión artificial",
           "Redes neuronales",
           "Deep learning",
@@ -689,10 +689,10 @@ export const programs: Program[] = [
     modality: "Mixta",
     duration: "por confirmar",
     rvoe: "20193621/2019-08-30",
-    image: "/images/tecnologia-aula.png",
-    imageAlt: "Estudiantes programando en laboratorio de cómputo",
+    image: "/images/UNIVAMEX11.png",
+    imageAlt: "Comunidad académica en presentación institucional",
     description:
-      "Formación en programación, cálculo, bases de datos, redes, sistemas operativos, seguridad, software, IA y centros de computo.",
+      "Formación en programación, cálculo, bases de datos, redes, sistemas operativos, seguridad, software, IA y centros de cómputo.",
     promise:
       "Desarrolla bases solidas para crear, administrar y proteger sistemas tecnologicos.",
     aiApplications: [
@@ -720,7 +720,7 @@ export const programs: Program[] = [
         title: "Sistemas y software",
         items: [
           "Programación",
-          "Calculo",
+          "Cálculo",
           "Bases de datos",
           "Redes",
           "Sistemas operativos",
@@ -739,17 +739,17 @@ export const programs: Program[] = [
     modality: "Escolarizada",
     duration: "por confirmar",
     rvoe: "20260911",
-    image: "/images/negocios-estudiantes.png",
-    imageAlt: "Estudiantes planeando una estrategia digital",
+    image: "/images/UNIVAMEX6.png",
+    imageAlt: "Estudiantes en presentación académica y profesional",
     description:
-      "Programa en marketing digital, comunidades virtuales, plataformas, contenidos, buscadores, campanas, neuromarketing, sitios web e IA.",
+      "Programa en marketing digital, comunidades virtuales, plataformas, contenidos, buscadores, campañas, neuromarketing, sitios web e IA.",
     promise:
       "Aprende a crear estrategias digitales medibles para marcas, comunidades y negocios.",
     aiApplications: [
       "Análisis de audiencias",
       "Ideas de contenido",
       "Optimización SEO",
-      "Segmentacion de campanas",
+      "Segmentación de campañas",
     ],
     graduateProfile: [
       "Marketing digital",
@@ -790,8 +790,8 @@ export const programs: Program[] = [
     duration: "por confirmar",
     rvoe: "20081915/AG2008 y 20193622/2019-08-30",
     rvoeStatus: "review",
-    image: "/images/educacion-comunidad.png",
-    imageAlt: "Estudiantes revisando material educativo",
+    image: "/images/PEDAGOGIA.png",
+    imageAlt: "Estudiantes de pedagogía en actividad educativa",
     description:
       "Formación en teoría pedagógica, didáctica, currículo, evaluación, educación especial, administración educativa e innovación.",
     promise:
@@ -840,8 +840,8 @@ export const programs: Program[] = [
     modality: "Escolarizada",
     duration: "por confirmar",
     rvoe: "20090903/AG2009",
-    image: "/images/educacion-comunidad.png",
-    imageAlt: "Estudiantes en una sesion académica de psicología",
+    image: "/images/PSICOLOGIA.png",
+    imageAlt: "Estudiantes de psicología en dinámica grupal",
     description:
       "Programa con bases biológicas, psicometría, evaluación, neuropsicología, psicología laboral, comunitaria, educativa, salud y psicoterapia.",
     promise:
@@ -890,8 +890,8 @@ export const programs: Program[] = [
     modality: "Escolarizada",
     duration: "por confirmar",
     rvoe: "20081916/AG2008",
-    image: "/images/turismo-servicios.png",
-    imageAlt: "Estudiantes de turismo planeando servicios de hospitalidad",
+    image: "/images/TURISMO1.png",
+    imageAlt: "Estudiantes de turismo y gastronomía con platillos",
     description:
       "Formación en administración turística, gastronomía, hospedaje, agencias, idiomas, ecoturismo, planeación y turismo sustentable.",
     promise:
@@ -939,11 +939,11 @@ export const programs: Program[] = [
     level: "Maestría",
     area: "Derecho y seguridad",
     modality: "Presencial",
-    duration: "1 ano con 8 meses",
+    duration: "1 año con 8 meses",
     subjects: "20 asignaturas",
     rvoe: "20193619/2019-08-30",
-    image: "/images/derecho-aula.png",
-    imageAlt: "Profesionistas en una simulación jurídica",
+    image: "/images/MAESTRIA-JUICIOS-ORALES.png",
+    imageAlt: "Estudiantes de juicios orales en sala de audiencia",
     description:
       "Posgrado para abogados titulados que buscan fortalecer litigio en sistema penal acusatorio, audiencias orales, teoría del caso y pruebas.",
     promise:
@@ -991,11 +991,11 @@ export const programs: Program[] = [
     level: "Maestría",
     area: "Educación y desarrollo humano",
     modality: "Presencial",
-    duration: "1 ano con 8 meses",
+    duration: "1 año con 8 meses",
     subjects: "20 asignaturas",
     rvoe: "20193618/2019-08-30",
-    image: "/images/educacion-comunidad.png",
-    imageAlt: "Docentes y profesionistas en sesion de posgrado",
+    image: "/images/MAESTRIA-EDUCACION.png",
+    imageAlt: "Estudiantes de educación trabajando con niñas y niños",
     description:
       "Posgrado para docentes, directivos y profesionistas vinculados a educación, con enfoque en currículo, gestión, investigación e innovación.",
     promise:
@@ -1054,8 +1054,8 @@ export const programs: Program[] = [
     duration: "3 años",
     subjects: "36 asignaturas",
     rvoe: "20253801",
-    image: "/images/educacion-comunidad.png",
-    imageAlt: "Investigadores revisando evidencia educativa",
+    image: "/images/MAESTRIAS.png",
+    imageAlt: "Estudiantes de posgrado con reconocimientos académicos",
     description:
       "Doctorado de investigación sobre educación, neurociencias y perspectiva de género para promover enseñanza inclusiva y efectiva.",
     promise:

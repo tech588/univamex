@@ -179,7 +179,7 @@ export function Hero() {
           transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.h1
-            className="mx-auto max-w-[12ch] font-heading text-[clamp(2.15rem,9.6vw,3.35rem)] font-semibold leading-[0.96] tracking-normal text-balance sm:mx-0 sm:max-w-[11ch] sm:text-[clamp(3.35rem,4.65vw,5.25rem)]"
+            className="mx-auto max-w-[12ch] text-[clamp(2.15rem,9.6vw,3.35rem)] font-semibold uppercase leading-[0.96] tracking-normal text-balance [font-family:var(--font-hero)] sm:mx-0 sm:max-w-[11ch] sm:text-[clamp(3.35rem,4.65vw,5.25rem)]"
             initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.68, ease: "easeOut" }}

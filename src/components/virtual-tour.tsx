@@ -202,10 +202,10 @@ export function VirtualTour({ initialSceneId }: { initialSceneId?: string }) {
     >
       <div className="flex flex-col gap-4 border-b border-[#d9e0ec] bg-[#f8fafc] p-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="text-xs font-bold uppercase text-[#b45309]">
+          <p className="text-xs font-bold text-[#b45309]">
             Recorrido 360
           </p>
-          <h2 className="mt-1 font-heading text-2xl font-bold text-[#071a3d]">
+          <h2 className="mt-1 font-heading text-2xl font-semibold leading-tight text-[#04215e]">
             {activeScene.name}
           </h2>
           <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">

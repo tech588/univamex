@@ -8,6 +8,7 @@ import { AdmissionsChecklist } from "@/components/admissions-checklist";
 import { ProgramCard } from "@/components/program-card";
 import { SectionHeading } from "@/components/section-heading";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { seoConfig } from "@/data/seo";
 import {
   getProgramBySlug,
   getRelatedPrograms,
@@ -37,6 +38,31 @@ export async function generateMetadata({
   return {
     title: program.name,
     description: `${program.description} Solicita informes de ${program.name} en UNIVAMEX.`,
+    alternates: {
+      canonical: `/programas/${program.slug}`,
+    },
+    openGraph: {
+      title: `${program.name} | UNIVAMEX`,
+      description: program.promise,
+      url: `/programas/${program.slug}`,
+      siteName: "UNIVAMEX",
+      images: [
+        {
+          url: seoConfig.socialImage,
+          width: 1200,
+          height: 630,
+          alt: "UNIVAMEX, oferta academica y admisiones",
+        },
+      ],
+      locale: "es_MX",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${program.name} | UNIVAMEX`,
+      description: program.promise,
+      images: [seoConfig.socialImage],
+    },
   };
 }
 
@@ -64,10 +90,10 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <p className="text-sm font-bold uppercase text-[#B45309]">
+              <p className="text-sm font-bold text-[#B45309]">
                 {program.level} · {program.area}
               </p>
-              <h1 className="mt-3 font-heading text-4xl font-bold leading-tight text-[#0F172A] sm:text-5xl">
+              <h1 className="mt-3 font-heading text-4xl font-semibold leading-[0.98] tracking-normal text-[#04215e] sm:text-5xl">
                 {program.name}
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
@@ -84,7 +110,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
                     className="rounded-lg border border-slate-200 bg-white p-4"
                     key={label}
                   >
-                    <dt className="text-xs font-bold uppercase text-slate-500">
+                    <dt className="text-xs font-bold text-slate-500">
                       {label}
                     </dt>
                     <dd className="mt-1 font-semibold text-[#0F172A]">
@@ -128,14 +154,14 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
             description={program.description}
           />
           <div className="rounded-lg border border-slate-200 bg-[#F8FAFC] p-6">
-            <h2 className="font-heading text-2xl font-bold text-[#0F172A]">
-              Para quien es
+            <h2 className="font-heading text-2xl font-semibold leading-tight text-[#04215e]">
+              Para quién es
             </h2>
             <ul className="mt-5 grid gap-3 text-slate-700">
               {(program.entryProfile ?? [
                 "Aspirantes con interés en el área profesional del programa.",
                 "Personas que buscan una ruta académica con aplicación práctica.",
-                "Estudiantes que quieren resolver dudas con asesoria directa.",
+                "Estudiantes que quieren resolver dudas con asesoría directa.",
               ]).map((item) => (
                 <li className="rounded-lg bg-white px-4 py-3" key={item}>
                   {item}
@@ -178,7 +204,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
               aria-hidden="true"
               className="h-9 w-9 text-[#1E40AF]"
             />
-            <h2 className="mt-4 font-heading text-3xl font-bold text-[#0F172A]">
+            <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight text-[#04215e]">
               Perfil de egreso
             </h2>
             <ul className="mt-6 flex flex-wrap gap-3">
@@ -193,7 +219,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
             </ul>
           </div>
           <div>
-            <h2 className="font-heading text-3xl font-bold text-[#0F172A]">
+            <h2 className="font-heading text-3xl font-semibold leading-tight text-[#04215e]">
               Campo laboral
             </h2>
             <ul className="mt-6 flex flex-wrap gap-3">

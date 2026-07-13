@@ -18,5 +18,5 @@ export default async function LegacyTourPage({ params }: LegacyTourPageProps) {
   const { id } = await params;
   const vista = id === "2" ? "canchas" : "explanada";
 
-  redirect(`/?vista=${vista}#recorrido-360`);
+  redirect(`/campus?vista=${vista}#recorrido-360`);
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, Share2 } from "lucide-react";
 import { navItems, siteConfig } from "@/data/site";
 import { WhatsAppButton } from "@/components/whatsapp-button";
@@ -8,9 +9,15 @@ export function Footer() {
     <footer className="border-t border-slate-200 bg-[#0F172A] pb-24 text-white md:pb-0">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-10">
         <div>
-          <p className="font-heading text-2xl font-bold">{siteConfig.name}</p>
+          <Image
+            src="/logos/Logo Horizontal/blanco.png"
+            alt="UNIVAMEX"
+            width={210}
+            height={60}
+            className="h-auto w-44"
+          />
           <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
-            {siteConfig.fullName}. Decidete a llegar mas lejos estudiando lo
+            {siteConfig.fullName}. Decídete a llegar más lejos estudiando lo
             que te apasiona.
           </p>
           <div className="mt-6">
@@ -23,8 +30,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-sm font-bold uppercase text-slate-300">
-            Navegacion
+          <h2 className="text-sm font-bold text-slate-300">
+            Navegación
           </h2>
           <ul className="mt-4 space-y-3">
             {navItems.map((item) => (
@@ -41,13 +48,16 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-sm font-bold uppercase text-slate-300">
+          <h2 className="text-sm font-bold text-slate-300">
             Contacto
           </h2>
           <ul className="mt-4 space-y-3 text-sm text-slate-300">
             <li className="flex gap-2">
               <Phone aria-hidden="true" className="mt-0.5 h-4 w-4" />
-              <span>{siteConfig.phone}</span>
+              <span>
+                {siteConfig.phone}
+                {siteConfig.phoneSecondary ? ` / ${siteConfig.phoneSecondary}` : null}
+              </span>
             </li>
             <li className="flex gap-2">
               <Mail aria-hidden="true" className="mt-0.5 h-4 w-4" />

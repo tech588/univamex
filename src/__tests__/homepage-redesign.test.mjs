@@ -35,14 +35,16 @@ test("homepage uses the new three-section structure", () => {
   assert.doesNotMatch(home, /Cierre home/);
 });
 
-test("header swaps horizontal logos and uses the display font", () => {
+test("header swaps horizontal logos and uses the display font system", () => {
   const header = read("src/components/header.tsx");
   const globals = read("src/app/globals.css");
 
   assert.match(header, /"use client"/);
   assert.match(header, /framer-motion/);
   assert.match(globals, /family=Cinzel/);
-  assert.match(globals, /--font-display:\s*"Cinzel"/);
+  assert.match(globals, /--font-display:\s*"Noto Serif Display"/);
+  assert.match(globals, /--font-hero:\s*"Cinzel"/);
+  assert.match(globals, /--font-heading:\s*var\(--font-display\)/);
   assert.match(header, /Logo Horizontal\/blanco\.png/);
   assert.match(header, /Logo Horizontal\/azul\.png/);
   assert.match(header, /w-\[12\.9rem\]/);
@@ -69,7 +71,8 @@ test("hero uses a blue film, right-side portrait, particles, and only an H1", ()
   assert.match(hero, /group\/portrait/);
   assert.match(hero, /group-hover\/portrait:scale-\[1\.035\]/);
   assert.match(hero, /motion\.circle/);
-  assert.match(hero, /font-heading/);
+  assert.match(hero, /font-hero/);
+  assert.match(hero, /uppercase/);
   assert.match(hero, /font-semibold/);
   assert.match(hero, /sm:ml-\[30px\]/);
   assert.doesNotMatch(hero, /description:/);

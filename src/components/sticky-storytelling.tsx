@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
-  BrainCircuit,
+  BadgeCheck,
   ChevronLeft,
   ChevronRight,
   FileCheck2,
@@ -13,18 +13,18 @@ import { useState } from "react";
 
 const stories = [
   {
-    title: "IA en tu carrera",
+    title: "Aprendizaje aplicado",
     description:
-      "Integramos herramientas de inteligencia artificial para estudiar, investigar, producir y tomar mejores decisiones dentro de tu campo.",
-    image: "/images/ia-big-data.png",
-    icon: BrainCircuit,
-    note: "Tecnología aplicada al aula",
+      "La experiencia académica combina clases, espacios de práctica y proyectos que conectan el aula con decisiones reales.",
+    image: "/images/UNIVAMEX14.png",
+    icon: BadgeCheck,
+    note: "Práctica con contexto",
   },
   {
     title: "Admisiones claras",
     description:
       "Te ayudamos a ubicar requisitos, documentos y tiempos para que el proceso de ingreso se sienta ordenado desde el primer contacto.",
-    image: "/images/campus-americas.jpg",
+    image: "/images/GRADOS2.png",
     icon: FileCheck2,
     note: "Ruta simple para avanzar",
   },
@@ -32,9 +32,9 @@ const stories = [
     title: "Campus y acompañamiento",
     description:
       "Espacios académicos, asesoría cercana y una oferta pensada para comparar opciones con calma y decidir con contexto.",
-    image: "/images/campus-ciudad-azteca.jpg",
+    image: "/images/UNIVAMEX19.png",
     icon: MapPin,
-    note: "Cercania durante la decision",
+    note: "Cercanía durante la decisión",
   },
 ] as const;
 
@@ -62,7 +62,7 @@ export function StickyStorytelling() {
           </h2>
           <p className="mt-6 max-w-md text-sm font-normal leading-6 text-slate-600">
             El recorrido combina valor académico, proceso y campus para que la
-            decision no se sienta aislada.
+            decisión no se sienta aislada.
           </p>
 
           <div className="mt-8 flex items-center gap-2">

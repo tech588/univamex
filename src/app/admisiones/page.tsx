@@ -15,16 +15,16 @@ export default function AdmisionesPage() {
     <main>
       <PageHero
         title="Admisiones"
-        description="Conoce los requisitos por nivel y prepara tus documentos con acompañamiento desde el primer paso."
-        image="/images/educacion-comunidad.png"
-        imageClassName="object-[62%_center]"
+        description="Prepara tu ingreso con documentos claros, pasos simples y orientación desde el primer contacto."
+        image="/images/GRADOS.png"
+        imageClassName="object-[58%_center]"
       />
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <SectionHeading
-              title="Admisiones"
-              description="Revisa los documentos que necesitas según tu nivel. Si tienes dudas sobre costos, becas, horarios, ubicación o fechas de inicio, escríbenos para recibir orientación."
+              title="Documentos por nivel"
+              description="Revisa lo que necesitas para bachillerato, licenciatura, maestría o doctorado. Costos, becas, horarios, ubicación y fechas de inicio deben confirmarse con un asesor."
             />
             <div className="mt-8">
               <WhatsAppButton
@@ -39,7 +39,7 @@ export default function AdmisionesPage() {
 
       <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-4xl rounded-lg border border-slate-200 p-6 shadow-sm sm:p-8">
-          <h2 className="font-heading text-2xl font-bold text-[#0F172A]">
+          <h2 className="font-heading text-2xl font-semibold leading-tight text-[#04215e]">
             Proceso recomendado
           </h2>
           <ol className="mt-6 grid gap-4">

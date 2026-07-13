@@ -12,8 +12,8 @@ export default async function Recorrido360Page({
   const { vista } = await searchParams;
   const target =
     vista === "canchas"
-      ? "/?vista=canchas#recorrido-360"
-      : "/#recorrido-360";
+      ? "/campus?vista=canchas#recorrido-360"
+      : "/campus#recorrido-360";
 
   redirect(target);
 }

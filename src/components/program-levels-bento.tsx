@@ -18,7 +18,7 @@ const levels = [
     description:
       "Base académica y formación técnica para avanzar con seguridad hacia la universidad.",
     href: "/oferta-academica/bachilleratos",
-    image: "/images/home-students.jpg",
+    image: "/images/GRADOS.png",
     detail: "3 años / presencial",
     accent: "Desde tu primer plan profesional",
   },
@@ -28,7 +28,7 @@ const levels = [
     description:
       "Carreras con enfoque práctico, acompañamiento docente y áreas conectadas con el mercado actual.",
     href: "/oferta-academica/licenciaturas",
-    image: "/images/negocios-estudiantes.png",
+    image: "/images/GRADOS1.png",
     detail: "Escolarizada, mixta y presencial",
     accent: "Construye criterio profesional",
   },
@@ -38,7 +38,7 @@ const levels = [
     description:
       "Posgrados para especializar tu experiencia, fortalecer liderazgo y abrir nuevas rutas laborales.",
     href: "/oferta-academica/maestrias",
-    image: "/images/educacion-comunidad.png",
+    image: "/images/GRADOS2.png",
     detail: "1 año 8 meses",
     accent: "Profundiza con dirección",
   },
@@ -48,7 +48,7 @@ const levels = [
     description:
       "Investigación aplicada, pensamiento crítico e impacto académico para transformar tu entorno.",
     href: "/oferta-academica/doctorados",
-    image: "/images/ia-big-data.png",
+    image: "/images/UNIVAMEX22.png",
     detail: "Investigación y alto impacto",
     accent: "Genera conocimiento",
   },
@@ -146,7 +146,7 @@ export function ProgramLevelsBento() {
                 >
                   <Image
                     src={activeLevel.image}
-                    alt={`Ambiente academico para ${activeLevel.label.toLowerCase()} en UNIVAMEX`}
+                    alt={`Ambiente académico para ${activeLevel.label.toLowerCase()} en UNIVAMEX`}
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover transition duration-700 group-hover:scale-105"
