@@ -15,6 +15,7 @@ export const siteConfig = {
 export const navItems: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Oferta académica", href: "/oferta-academica" },
+  { label: "Recorrido 360", href: "/#recorrido-360" },
   { label: "Admisiones", href: "/admisiones" },
   { label: "Contacto", href: "/contacto" },
 ];

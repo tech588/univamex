@@ -49,7 +49,7 @@ export function Hero() {
     >
       <motion.div
         aria-hidden="true"
-        className="absolute inset-0"
+        className="pointer-events-none absolute inset-0"
         style={
           reduceMotion
             ? undefined
@@ -69,13 +69,13 @@ export function Hero() {
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-[#04215e]/32" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,33,94,0.94)_0%,rgba(4,33,94,0.84)_40%,rgba(4,33,94,0.52)_68%,rgba(4,33,94,0.74)_100%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,33,94,0.94)_0%,rgba(4,33,94,0.86)_46%,rgba(4,33,94,0.64)_100%)] sm:hidden" />
+      <div className="pointer-events-none absolute inset-0 bg-[#04215e]/32" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(4,33,94,0.94)_0%,rgba(4,33,94,0.84)_40%,rgba(4,33,94,0.52)_68%,rgba(4,33,94,0.74)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(4,33,94,0.94)_0%,rgba(4,33,94,0.86)_46%,rgba(4,33,94,0.64)_100%)] sm:hidden" />
 
       <motion.svg
         aria-hidden="true"
-        className="absolute inset-x-[-18vw] bottom-0 z-0 h-[58svh] w-[136vw] sm:hidden"
+        className="pointer-events-none absolute inset-x-[-18vw] bottom-0 z-0 h-[58svh] w-[136vw] sm:hidden"
         viewBox="0 0 136 58"
         preserveAspectRatio="none"
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
@@ -106,7 +106,7 @@ export function Hero() {
       >
         <motion.svg
           aria-hidden="true"
-          className="pointer-events-none absolute inset-[4%_0_7%_18%] z-0 opacity-70 transition duration-700 group-hover/portrait:scale-105 group-hover/portrait:opacity-100"
+          className="pointer-events-none absolute inset-[4%_0_7%_18%] z-0 opacity-70 transition duration-500 group-hover/portrait:scale-110 group-hover/portrait:opacity-100"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
@@ -151,7 +151,7 @@ export function Hero() {
           />
         </motion.svg>
 
-        <div className="absolute inset-0 z-10 transition duration-700 ease-out group-hover/portrait:scale-[1.035]">
+        <div className="absolute inset-0 z-10 origin-bottom transition-transform duration-500 ease-out group-hover/portrait:scale-[1.035]">
           <Image
             src="/images/foto-hero.webp"
             alt="Estudiante de UNIVAMEX sonriendo con carpeta"
@@ -163,9 +163,9 @@ export function Hero() {
         </div>
       </motion.div>
 
-      <div className="relative z-20 flex min-h-[100svh] w-full items-start justify-center px-4 pb-16 pt-[9.75rem] sm:items-center sm:justify-start sm:px-8 sm:pb-20 sm:pt-28 lg:px-10">
+      <div className="pointer-events-none relative z-20 flex min-h-[100svh] w-full items-start justify-center px-4 pb-16 pt-[9.75rem] sm:items-center sm:justify-start sm:px-8 sm:pb-20 sm:pt-28 lg:px-10">
         <motion.div
-          className="mx-auto max-w-[22rem] text-center sm:mx-0 sm:ml-[30px] sm:max-w-[45vw] sm:text-left lg:max-w-[40rem]"
+          className="pointer-events-auto mx-auto max-w-[22rem] text-center sm:mx-0 sm:ml-[30px] sm:max-w-[45vw] sm:text-left lg:max-w-[40rem]"
           initial={shouldAnimate ? { opacity: 0, y: 28 } : false}
           animate={{ opacity: 1, y: 0 }}
           style={
@@ -191,7 +191,7 @@ export function Hero() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 z-30 h-16 bg-white [clip-path:polygon(0_72%,100%_36%,100%_100%,0_100%)] sm:h-20"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-16 bg-white [clip-path:polygon(0_72%,100%_36%,100%_100%,0_100%)] sm:h-20"
       />
     </section>
   );

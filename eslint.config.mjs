@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "legacy-old-web/**",
+    "public/recorrido-360/player/js/**",
   ]),
 ]);
 
