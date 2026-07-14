@@ -96,8 +96,9 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="max-w-[10ch] text-[clamp(3rem,6.35vw,6rem)] font-medium leading-[0.92] tracking-[-0.035em] text-balance drop-shadow-[0_2px_12px_rgba(2,24,63,0.5)] [font-family:var(--font-soft-display)] sm:max-w-[13ch] lg:max-w-[14ch]">
-            Decídete a llegar más lejos
+          <h1 className="flex flex-col items-start gap-[0.12em] text-[clamp(2.3rem,11vw,2.75rem)] font-medium leading-[0.92] tracking-[-0.035em] drop-shadow-[0_2px_12px_rgba(2,24,63,0.5)] [font-family:var(--font-soft-display)] sm:text-[clamp(4rem,7.2vw,6rem)]">
+            <span className="whitespace-nowrap">Decídete a</span>
+            <span className="whitespace-nowrap">llegar más lejos</span>
           </h1>
           <p className="mt-6 max-w-[38rem] text-base leading-7 text-white/88 sm:text-lg sm:leading-8">
             Bachilleratos, licenciaturas y posgrados en Ecatepec, con

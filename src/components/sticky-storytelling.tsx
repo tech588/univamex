@@ -55,7 +55,7 @@ export function StickyStorytelling() {
     <section className="bg-[#f3f6fb] px-0 py-[4.5rem] text-[#07111f] sm:px-8 sm:py-24 lg:px-10 lg:py-28">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:items-center lg:gap-12">
         <div className="px-3 sm:px-0">
-          <h2 className="max-w-[18ch] text-[2rem] font-semibold leading-[0.98] tracking-normal text-[#04215e] [font-family:var(--font-soft-display)] sm:text-4xl lg:max-w-[19ch] lg:text-5xl">
+          <h2 className="max-w-[18ch] font-editorial text-[2rem] font-semibold leading-[0.98] tracking-normal text-[#04215e] sm:text-4xl lg:max-w-[19ch] lg:text-5xl">
             <span className="block">Elegir programa</span>
             <span className="block">también debe</span>
             <span className="block">sentirse acompañado</span>
@@ -140,14 +140,14 @@ export function StickyStorytelling() {
                     <span className="grid h-12 w-12 place-items-center border border-[#04215e] text-[#04215e]">
                       <activeStory.icon aria-hidden="true" className="h-5 w-5" />
                     </span>
-                    <span className="text-3xl font-semibold text-[#e7a928] [font-family:var(--font-soft-display)]">
+                    <span className="font-editorial text-3xl font-semibold text-[#e7a928]">
                       0{activeIndex + 1}
                     </span>
                   </div>
                   <p className="mt-9 text-xs font-medium text-[#04215e]/60">
                     {activeStory.note}
                   </p>
-                  <h3 className="mt-3 max-w-[12ch] text-[1.85rem] font-semibold leading-none tracking-normal text-[#04215e] [font-family:var(--font-soft-display)] sm:text-4xl">
+                  <h3 className="mt-3 max-w-[12ch] font-editorial text-[1.85rem] font-semibold leading-none tracking-normal text-[#04215e] sm:text-4xl">
                     {activeStory.title}
                   </h3>
                   <p className="mt-5 max-w-md text-sm font-normal leading-6 text-slate-600">

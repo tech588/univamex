@@ -76,7 +76,7 @@ export function ProgramLevelsBento() {
         viewport={{ once: true, margin: "-10% 0px" }}
       >
         <div className="px-3 sm:px-0 lg:pt-8">
-          <h2 className="max-w-[11ch] text-[2rem] font-semibold leading-[0.96] tracking-normal text-[#04215e] [font-family:var(--font-soft-display)] sm:text-4xl lg:text-5xl">
+          <h2 className="max-w-[11ch] font-editorial text-[2rem] font-semibold leading-[0.96] tracking-normal text-[#04215e] sm:text-4xl lg:text-5xl">
             Oferta disponible
           </h2>
           <p className="mt-5 max-w-xs border-l-4 border-[#e7a928] pl-4 text-sm font-normal leading-6 text-slate-600">
@@ -160,7 +160,7 @@ export function ProgramLevelsBento() {
                       <p className="mb-4 max-w-[calc(100vw-2.5rem)] whitespace-normal break-words text-sm font-medium text-[#e7a928] sm:max-w-xs">
                         {activeLevel.accent}
                       </p>
-                      <h3 className="max-w-[calc(100vw-2.5rem)] whitespace-normal break-words text-[1.8rem] font-semibold leading-[1] tracking-normal [font-family:var(--font-soft-display)] sm:max-w-[14ch] sm:text-3xl lg:text-[2.35rem]">
+                      <h3 className="max-w-[calc(100vw-2.5rem)] whitespace-normal break-words font-editorial text-[1.8rem] font-semibold leading-[1] tracking-normal sm:max-w-[14ch] sm:text-3xl lg:text-[2.35rem]">
                         {activeLevel.title}
                       </h3>
                       <p className="mt-5 w-full max-w-[calc(100vw-2.5rem)] whitespace-normal break-words text-sm font-normal leading-6 text-white/78 sm:max-w-md">
@@ -200,7 +200,7 @@ export function ProgramLevelsBento() {
                 <span className="mb-2 text-[0.7rem] font-medium text-white/68">
                   Siguiente
                 </span>
-                <p className="max-w-[9ch] text-[1.15rem] font-semibold leading-none [font-family:var(--font-soft-display)]">
+                <p className="max-w-[9ch] font-editorial text-[1.15rem] font-semibold leading-none">
                   {nextLevel.title}
                 </p>
               </div>

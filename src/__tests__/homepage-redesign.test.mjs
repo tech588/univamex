@@ -100,10 +100,27 @@ test("la nueva fotografía identifica el Campus Ciudad Azteca", async () => {
 test("las preguntas y subtítulos usan una serif editorial legible", async () => {
   const styles = await source("src/app/globals.css");
   const faq = await source("src/components/home-faq-preview.tsx");
+  const hero = await source("src/components/hero.tsx");
+  const pageHero = await source("src/components/page-hero.tsx");
+  const nonHeroComponents = (
+    await Promise.all(
+      (await collectFiles(path.join(root, "src")))
+        .filter(
+          (file) =>
+            !file.endsWith(`${path.sep}hero.tsx`) &&
+            !file.endsWith(`${path.sep}page-hero.tsx`),
+        )
+        .map((file) => readFile(file, "utf8")),
+    )
+  ).join("\n");
 
   assert.match(styles, /Source\+Serif\+4/);
   assert.match(styles, /--font-editorial/);
+  assert.match(styles, /--font-heading: var\(--font-editorial-copy\)/);
   assert.match(faq, /font-editorial/);
+  assert.match(hero, /var\(--font-soft-display\)/);
+  assert.match(pageHero, /var\(--font-hero\)/);
+  assert.doesNotMatch(nonHeroComponents, /var\(--font-soft-display\)/);
 });
 
 test("cada adelanto del home enlaza con una página dedicada", async () => {
