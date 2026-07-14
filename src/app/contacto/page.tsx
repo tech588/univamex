@@ -2,16 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
+  Camera,
+  Clock3,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
   Share2,
 } from "lucide-react";
+import { GuidedWhatsAppForm } from "@/components/guided-whatsapp-form";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { campuses } from "@/data/campuses";
+import { programs } from "@/data/programs";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -49,13 +53,18 @@ export default function ContactoPage() {
                 icon: MessageCircle,
               },
               { label: "Teléfono", value: siteConfig.phone, icon: Phone },
-              {
-                label: "Teléfono alterno",
-                value: siteConfig.phoneSecondary,
-                icon: Phone,
-              },
               { label: "Correo", value: siteConfig.email, icon: Mail },
+              {
+                label: "Horario de atención",
+                value: siteConfig.serviceHours,
+                icon: Clock3,
+              },
               { label: "Facebook", value: siteConfig.facebook, icon: Share2 },
+              {
+                label: "Instagram",
+                value: "@univamex_oficial",
+                icon: Camera,
+              },
             ].map((item) => (
               <article
                 className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5"
@@ -65,7 +74,7 @@ export default function ContactoPage() {
                   aria-hidden="true"
                   className="h-6 w-6 text-[#1E40AF]"
                 />
-                <h2 className="mt-4 font-heading text-lg font-semibold leading-tight text-[#04215e]">
+                <h2 className="mt-4 font-editorial text-lg font-semibold leading-snug text-[#04215e]">
                   {item.label}
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
@@ -77,11 +86,30 @@ export default function ContactoPage() {
         </div>
       </section>
 
+      <section className="bg-[#04215e] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="text-sm font-bold text-[#e7a928]">Mensaje guiado</p>
+            <h2 className="mt-3 font-heading text-[2rem] font-semibold leading-[1.02] sm:text-4xl lg:text-5xl">
+              Cuéntanos qué quieres estudiar
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/75">
+              Prepara un mensaje con tu programa y campus de interés para que admisiones pueda orientarte con mayor precisión.
+            </p>
+          </div>
+          <GuidedWhatsAppForm
+            programs={programs.map(({ name, level }) => ({ name, level }))}
+            campuses={campuses.map(({ name }) => name)}
+            source="Contacto"
+          />
+        </div>
+      </section>
+
       <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading
             title="Campus y referencias"
-            description="Si necesitas visitar una sede, revisa la referencia y abre el mapa antes de salir. La disponibilidad de atención debe confirmarse con admisiones."
+            description="Si necesitas visitar una sede, revisa la referencia y abre el mapa antes de salir. El horario general de atención es de lunes a sábado, de 8:00 a 18:00 h."
           />
           <div className="grid gap-5 md:grid-cols-2">
             {campuses.map((campus) => (
@@ -90,7 +118,7 @@ export default function ContactoPage() {
                 key={campus.name}
               >
                 <MapPin aria-hidden="true" className="h-6 w-6 text-[#1E40AF]" />
-                <h2 className="mt-4 font-heading text-xl font-semibold leading-tight text-[#04215e]">
+                <h2 className="mt-4 font-editorial text-xl font-semibold leading-snug text-[#04215e]">
                   {campus.name}
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -114,7 +142,7 @@ export default function ContactoPage() {
       <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="font-heading text-2xl font-semibold leading-tight text-[#04215e]">
+            <h2 className="font-editorial text-2xl font-semibold leading-snug text-[#04215e]">
               Antes de escribir, puedes resolver dudas rápidas
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">

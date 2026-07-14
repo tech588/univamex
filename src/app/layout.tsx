@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { FloatingWhatsApp } from "@/components/whatsapp-button";
 import {
   absoluteUrl,
   canonicalUrl,
@@ -131,6 +132,11 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    other: {
+      "facebook-domain-verification": "9vup6ff09wu5opvkumee7nabqqf7xq",
+    },
+  },
   other: {
     "llms-txt": absoluteUrl("/llms.txt"),
   },
@@ -147,6 +153,9 @@ export default function RootLayout({
       className="h-full scroll-smooth antialiased"
     >
       <body className="flex min-h-full flex-col">
+        <a className="skip-link" href="#main-content">
+          Saltar al contenido
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -154,8 +163,11 @@ export default function RootLayout({
           }}
         />
         <Header />
-        {children}
+        <div className="contents" id="main-content" tabIndex={-1}>
+          {children}
+        </div>
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

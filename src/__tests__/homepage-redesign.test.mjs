@@ -1,177 +1,172 @@
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync, statSync } from "node:fs";
-import { dirname, join, relative, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFile, readdir } from "node:fs/promises";
+import path from "node:path";
 import test from "node:test";
 
-const testDir = dirname(fileURLToPath(import.meta.url));
-const appRoot = resolve(testDir, "../..");
-const srcRoot = join(appRoot, "src");
+const root = process.cwd();
 
-function read(relativePath) {
-  return readFileSync(join(appRoot, relativePath), "utf8");
+async function source(relativePath) {
+  return readFile(path.join(root, relativePath), "utf8");
 }
 
-function listSourceFiles(dir = srcRoot) {
-  return readdirSync(dir).flatMap((entry) => {
-    const absolutePath = join(dir, entry);
-    const stat = statSync(absolutePath);
+async function collectFiles(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
 
-    if (stat.isDirectory()) {
-      return listSourceFiles(absolutePath);
+  for (const entry of entries) {
+    const absolutePath = path.join(directory, entry.name);
+
+    if (entry.isDirectory()) {
+      files.push(...(await collectFiles(absolutePath)));
+    } else if (/\.(ts|tsx)$/.test(entry.name)) {
+      files.push(absolutePath);
     }
+  }
 
-    return [absolutePath];
-  });
+  return files;
 }
 
-test("homepage uses the new three-section structure", () => {
-  const home = read("src/app/page.tsx");
+test("el home funciona como guía de un sitio multipágina", async () => {
+  const home = await source("src/app/page.tsx");
 
-  assert.match(home, /Hero/);
-  assert.match(home, /ProgramLevelsBento/);
-  assert.match(home, /StickyStorytelling/);
-  assert.doesNotMatch(home, /ProgramFinder/);
-  assert.doesNotMatch(home, /Cierre home/);
+  assert.match(home, /ProgramLevelsPreview/);
+  assert.match(home, /HomePathways/);
+  assert.match(home, /HomeCampusPreview/);
+  assert.match(home, /HomeFaqPreview/);
+  assert.match(home, /HomeContactGuide/);
+  assert.doesNotMatch(home, /ProgramLevelsBento|StickyStorytelling/);
 });
 
-test("header swaps horizontal logos and uses the display font system", () => {
-  const header = read("src/components/header.tsx");
-  const globals = read("src/app/globals.css");
+test("la oferta abre el contenido del home y usa una composición bento", async () => {
+  const home = await source("src/app/page.tsx");
+  const levels = await source("src/components/program-levels-preview.tsx");
 
-  assert.match(header, /"use client"/);
-  assert.match(header, /framer-motion/);
-  assert.match(globals, /family=Cinzel/);
-  assert.match(globals, /--font-display:\s*"Noto Serif Display"/);
-  assert.match(globals, /--font-hero:\s*"Cinzel"/);
-  assert.match(globals, /--font-heading:\s*var\(--font-display\)/);
-  assert.match(header, /Logo Horizontal\/blanco\.png/);
-  assert.match(header, /Logo Horizontal\/azul\.png/);
-  assert.match(header, /w-\[12\.9rem\]/);
-  assert.match(header, /sm:w-\[16\.65rem\]/);
-  assert.match(header, /setScrolled\(window\.scrollY > 24\)/);
-  assert.match(header, /bg-white\/95/);
-  assert.match(header, /text-\[#04215e\]/);
-  assert.match(header, /Menu/);
-  assert.match(header, /Solicitar informes/);
+  assert.ok(
+    home.indexOf("<ProgramLevelsPreview />") <
+      home.indexOf("<HomeInstitutional />"),
+  );
+  assert.ok(
+    home.indexOf("<HomeInstitutional />") <
+      home.indexOf("<HomeCampusPreview />"),
+  );
+  assert.match(levels, /xl:grid-cols-12/);
+  assert.match(levels, /xl:row-span-2/);
+  assert.match(levels, /xl:col-span-7/);
+  assert.match(levels, /bg-\[#f8fafc\]/);
+  assert.match(levels, /-mt-px/);
+  assert.match(levels, /\/images\/BACHILLERATO\.png/);
+  assert.match(levels, /\/images\/LICENCIATURAS\.png/);
+  assert.doesNotMatch(levels, /legacy\/estudiantes-(bachillerato|profesional)\.jpg/);
 });
 
-test("hero uses a blue film, right-side portrait, particles, and only an H1", () => {
-  const hero = read("src/components/hero.tsx");
+test("las transiciones del hero y el footer no dibujan líneas divisorias", async () => {
+  const footer = await source("src/components/footer.tsx");
+  const levels = await source("src/components/program-levels-preview.tsx");
 
-  assert.match(hero, /DECÍDETE A LLEGAR MÁS LEJOS/);
-  assert.match(hero, /home-hero\.jpg/);
-  assert.match(hero, /foto-hero\.webp/);
-  assert.match(hero, /bg-\[#04215e\]\/32/);
-  assert.match(hero, /rgba\(4,33,94,0\.94\)/);
-  assert.match(hero, /right-\[calc\(-28vw\+40px\)\]/);
-  assert.match(hero, /lg:right-\[calc\(-5vw\+40px\)\]/);
-  assert.match(hero, /w-\[140vw\]/);
-  assert.match(hero, /lg:w-\[76vw\]/);
-  assert.match(hero, /group\/portrait/);
-  assert.match(hero, /group-hover\/portrait:scale-\[1\.035\]/);
-  assert.match(hero, /motion\.circle/);
-  assert.match(hero, /font-hero/);
-  assert.match(hero, /uppercase/);
-  assert.match(hero, /font-semibold/);
-  assert.match(hero, /sm:ml-\[30px\]/);
-  assert.doesNotMatch(hero, /description:/);
-  assert.doesNotMatch(hero, /<motion\.p[\s>]/);
-  assert.doesNotMatch(hero, /WhatsAppButton|ArrowRight|href="\/oferta-academica"/);
+  assert.doesNotMatch(footer, /border-t|border-slate-200/);
+  assert.match(levels, /-mt-px/);
 });
 
-test("hero mobile is wide and reference-led", () => {
-  const hero = read("src/components/hero.tsx");
+test("quiénes somos presenta vida universitaria", async () => {
+  const institutional = await source("src/components/home-institutional.tsx");
 
-  assert.match(hero, /w-\[140vw\]/);
-  assert.match(hero, /h-\[82svh\]/);
-  assert.match(hero, /sm:hidden/);
-  assert.match(hero, /circle cx="86"/);
-  assert.match(hero, /px-4/);
-  assert.doesNotMatch(hero, /max-w-7xl/);
+  assert.match(institutional, /VIDA-UNIVERSITARIA\.png/);
+  assert.match(institutional, /vida universitaria/);
 });
 
-test("program levels are a selector with expanding cards", () => {
-  const programs = read("src/components/program-levels-bento.tsx");
+test("la ruta del home recupera el storytelling animado", async () => {
+  const pathway = await source("src/components/home-pathways.tsx");
 
-  assert.match(programs, /useState/);
-  assert.match(programs, /Oferta disponible/);
-  assert.match(programs, /Bachilleratos/);
-  assert.match(programs, /Licenciaturas/);
-  assert.match(programs, /Maestrías/);
-  assert.match(programs, /AnimatePresence/);
-  assert.match(programs, /LayoutGroup/);
-  assert.match(programs, /layoutId/);
-  assert.match(programs, /clipPath/);
-  assert.match(programs, /Siguiente/);
-  assert.match(programs, /blur-\[2px\]/);
-  assert.match(programs, /hidden h-\[16rem\]/);
-  assert.doesNotMatch(programs, /Explorar oferta/);
-  assert.doesNotMatch(programs, /Ver toda la oferta/);
-  assert.doesNotMatch(programs, /uppercase/);
+  assert.match(pathway, /AnimatePresence/);
+  assert.match(pathway, /opacity: 0, x: 24/);
+  assert.match(pathway, /duration: 0\.24/);
+  assert.match(pathway, /ChevronLeft/);
+  assert.match(pathway, /ChevronRight/);
+  assert.match(pathway, /5000/);
+  assert.match(pathway, /Elegir programa también debe sentirse acompañado/);
+  assert.match(pathway, /\/oferta-academica/);
+  assert.match(pathway, /\/admisiones/);
+  assert.match(pathway, /\/campus/);
+  assert.match(pathway, /CAMPUS CIUDAD AZTECA\.png/);
 });
 
-test("storytelling is a modern carousel without CTA buttons", () => {
-  const storytelling = read("src/components/sticky-storytelling.tsx");
+test("la nueva fotografía identifica el Campus Ciudad Azteca", async () => {
+  const campuses = await source("src/data/campuses.ts");
 
-  assert.match(storytelling, /useState/);
-  assert.match(storytelling, /AnimatePresence/);
-  assert.match(storytelling, /ChevronLeft/);
-  assert.match(storytelling, /ChevronRight/);
-  assert.match(storytelling, /Elegir programa/);
-  assert.match(storytelling, /también debe/);
-  assert.match(storytelling, /sentirse acompañado/);
-  assert.match(storytelling, /Admisiones claras/);
-  assert.doesNotMatch(storytelling, /uppercase/);
-  assert.doesNotMatch(storytelling, /WhatsAppButton/);
-  assert.doesNotMatch(storytelling, /Ver admisiones/);
-  assert.doesNotMatch(storytelling, /Conocer mas|Conocer más/);
-  assert.doesNotMatch(storytelling, /href=/);
+  assert.match(campuses, /CAMPUS CIUDAD AZTECA\.png/);
+  assert.match(campuses, /Fachada del Campus Ciudad Azteca/);
 });
 
-test("homepage clips overflow and forces square UI geometry", () => {
-  const globals = read("src/app/globals.css");
+test("las preguntas y subtítulos usan una serif editorial legible", async () => {
+  const styles = await source("src/app/globals.css");
+  const faq = await source("src/components/home-faq-preview.tsx");
 
-  assert.match(globals, /html\s*{[^}]*overflow-x:\s*hidden/s);
-  assert.match(globals, /body\s*{[^}]*max-width:\s*100%/s);
-  assert.match(globals, /\.home-main\s*{[^}]*overflow-x:\s*clip/s);
-  assert.match(globals, /border-radius:\s*0 !important/);
-  assert.match(globals, /--blue-700:\s*#04215e/);
+  assert.match(styles, /Source\+Serif\+4/);
+  assert.match(styles, /--font-editorial/);
+  assert.match(faq, /font-editorial/);
 });
 
-test("academic offer has separate maestrias and doctorados routes", () => {
-  const maestrias = read("src/app/oferta-academica/maestrias/page.tsx");
-  const doctorados = read("src/app/oferta-academica/doctorados/page.tsx");
-
-  assert.match(maestrias, /LevelPage level="Maestr(Ã­a|ía)"/);
-  assert.match(doctorados, /LevelPage level="Doctorado"/);
-});
-
-test("visible copy outside contact does not mention WhatsApp", () => {
-  const allowed = new Set([
-    "src/app/contacto/page.tsx",
-    "src/components/whatsapp-button.tsx",
-    "src/data/site.ts",
-    "src/lib/whatsapp.ts",
+test("cada adelanto del home enlaza con una página dedicada", async () => {
+  const files = await Promise.all([
+    source("src/components/home-institutional.tsx"),
+    source("src/components/program-levels-preview.tsx"),
+    source("src/components/home-pathways.tsx"),
+    source("src/components/home-campus-preview.tsx"),
+    source("src/components/home-faq-preview.tsx"),
+    source("src/components/home-contact-guide.tsx"),
   ]);
+  const content = files.join("\n");
 
-  const offenders = listSourceFiles()
-    .filter((file) => /\.(tsx|ts)$/.test(file))
-    .flatMap((file) => {
-      const relativePath = relative(appRoot, file).replaceAll("\\", "/");
-      if (allowed.has(relativePath)) {
-        return [];
-      }
+  for (const route of [
+    "/quienes-somos",
+    "/oferta-academica",
+    "/admisiones",
+    "/campus",
+    "/faq",
+    "/contacto",
+  ]) {
+    assert.match(content, new RegExp(route.replaceAll("/", "\\/")));
+  }
+});
 
-      return readFileSync(file, "utf8")
-        .split(/\r?\n/)
-        .map((line, index) => ({ line, index: index + 1, relativePath }))
-        .filter(({ line }) => /WhatsApp/.test(line))
-        .filter(
-          ({ line }) =>
-            !/WhatsAppButton|FloatingWhatsApp|buildWhatsAppUrl/.test(line),
-        );
-    });
+test("la página institucional usa información real consolidada", async () => {
+  const institutional = await source("src/data/institutional.ts");
+  const page = await source("src/app/quienes-somos/page.tsx");
 
-  assert.deepEqual(offenders, []);
+  assert.match(institutional, /experienceYears: 50/);
+  assert.match(institutional, /Bachillerato: 3/);
+  assert.match(institutional, /Licenciatura: 14/);
+  assert.match(institutional, /Maestría: 2/);
+  assert.match(institutional, /Doctorado: 1/);
+  assert.match(institutional, /7 Reglas|Tus valores|Amor a la patria/);
+  assert.match(page, /Misión, visión y filosofía/);
+  assert.match(page, /Lema y escudo/);
+});
+
+test("el sitio no publica montos ni precios numéricos", async () => {
+  const files = await collectFiles(path.join(root, "src"));
+  const contents = await Promise.all(files.map((file) => readFile(file, "utf8")));
+
+  for (const content of contents) {
+    assert.doesNotMatch(content, /\$\s*\d[\d,.]*/);
+  }
+});
+
+test("los mensajes generales de WhatsApp no exponen la página de origen", async () => {
+  const whatsapp = await source("src/lib/whatsapp.ts");
+  const button = await source("src/components/whatsapp-button.tsx");
+
+  assert.doesNotMatch(whatsapp, /Vengo de la página|Vengo de pagina/);
+  assert.match(whatsapp, /Hola, quiero informes de UNIVAMEX\./);
+  assert.doesNotMatch(button, /md:hidden|w-full/);
+  assert.match(button, /!rounded-full/);
+  assert.match(button, /\[&>span\]:sr-only/);
+});
+
+test("las páginas de nivel conservan acceso a toda la oferta al cambiar filtros", async () => {
+  const levelPage = await source("src/components/level-page.tsx");
+
+  assert.match(levelPage, /programs=\{programs\}/);
+  assert.match(levelPage, /navigateOnLevelChange/);
+  assert.doesNotMatch(levelPage, /getProgramsByLevel/);
 });

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cinzel:wght@400;500;600;700;800;900&family=Noto+Serif+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Serif+Display:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -9,14 +9,19 @@
   --blue-700: #04215e;
   --gold-700: #b45309;
   --gold-500: #e7a928;
+  --surface: #ffffff;
+  --surface-muted: #f3f6fb;
+  --border: #cbd5e1;
   --font-body: "Atkinson Hyperlegible", "Atkinson Hyperlegible Fallback",
     ui-sans-serif, system-ui, sans-serif;
   --font-display: "Noto Serif Display", "Times New Roman", ui-serif, Georgia,
     serif;
-  --font-hero: "Cinzel", "Noto Serif Display", "Trajan Pro",
-    "Times New Roman", ui-serif, Georgia, serif;
+  --font-hero: "Noto Serif Display", "Times New Roman", ui-serif, Georgia,
+    serif;
   --font-soft-display: "Noto Serif Display", "Times New Roman", ui-serif,
     Georgia, serif;
+  --font-editorial-copy: "Source Serif 4", Georgia, "Times New Roman", ui-serif,
+    serif;
 }
 
 @theme inline {
@@ -24,6 +29,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-heading: var(--font-display);
+  --font-editorial: var(--font-editorial-copy);
 }
 
 html {
@@ -64,6 +70,24 @@ main:not(.home-main) {
 
 .home-main {
   overflow-x: clip;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  background: #ffffff;
+  color: var(--navy-950);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--gold-500);
+  outline-offset: 2px;
 }
 
 .hero-concave {

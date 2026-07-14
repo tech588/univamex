@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { ProgramFinder } from "@/components/program-finder";
-import { SectionHeading } from "@/components/section-heading";
-import { getProgramsByLevel } from "@/data/programs";
+import { programs } from "@/data/programs";
 import type { ProgramLevel } from "@/types/content";
 
 const levelCopy: Record<ProgramLevel, string> = {
@@ -17,8 +16,6 @@ const levelCopy: Record<ProgramLevel, string> = {
 };
 
 export function LevelPage({ level }: { level: ProgramLevel }) {
-  const levelPrograms = getProgramsByLevel(level);
-
   return (
     <main>
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
@@ -31,13 +28,19 @@ export function LevelPage({ level }: { level: ProgramLevel }) {
             Volver a oferta académica
           </Link>
           <div className="mt-8">
-            <SectionHeading
-              title={level}
-              description={`${levelCopy[level]} Elige un programa y habla con un asesor para resolver dudas.`}
-            />
+            <h1 className="font-heading text-[2.5rem] font-semibold leading-[0.98] text-[#04215e] sm:text-5xl">
+              {level}
+            </h1>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+              {levelCopy[level]} Elige un programa y habla con un asesor para resolver dudas.
+            </p>
           </div>
           <div className="mt-8">
-            <ProgramFinder programs={levelPrograms} initialLevel={level} />
+            <ProgramFinder
+              programs={programs}
+              initialLevel={level}
+              navigateOnLevelChange
+            />
           </div>
         </div>
       </section>

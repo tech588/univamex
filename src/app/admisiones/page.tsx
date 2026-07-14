@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 import { AdmissionsChecklist } from "@/components/admissions-checklist";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { academicSchedules } from "@/data/admissions";
 
 export const metadata: Metadata = {
   title: "Admisiones",
@@ -38,8 +41,55 @@ export default function AdmisionesPage() {
       </section>
 
       <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-4xl rounded-lg border border-slate-200 p-6 shadow-sm sm:p-8">
-          <h2 className="font-heading text-2xl font-semibold leading-tight text-[#04215e]">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            title="Modalidades, horarios e inicios"
+            description="Consulta una referencia general por nivel. La disponibilidad de grupos debe confirmarse directamente con admisiones."
+          />
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {academicSchedules.map((item) => (
+              <article className="border border-slate-200 bg-[#f8fafc] p-5" key={item.level}>
+                <h2 className="font-editorial text-2xl font-semibold text-[#04215e]">
+                  {item.level}
+                </h2>
+                <dl className="mt-5 grid gap-4 text-sm leading-6 text-slate-600">
+                  <div>
+                    <dt className="flex items-center gap-2 font-bold text-[#071a3d]">
+                      <Clock3 aria-hidden="true" className="h-4 w-4 text-[#1e40af]" />
+                      Horario y modalidad
+                    </dt>
+                    <dd className="mt-1">{item.schedule}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#071a3d]">Duración general</dt>
+                    <dd className="mt-1">{item.duration}</dd>
+                  </div>
+                  <div>
+                    <dt className="flex items-center gap-2 font-bold text-[#071a3d]">
+                      <CalendarDays aria-hidden="true" className="h-4 w-4 text-[#1e40af]" />
+                      Inicios de clases
+                    </dt>
+                    <dd className="mt-1">{item.starts}</dd>
+                  </div>
+                </dl>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-col gap-4 border-l-4 border-[#e7a928] bg-[#f8fafc] p-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm leading-6 text-slate-600">
+              ¿Aún no eliges programa? Compara primero la oferta y vuelve a esta página con una opción en mente.
+            </p>
+            <Link className="inline-flex min-h-11 shrink-0 items-center gap-2 text-sm font-bold text-[#04215e]" href="/oferta-academica">
+              Explorar programas
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8fafc] px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-4xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="font-editorial text-2xl font-semibold leading-snug text-[#04215e]">
             Proceso recomendado
           </h2>
           <ol className="mt-6 grid gap-4">

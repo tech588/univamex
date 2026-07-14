@@ -76,7 +76,7 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
                   <p className="text-xs font-bold text-[#b45309]">
                     {campus.shortName}
                   </p>
-                  <h2 className="mt-2 font-heading text-2xl font-semibold leading-tight text-[#071a3d]">
+                  <h2 className="mt-2 font-editorial text-2xl font-semibold leading-snug text-[#071a3d]">
                     {campus.name}
                   </h2>
                   <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -123,9 +123,6 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
               />
               <p>
                 Informes: {campusContact.phone}
-                {campusContact.secondaryPhone
-                  ? ` / ${campusContact.secondaryPhone}`
-                  : null}
               </p>
             </div>
             <Link
@@ -181,7 +178,7 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="p-5 font-heading text-xl font-semibold leading-tight text-[#071a3d]">
+                <h3 className="p-5 font-editorial text-xl font-semibold leading-snug text-[#071a3d]">
                   {item.title}
                 </h3>
               </article>

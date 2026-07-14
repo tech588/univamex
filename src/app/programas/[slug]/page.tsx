@@ -154,7 +154,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
             description={program.description}
           />
           <div className="rounded-lg border border-slate-200 bg-[#F8FAFC] p-6">
-            <h2 className="font-heading text-2xl font-semibold leading-tight text-[#04215e]">
+            <h2 className="font-editorial text-2xl font-semibold leading-snug text-[#04215e]">
               Para quién es
             </h2>
             <ul className="mt-5 grid gap-3 text-slate-700">
@@ -204,7 +204,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
               aria-hidden="true"
               className="h-9 w-9 text-[#1E40AF]"
             />
-            <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight text-[#04215e]">
+            <h2 className="mt-4 font-editorial text-3xl font-semibold leading-snug text-[#04215e]">
               Perfil de egreso
             </h2>
             <ul className="mt-6 flex flex-wrap gap-3">
@@ -219,7 +219,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
             </ul>
           </div>
           <div>
-            <h2 className="font-heading text-3xl font-semibold leading-tight text-[#04215e]">
+            <h2 className="font-editorial text-3xl font-semibold leading-snug text-[#04215e]">
               Campo laboral
             </h2>
             <ul className="mt-6 flex flex-wrap gap-3">

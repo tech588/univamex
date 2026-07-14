@@ -7,7 +7,7 @@ export const faqItems = [
   {
     question: "¿Cuánto duran los programas?",
     answer:
-      "Los bachilleratos duran 3 años. Las licenciaturas, maestrías y doctorado dependen del programa, modalidad y plan vigente; cada ficha muestra la duración disponible.",
+      "Los bachilleratos duran 3 años; las licenciaturas, entre 3 años y 3 años 4 meses según modalidad; las maestrías, 1 año 8 meses; y el doctorado, 3 años. Revisa siempre la ficha del programa elegido.",
   },
   {
     question: "¿Qué documentos necesito para inscribirme?",
@@ -17,7 +17,7 @@ export const faqItems = [
   {
     question: "¿Tienen horarios flexibles?",
     answer:
-      "La oferta incluye modalidades escolarizada, presencial, mixta, en línea o sabatina según el programa. Conviene confirmar grupos, horarios y disponibilidad antes de tomar una decisión.",
+      "Bachillerato se imparte de lunes a viernes. Algunas licenciaturas tienen opción escolarizada o sabatina; las maestrías son sabatinas y el doctorado se ofrece en línea con clases sabatinas opcionales. La disponibilidad depende del programa y del grupo.",
   },
   {
     question: "¿Tienen más de un campus?",
@@ -25,9 +25,9 @@ export const faqItems = [
       "La información institucional contempla Campus Ciudad Azteca y Campus Las Américas. En la página de campus puedes revisar direcciones, referencias y el recorrido virtual.",
   },
   {
-    question: "¿Los costos o precios son fijos?",
+    question: "¿Cómo consulto colegiaturas y becas?",
     answer:
-      "Cualquier costo, beca, promoción o esquema de pago debe confirmarse directamente con admisiones para recibir información actual y por escrito cuando aplique.",
+      "Solicita la información vigente directamente con admisiones. El sitio no publica montos ni promociones para evitar que tomes una decisión con datos desactualizados.",
   },
   {
     question: "¿Cómo elijo el programa correcto?",
@@ -38,5 +38,10 @@ export const faqItems = [
     question: "¿Puedo conocer el campus antes de iniciar?",
     answer:
       "Sí. La página de campus integra información de sedes y el recorrido virtual 360 para explorar espacios clave desde el navegador.",
+  },
+  {
+    question: "¿Cuál es el horario de atención?",
+    answer:
+      "El horario general de atención e inscripciones es de lunes a sábado, de 8:00 a 18:00 h. Puedes escribir por WhatsApp antes de tu visita para confirmar la atención disponible.",
   },
 ];

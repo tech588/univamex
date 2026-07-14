@@ -4,22 +4,29 @@ export const siteConfig = {
   name: "UNIVAMEX",
   fullName: "Colegio Universitario del Valle de México - UNIVAMEX",
   phone: "55-80-82-57-96",
-  phoneSecondary: "55-73-14-70-43",
   whatsappDisplay: "55-29-94-53-81",
   whatsappNumber: "525529945381",
   email: "informes@univamex.edu.mx",
   facebook: "Colegio Universitario del Valle de México - UNIVAMEX",
+  instagram: "https://www.instagram.com/univamex_oficial/",
   website: "www.univamex.com",
   baseUrl: "https://www.univamex.com",
+  serviceHours: "Lunes a sábado, de 8:00 a 18:00 h",
 };
 
 export const navItems: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Oferta académica", href: "/oferta-academica" },
-  { label: "Campus", href: "/campus" },
-  { label: "FAQ", href: "/faq" },
   { label: "Admisiones", href: "/admisiones" },
+  { label: "Campus", href: "/campus" },
+  { label: "Quiénes somos", href: "/quienes-somos" },
   { label: "Contacto", href: "/contacto" },
+];
+
+export const footerNavItems: NavItem[] = [
+  ...navItems,
+  { label: "Preguntas frecuentes", href: "/faq" },
+  { label: "Recorrido 360", href: "/recorrido-360" },
 ];
 
 export const levels: ProgramLevel[] = [

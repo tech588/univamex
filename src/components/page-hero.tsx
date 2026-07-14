@@ -34,7 +34,7 @@ export function PageHero({
       <div className="relative z-10 flex min-h-[21rem] items-center px-5 pb-14 pt-12 sm:min-h-[25rem] sm:px-8 sm:pb-16 lg:min-h-[28rem] lg:px-10">
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-3xl">
-            <h1 className="text-[clamp(2.45rem,10vw,4.8rem)] font-semibold uppercase leading-[0.96] tracking-normal text-balance [font-family:var(--font-hero)]">
+            <h1 className="text-[clamp(2.45rem,10vw,4.8rem)] font-semibold leading-[0.96] tracking-[-0.025em] text-balance [font-family:var(--font-hero)]">
               {title}
             </h1>
             <p className="mt-5 max-w-2xl text-base font-normal leading-7 text-white/82 sm:text-lg sm:leading-8">

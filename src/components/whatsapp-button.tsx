@@ -7,7 +7,13 @@ type WhatsAppButtonProps = {
   program?: string;
   source?: string;
   question?: string;
-  variant?: "primary" | "secondary" | "ghost" | "floating" | "light";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "ghost"
+    | "floating"
+    | "light"
+    | "accent";
   className?: string;
 };
 
@@ -21,6 +27,8 @@ const variants = {
     "bg-[#04215e] text-white shadow-lg shadow-slate-950/20 hover:bg-[#0b327f]",
   light:
     "border border-white bg-white text-[#04215e] shadow-sm shadow-slate-950/10 hover:bg-[#e7eefb]",
+  accent:
+    "border border-[#e7a928] bg-[#e7a928] text-[#071a3d] shadow-lg shadow-slate-950/20 hover:border-[#f0bd4b] hover:bg-[#f0bd4b]",
 };
 
 export function WhatsAppButton({
@@ -50,11 +58,11 @@ export function WhatsAppButton({
 
 export function FloatingWhatsApp() {
   return (
-    <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
+    <div className="fixed bottom-5 right-5 z-40 sm:bottom-6 sm:right-6">
       <WhatsAppButton
-        className="w-full"
-        label="Hablar con un asesor"
-        source="CTA fijo móvil"
+        className="h-14 w-14 !rounded-full p-0 shadow-xl shadow-slate-950/25 sm:h-16 sm:w-16 [&>span]:sr-only"
+        label="Solicitar informes por WhatsApp"
+        source="Acceso flotante"
         variant="floating"
       />
     </div>

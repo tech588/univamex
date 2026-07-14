@@ -42,7 +42,7 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
-      <div className="flex min-h-[5.25rem] w-full items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-[5.25rem] w-full max-w-7xl items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="group flex min-h-12 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
@@ -59,10 +59,13 @@ export function Header() {
           />
         </Link>
 
-        <nav aria-label="Navegación principal" className="hidden lg:block">
+        <nav aria-label="Navegación principal" className="hidden xl:block">
           <ul className="flex items-center gap-1">
             {navItems.map((item) => {
-              const active = pathname === item.href;
+              const active =
+                item.href === "/"
+                  ? pathname === item.href
+                  : pathname.startsWith(item.href);
 
               return (
                 <li key={item.href}>
@@ -88,7 +91,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <WhatsAppButton
             className="min-h-10 border-current px-4 py-2.5 text-xs"
             label="Solicitar informes"
@@ -102,7 +105,7 @@ export function Header() {
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
           className={cn(
-            "inline-flex min-h-11 min-w-11 items-center justify-center border p-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] lg:hidden",
+            "inline-flex min-h-11 min-w-11 items-center justify-center border p-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] xl:hidden",
             transparent
               ? "border-white/30 text-white hover:bg-white/10"
               : "border-[#d9e0ec] text-[#04215e] hover:bg-[#04215e]/6",
@@ -122,7 +125,7 @@ export function Header() {
         {mobileOpen ? (
           <motion.div
             id="mobile-navigation"
-            className="fixed inset-x-0 top-[5.25rem] z-50 border-y border-[#d9e0ec] bg-white px-3 py-5 text-[#04215e] shadow-xl shadow-slate-950/10 lg:hidden"
+            className="fixed inset-x-0 top-[5.25rem] z-50 max-h-[calc(100dvh-5.25rem)] overflow-y-auto border-y border-[#d9e0ec] bg-white px-3 py-5 text-[#04215e] shadow-xl shadow-slate-950/10 xl:hidden"
             initial={reduceMotion ? false : { y: -18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={reduceMotion ? undefined : { y: -18, opacity: 0 }}
@@ -135,7 +138,11 @@ export function Header() {
                     <Link
                       className={cn(
                         "flex min-h-12 items-center border-b border-[#d9e0ec] px-1 text-sm font-bold transition hover:bg-[#04215e]/6",
-                        pathname === item.href
+                        item.href === "/"
+                          ? pathname === item.href
+                            ? "text-[#04215e]"
+                            : "text-[#04215e]/72"
+                          : pathname.startsWith(item.href)
                           ? "text-[#04215e]"
                           : "text-[#04215e]/72",
                       )}

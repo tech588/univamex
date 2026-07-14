@@ -13,7 +13,7 @@ export function Accordion({ items }: AccordionProps) {
           key={item.title}
           open={index === 0}
         >
-          <summary className="cursor-pointer list-none font-heading text-lg font-semibold leading-tight text-[#04215e]">
+          <summary className="cursor-pointer list-none font-editorial text-lg font-semibold leading-snug text-[#04215e]">
             <span className="flex items-center justify-between gap-4">
               {item.title}
               <span className="text-2xl leading-none text-[#1E40AF] group-open:rotate-45">

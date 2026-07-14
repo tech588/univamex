@@ -25,7 +25,7 @@ export function ProgramCard({ program }: { program: Program }) {
             {program.modality}
           </span>
         </div>
-        <h3 className="mt-4 font-heading text-xl font-semibold leading-7 text-[#04215e]">
+        <h3 className="mt-4 font-editorial text-xl font-semibold leading-7 text-[#04215e]">
           <Link href={`/programas/${program.slug}`}>{program.name}</Link>
         </h3>
         <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600">

@@ -5,6 +5,7 @@ import { PageHero } from "@/components/page-hero";
 import { ProgramFinder } from "@/components/program-finder";
 import { SectionHeading } from "@/components/section-heading";
 import { programs } from "@/data/programs";
+import { parseProgramLevel } from "@/lib/program-levels";
 
 export const metadata: Metadata = {
   title: "Oferta académica",
@@ -12,7 +13,16 @@ export const metadata: Metadata = {
     "Explora bachilleratos, licenciaturas, maestrías y doctorado de UNIVAMEX por nivel, área y modalidad.",
 };
 
-export default function OfertaAcademicaPage() {
+type OfertaAcademicaPageProps = {
+  searchParams: Promise<{ nivel?: string }>;
+};
+
+export default async function OfertaAcademicaPage({
+  searchParams,
+}: OfertaAcademicaPageProps) {
+  const { nivel } = await searchParams;
+  const initialLevel = parseProgramLevel(nivel);
+
   return (
     <main>
       <PageHero
@@ -56,7 +66,7 @@ export default function OfertaAcademicaPage() {
                 href={item.href}
                 key={item.href}
               >
-                <span className="font-heading text-xl font-semibold leading-tight text-[#04215e]">
+                <span className="font-editorial text-xl font-semibold leading-snug text-[#04215e]">
                   {item.label}
                 </span>
                 <span className="mt-2 block text-sm leading-6 text-slate-600">
@@ -71,7 +81,11 @@ export default function OfertaAcademicaPage() {
           </div>
 
           <div className="mt-10">
-            <ProgramFinder programs={programs} />
+            <ProgramFinder
+              programs={programs}
+              initialLevel={initialLevel}
+              syncLevelToUrl
+            />
           </div>
         </div>
       </section>

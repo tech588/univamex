@@ -31,6 +31,7 @@ const staticRoutes = [
     changeFrequency: "monthly",
   },
   { path: "/campus", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/quienes-somos", priority: 0.8, changeFrequency: "monthly" },
   { path: "/admisiones", priority: 0.85, changeFrequency: "monthly" },
   { path: "/contacto", priority: 0.75, changeFrequency: "monthly" },
   { path: "/faq", priority: 0.7, changeFrequency: "monthly" },

@@ -59,7 +59,7 @@ export default function FaqPage() {
                   href={item.href}
                   key={item.href}
                 >
-                  <span className="font-heading text-xl font-semibold leading-tight text-[#071a3d]">
+                  <span className="font-editorial text-xl font-semibold leading-snug text-[#071a3d]">
                     {item.label}
                   </span>
                   <span className="mt-2 block text-sm leading-6 text-slate-600">
@@ -83,7 +83,7 @@ export default function FaqPage() {
                 className="group border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5 open:border-[#04215e]/35"
                 key={item.question}
               >
-                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-left font-heading text-xl font-semibold leading-tight text-[#071a3d] marker:hidden">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-left font-editorial text-xl font-semibold leading-snug text-[#071a3d] marker:hidden">
                   <span>{item.question}</span>
                   <CircleHelp
                     aria-hidden="true"
