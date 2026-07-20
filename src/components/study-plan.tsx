@@ -1,8 +1,10 @@
-import { BookOpenText, ChevronDown, Layers3 } from "lucide-react";
+import { BookOpenText, ChevronDown, Download, Layers3 } from "lucide-react";
 import type { StudyBlock } from "@/types/content";
 
 type StudyPlanProps = {
   items: StudyBlock[];
+  pdfHref: string;
+  programName: string;
 };
 
 const periodStyles = [
@@ -18,7 +20,7 @@ const periodStyles = [
   "border-l-fuchsia-700 bg-fuchsia-50 text-fuchsia-950",
 ];
 
-export function StudyPlan({ items }: StudyPlanProps) {
+export function StudyPlan({ items, pdfHref, programName }: StudyPlanProps) {
   const subjectCount = items.reduce(
     (total, period) => total + period.items.length,
     0,
@@ -59,10 +61,21 @@ export function StudyPlan({ items }: StudyPlanProps) {
         </div>
       </dl>
 
-      <p className="mt-5 text-sm leading-6 text-slate-600">
-        Selecciona un periodo para consultar sus asignaturas. Todos se muestran
-        cerrados al cargar la página.
-      </p>
+      <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm leading-6 text-slate-600">
+          Selecciona un periodo para consultar sus asignaturas. Todos se muestran
+          cerrados al cargar la página.
+        </p>
+        <a
+          aria-label={`Descargar plan de estudios de ${programName} en PDF`}
+          className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#1E3A8A] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#172E6E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E40AF]"
+          download
+          href={pdfHref}
+        >
+          <Download aria-hidden="true" className="h-4 w-4" />
+          Descargar PDF
+        </a>
+      </div>
 
       <div className="mt-5 grid gap-3">
         {items.map((period, index) => (

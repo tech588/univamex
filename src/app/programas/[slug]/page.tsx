@@ -279,7 +279,11 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
             title="Plan de estudios"
             description="Consulta todas las asignaturas del programa, organizadas según el periodo y la etapa formativa indicados en su documento académico."
           />
-          <StudyPlan items={program.studyPlan} />
+          <StudyPlan
+            items={program.studyPlan}
+            pdfHref={`/pdf/planes-estudio/${program.slug}.pdf`}
+            programName={program.name}
+          />
         </div>
       </section>
 
