@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { ProgramFinder } from "@/components/program-finder";
 import { programs } from "@/data/programs";
 import type { ProgramLevel } from "@/types/content";
@@ -20,13 +19,14 @@ export function LevelPage({ level }: { level: ProgramLevel }) {
     <main>
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <Link
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#1E3A8A]"
-            href="/oferta-academica"
-          >
-            <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-            Volver a oferta académica
-          </Link>
+          <BreadcrumbTrail
+            backHref="/oferta-academica"
+            items={[
+              { href: "/", label: "Inicio" },
+              { href: "/oferta-academica", label: "Oferta académica" },
+              { label: level },
+            ]}
+          />
           <div className="mt-8">
             <h1 className="font-heading text-[2.5rem] font-semibold leading-[0.98] text-[#04215e] sm:text-5xl">
               {level}

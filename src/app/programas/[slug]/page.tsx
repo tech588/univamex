@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, BriefcaseBusiness, BrainCircuit } from "lucide-react";
+import { BriefcaseBusiness, BrainCircuit } from "lucide-react";
 import { AdmissionsChecklist } from "@/components/admissions-checklist";
+import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { ProgramCard } from "@/components/program-card";
 import { SectionHeading } from "@/components/section-heading";
-import { StudyPlan } from "@/components/study-plan";
+import { StudyPlan, StudyPlanOverview } from "@/components/study-plan";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { seoConfig } from "@/data/seo";
 import {
@@ -14,6 +15,7 @@ import {
   getRelatedPrograms,
   programs,
 } from "@/data/programs";
+import { programLevelRoutes } from "@/lib/program-levels";
 
 type ProgramPageProps = {
   params: Promise<{ slug: string }>;
@@ -107,13 +109,15 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <section className="bg-[#F8FAFC] px-5 py-10 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <Link
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#1E3A8A]"
-            href="/oferta-academica"
-          >
-            <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-            Volver a oferta académica
-          </Link>
+          <BreadcrumbTrail
+            backHref={programLevelRoutes[program.level]}
+            items={[
+              { href: "/", label: "Inicio" },
+              { href: "/oferta-academica", label: "Oferta académica" },
+              { href: programLevelRoutes[program.level], label: program.level },
+              { label: program.shortName },
+            ]}
+          />
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
@@ -126,7 +130,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
                 {program.promise}
               </p>
-              <dl className="mt-8 grid gap-3 sm:grid-cols-2">
+              <dl className="mt-8 grid grid-cols-2 gap-3">
                 {[
                   ["Modalidad", program.modality],
                   ["Duración", program.duration],
@@ -134,13 +138,13 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
                   ["Materias", program.subjects ?? "por confirmar"],
                 ].map(([label, value]) => (
                   <div
-                    className="rounded-lg border border-slate-200 bg-white p-4"
+                    className="min-w-0 rounded-lg border border-slate-200 bg-white p-3 sm:p-4"
                     key={label}
                   >
                     <dt className="text-xs font-bold text-slate-500">
                       {label}
                     </dt>
-                    <dd className="mt-1 font-semibold text-[#0F172A]">
+                    <dd className="mt-1 break-words text-sm font-semibold leading-5 text-[#0F172A] sm:text-base sm:leading-6">
                       {value}
                       {label === "RVOE" && program.rvoeStatus === "review" ? (
                         <span className="text-[#B45309]"> por confirmar</span>
@@ -196,6 +200,23 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <SectionHeading
+              title="Plan de estudios"
+              description="Consulta todas las asignaturas del programa, organizadas según el periodo y la etapa formativa indicados en su documento académico."
+            />
+            <StudyPlanOverview items={program.studyPlan} />
+          </div>
+          <StudyPlan
+            items={program.studyPlan}
+            pdfHref={`/pdf/planes-estudio/${program.slug}.pdf`}
+            programName={program.name}
+          />
         </div>
       </section>
 
@@ -270,20 +291,6 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
               ))}
             </ul>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading
-            title="Plan de estudios"
-            description="Consulta todas las asignaturas del programa, organizadas según el periodo y la etapa formativa indicados en su documento académico."
-          />
-          <StudyPlan
-            items={program.studyPlan}
-            pdfHref={`/pdf/planes-estudio/${program.slug}.pdf`}
-            programName={program.name}
-          />
         </div>
       </section>
 

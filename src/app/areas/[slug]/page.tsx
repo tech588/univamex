@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CircleHelp } from "lucide-react";
+import { ArrowRight, CircleHelp } from "lucide-react";
+import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { PageHero } from "@/components/page-hero";
 import { ProgramCard } from "@/components/program-card";
 import { SectionHeading } from "@/components/section-heading";
@@ -75,13 +76,14 @@ export default async function AreaPage({ params }: AreaPageProps) {
       <section className="bg-[#F8FAFC] px-5 py-14 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
-            <Link
-              className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#1E3A8A]"
-              href="/oferta-academica"
-            >
-              <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-              Oferta académica
-            </Link>
+            <BreadcrumbTrail
+              backHref="/oferta-academica"
+              items={[
+                { href: "/", label: "Inicio" },
+                { href: "/oferta-academica", label: "Oferta académica" },
+                { label: area.title },
+              ]}
+            />
             <p className="mt-5 text-sm font-bold text-[#B45309]">
               Área académica · Ecatepec
             </p>

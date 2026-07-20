@@ -7,6 +7,10 @@ type StudyPlanProps = {
   programName: string;
 };
 
+type StudyPlanOverviewProps = {
+  items: StudyBlock[];
+};
+
 const periodStyles = [
   "border-l-blue-700 bg-blue-50 text-blue-950",
   "border-l-amber-600 bg-amber-50 text-amber-950",
@@ -20,7 +24,7 @@ const periodStyles = [
   "border-l-fuchsia-700 bg-fuchsia-50 text-fuchsia-950",
 ];
 
-export function StudyPlan({ items, pdfHref, programName }: StudyPlanProps) {
+function getStudyPlanSummary(items: StudyBlock[]) {
   const subjectCount = items.reduce(
     (total, period) => total + period.items.length,
     0,
@@ -30,9 +34,14 @@ export function StudyPlan({ items, pdfHref, programName }: StudyPlanProps) {
     ? "semestres"
     : "cuatrimestres";
 
+  return { periodLabel, phases, subjectCount };
+}
+
+export function StudyPlanOverview({ items }: StudyPlanOverviewProps) {
+  const { periodLabel, phases, subjectCount } = getStudyPlanSummary(items);
+
   return (
-    <div>
-      <dl className="grid gap-3 sm:grid-cols-3">
+    <dl className="mt-8 grid gap-3">
         <div className="border border-slate-200 bg-white p-4">
           <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-slate-500">
             <Layers3 aria-hidden="true" className="h-4 w-4 text-[#1E40AF]" />
@@ -51,7 +60,7 @@ export function StudyPlan({ items, pdfHref, programName }: StudyPlanProps) {
             {subjectCount} asignaturas
           </dd>
         </div>
-        <div className="border border-slate-200 bg-white p-4 sm:col-span-1">
+        <div className="border border-slate-200 bg-white p-4">
           <dt className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">
             Etapas formativas
           </dt>
@@ -59,8 +68,13 @@ export function StudyPlan({ items, pdfHref, programName }: StudyPlanProps) {
             {phases.join(" · ") || "Plan de estudios"}
           </dd>
         </div>
-      </dl>
+    </dl>
+  );
+}
 
+export function StudyPlan({ items, pdfHref, programName }: StudyPlanProps) {
+  return (
+    <div>
       <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-6 text-slate-600">
           Selecciona un periodo para consultar sus asignaturas. Todos se muestran
