@@ -78,8 +78,10 @@ test("la ruta del home recupera el storytelling animado", async () => {
   const pathway = await source("src/components/home-pathways.tsx");
 
   assert.match(pathway, /AnimatePresence/);
-  assert.match(pathway, /opacity: 0, x: 24/);
-  assert.match(pathway, /duration: 0\.24/);
+  assert.doesNotMatch(pathway, /opacity: 0/);
+  assert.match(pathway, /x: "100%"/);
+  assert.match(pathway, /x: "-100%"/);
+  assert.match(pathway, /duration: reduceMotion \? 0 : 0\.42/);
   assert.match(pathway, /ChevronLeft/);
   assert.match(pathway, /ChevronRight/);
   assert.match(pathway, /5000/);
@@ -87,14 +89,19 @@ test("la ruta del home recupera el storytelling animado", async () => {
   assert.match(pathway, /\/oferta-academica/);
   assert.match(pathway, /\/admisiones/);
   assert.match(pathway, /\/campus/);
-  assert.match(pathway, /CAMPUS CIUDAD AZTECA\.png/);
+  assert.match(pathway, /instalaciones1\.jpg/);
+  assert.match(pathway, /object-cover/);
+  assert.match(pathway, /linear-gradient/);
+  assert.doesNotMatch(pathway, /min-h-\[42rem\]/);
 });
 
 test("la nueva fotografía identifica el Campus Ciudad Azteca", async () => {
   const campuses = await source("src/data/campuses.ts");
 
-  assert.match(campuses, /CAMPUS CIUDAD AZTECA\.png/);
-  assert.match(campuses, /Fachada del Campus Ciudad Azteca/);
+  assert.match(campuses, /instalaciones1\.jpg/);
+  assert.match(campuses, /Vista exterior del Campus Ciudad Azteca/);
+  assert.match(campuses, /imageWidth: 1040/);
+  assert.match(campuses, /imageHeight: 584/);
 });
 
 test("las preguntas y subtítulos usan una serif editorial legible", async () => {
@@ -160,14 +167,25 @@ test("la página institucional usa información real consolidada", async () => {
   assert.match(page, /Lema y escudo/);
 });
 
-test("los precios oficiales indican ciclo, condiciones y validación", async () => {
-  const page = await source("src/app/becas-y-colegiaturas/page.tsx");
+test("becas y colegiaturas permanecen fuera del sitio hasta tener autorización", async () => {
+  const site = await source("src/data/site.ts");
+  const sitemap = await source("src/app/sitemap.ts");
 
-  assert.match(page, /ciclo 2026/i);
-  assert.match(page, /Plan Beca/);
-  assert.match(page, /gastos de incorporación a la SEP/);
-  assert.match(page, /confirma con admisiones/i);
-  assert.match(page, /\$2,490 MXN/);
+  assert.doesNotMatch(site, /becas-y-colegiaturas|Becas y colegiaturas/);
+  assert.doesNotMatch(sitemap, /becas-y-colegiaturas/);
+  await assert.rejects(() => source("src/app/becas-y-colegiaturas/page.tsx"));
+});
+
+test("las páginas SEO nuevas usan héroes institucionales a todo lo ancho", async () => {
+  const university = await source("src/app/universidad-en-ecatepec/page.tsx");
+  const pages = await Promise.all([
+    source("src/app/areas/[slug]/page.tsx"),
+    source("src/app/rvoe/page.tsx"),
+  ]);
+
+  assert.match(university, /<Hero/);
+  for (const page of pages) assert.match(page, /PageHero/);
+  assert.doesNotMatch([university, ...pages].join("\n"), /imageFit="contain"/);
 });
 
 test("los mensajes generales de WhatsApp no exponen la página de origen", async () => {

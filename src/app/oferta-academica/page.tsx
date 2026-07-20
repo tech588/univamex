@@ -30,8 +30,7 @@ export default async function OfertaAcademicaPage({
       <PageHero
         title="Oferta académica"
         description="Elige una ruta por nivel, área profesional y modalidad antes de hablar con admisiones."
-        image="/images/legacy/estudiantes-campus.jpg"
-        imageClassName="object-[50%_center]"
+        image="/images/UNIVAMEX STOCK 03.jpg"
       />
       <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">

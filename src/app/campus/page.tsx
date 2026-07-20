@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, MapPin, Phone } from "lucide-react";
+import { ExternalLink, MapPin, Navigation, Phone } from "lucide-react";
 import { FinalContactCta } from "@/components/final-contact-cta";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
@@ -14,28 +14,76 @@ type CampusPageProps = {
   }>;
 };
 
-const campusGallery = [
+const installationGallery = [
   {
-    image: "/images/EVENTOS3.png",
-    alt: "Actividad cultural de estudiantes UNIVAMEX en campus",
-    title: "Vida estudiantil",
+    image: "/images/CAMPUS CIUDAD AZTECA.png",
+    width: 2736,
+    height: 1536,
+    alt: "Fachada del Campus Ciudad Azteca de UNIVAMEX",
+    title: "Fachada del Campus Ciudad Azteca",
   },
   {
-    image: "/images/UNIVAMEX12.png",
-    alt: "Altar y actividad cultural dentro de UNIVAMEX",
-    title: "Tradición y comunidad",
+    image: "/images/instalaciones1.jpg",
+    width: 1040,
+    height: 584,
+    alt: "Vista exterior del Campus Ciudad Azteca de UNIVAMEX",
+    title: "Campus Ciudad Azteca",
   },
   {
-    image: "/images/UNIVAMEX16.png",
-    alt: "Estudiantes en evento universitario de UNIVAMEX",
-    title: "Eventos con identidad",
+    image: "/images/instalaciones2.jpg",
+    width: 960,
+    height: 720,
+    alt: "Sala de espera y jardín interior de UNIVAMEX",
+    title: "Sala de espera y jardín interior",
   },
-];
+  {
+    image: "/images/instalaciones3.jpg",
+    width: 960,
+    height: 720,
+    alt: "Espacio de atención administrativa de UNIVAMEX",
+    title: "Atención administrativa",
+  },
+  {
+    image: "/images/instalaciones4.jpg",
+    width: 960,
+    height: 720,
+    alt: "Pasillo y fuente interior en UNIVAMEX",
+    title: "Áreas de circulación y convivencia",
+  },
+  {
+    image: "/images/instalaciones5.jpg",
+    width: 960,
+    height: 720,
+    alt: "Recepción de UNIVAMEX",
+    title: "Recepción",
+  },
+  {
+    image: "/images/instalaciones6.jpg",
+    width: 960,
+    height: 720,
+    alt: "Centro de servicios administrativos de UNIVAMEX",
+    title: "Servicios administrativos",
+  },
+  {
+    image: "/images/laboratorios.jpg",
+    width: 960,
+    height: 720,
+    alt: "Laboratorio académico de UNIVAMEX",
+    title: "Laboratorio académico",
+  },
+  {
+    image: "/images/gimasio.jpg",
+    width: 960,
+    height: 720,
+    alt: "Gimnasio de UNIVAMEX",
+    title: "Gimnasio",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Campus UNIVAMEX en Ecatepec",
   description:
-    "Conoce Campus Ciudad Azteca y Campus Las Américas de UNIVAMEX en Ecatepec: direcciones, mapas, referencias y recorrido virtual 360.",
+    "Conoce Campus Ciudad Azteca y Campus Las Américas de UNIVAMEX: instalaciones, direcciones, mapas, rutas y recorrido virtual 360.",
   alternates: { canonical: "/campus" },
 };
 
@@ -45,35 +93,34 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
   return (
     <main>
       <PageHero
-        title="Campus UNIVAMEX"
-        description="Conoce sedes, referencias y espacios clave antes de iniciar tu proceso de admisión."
-        image="/images/legacy/campus-americas-patio.jpg"
-        imageClassName="object-[52%_center]"
+        title="Campus"
+        description="Conoce nuestras sedes, ubica cada campus y revisa los espacios disponibles antes de planear tu visita."
+        image="/images/CAMPUS CIUDAD AZTECA.png"
       />
 
       <section className="bg-[#F8FAFC] px-5 py-14 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
-            title="Sedes, referencias y espacios"
-            description="La información de campus te ayuda a ubicar la sede correcta, revisar referencias y preparar tu visita con mejor contexto."
+            title="Dos sedes en Ecatepec"
+            description="Revisa la dirección, las referencias y los espacios generales de cada sede para preparar tu visita."
           />
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             {campuses.map((campus) => (
               <article
-                className="grid overflow-hidden border border-slate-200 bg-white shadow-sm shadow-slate-900/5 md:grid-cols-[0.95fr_1.05fr]"
+                className="overflow-hidden border border-slate-200 bg-white shadow-sm shadow-slate-900/5"
                 key={campus.name}
               >
-                <div className="relative min-h-[17rem] bg-slate-200">
+                <div className="relative aspect-video bg-slate-200">
                   <Image
                     src={campus.image}
                     alt={campus.imageAlt}
                     fill
-                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover"
                   />
                 </div>
-                <div className="flex flex-col p-6">
+                <div className="p-6 sm:p-7">
                   <p className="text-xs font-bold text-[#b45309]">
                     {campus.shortName}
                   </p>
@@ -100,17 +147,15 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-6">
-                    <Link
-                      className="inline-flex min-h-11 items-center gap-2 border border-[#cbd5e1] px-4 text-sm font-bold text-[#1e3a8a] transition hover:border-[#04215e] hover:bg-[#eff6ff]"
-                      href={campus.mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Abrir mapa
-                      <ExternalLink aria-hidden="true" className="h-4 w-4" />
-                    </Link>
-                  </div>
+                  <Link
+                    className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[#cbd5e1] px-4 text-sm font-bold text-[#1e3a8a] transition hover:border-[#04215e] hover:bg-[#eff6ff]"
+                    href={campus.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Abrir mapa
+                    <ExternalLink aria-hidden="true" className="h-4 w-4" />
+                  </Link>
                 </div>
               </article>
             ))}
@@ -122,9 +167,7 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
                 aria-hidden="true"
                 className="mt-0.5 h-5 w-5 shrink-0 text-[#1e40af]"
               />
-              <p>
-                Informes: {campusContact.phone}
-              </p>
+              <p>Informes: {campusContact.phone}</p>
             </div>
             <Link
               className="inline-flex min-h-11 items-center justify-center border border-[#04215e] px-4 font-bold text-[#04215e] transition hover:bg-[#04215e] hover:text-white"
@@ -136,15 +179,92 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
         </div>
       </section>
 
+      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            title="Espacios del campus"
+            description="Fotografías de los espacios académicos, de atención y convivencia de UNIVAMEX. Las imágenes se muestran completas y sin recorte."
+          />
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {installationGallery.map((item) => (
+              <figure
+                className="overflow-hidden border border-slate-200 bg-[#F8FAFC] shadow-sm shadow-slate-900/5"
+                key={item.image}
+              >
+                <div className="relative aspect-[4/3] bg-slate-200">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="p-4 font-editorial text-lg font-semibold leading-snug text-[#071a3d]">
+                  {item.title}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            title="Mapas y rutas para llegar"
+            description="Abre la ubicación de cada sede o inicia una ruta en Google Maps desde tres puntos de referencia de Ecatepec. El trayecto se calcula al momento de abrirlo."
+          />
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {campuses.map((campus) => (
+              <article
+                className="overflow-hidden border border-slate-200 bg-white shadow-sm shadow-slate-900/5"
+                key={campus.name}
+              >
+                <iframe
+                  title={`Mapa de ${campus.name}`}
+                  src={campus.mapEmbedUrl}
+                  className="aspect-[16/10] w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+                <div className="p-6">
+                  <h2 className="font-editorial text-2xl font-semibold text-[#04215e]">
+                    {campus.name}
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {campus.address}
+                  </p>
+                  <div className="mt-5 grid gap-2">
+                    {campus.routes.map((route) => (
+                      <Link
+                        className="inline-flex min-h-11 items-center justify-between gap-3 border border-slate-200 px-4 py-2 text-sm font-bold text-[#1e3a8a] transition hover:border-[#04215e] hover:bg-[#eff6ff]"
+                        href={route.url}
+                        key={route.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {route.label}
+                        <Navigation aria-hidden="true" className="h-4 w-4 shrink-0" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section
         className="bg-white px-5 py-16 sm:px-8 lg:px-10"
         id="recorrido-360"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 max-w-3xl">
-            <p className="text-sm font-bold text-[#b45309]">
-              Recorrido virtual
-            </p>
+            <p className="text-sm font-bold text-[#b45309]">Recorrido virtual</p>
             <h2 className="mt-3 font-heading text-[2rem] font-semibold leading-[0.98] tracking-normal text-[#04215e] sm:text-4xl lg:text-5xl">
               Explora el campus en 360
             </h2>
@@ -155,36 +275,6 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
           </div>
 
           <VirtualTour initialSceneId={vista} />
-        </div>
-      </section>
-
-      <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            title="Vida universitaria"
-            description="La experiencia UNIVAMEX también se construye en actividades culturales, eventos académicos y comunidad estudiantil."
-          />
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {campusGallery.map((item) => (
-              <article
-                className="overflow-hidden border border-slate-200 bg-white shadow-sm shadow-slate-900/5"
-                key={item.image}
-              >
-                <div className="relative aspect-[4/3] bg-slate-200">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="p-5 font-editorial text-xl font-semibold leading-snug text-[#071a3d]">
-                  {item.title}
-                </h3>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 

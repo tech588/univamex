@@ -17,7 +17,6 @@ export const siteConfig = {
 export const navItems: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Oferta académica", href: "/oferta-academica" },
-  { label: "Becas y colegiaturas", href: "/becas-y-colegiaturas" },
   { label: "Admisiones", href: "/admisiones" },
   { label: "Campus", href: "/campus" },
   { label: "Quiénes somos", href: "/quienes-somos" },

@@ -5,6 +5,7 @@ export type AcademicArea = {
   name: ProgramArea;
   title: string;
   description: string;
+  heroImage: string;
   decisionCopy: string;
   relatedQuestions: string[];
 };
@@ -16,6 +17,7 @@ export const academicAreas: AcademicArea[] = [
     title: "Carreras de tecnología en Ecatepec",
     description:
       "Compara programas de inteligencia artificial, sistemas computacionales e informática administrativa en UNIVAMEX.",
+    heroImage: "/images/UNIVAMEX STOCK 05.jpg",
     decisionCopy:
       "Esta ruta reúne programas para quienes quieren aprender programación, análisis de datos, sistemas y herramientas digitales desde bachillerato o licenciatura.",
     relatedQuestions: [
@@ -30,6 +32,7 @@ export const academicAreas: AcademicArea[] = [
     title: "Carreras de negocios en Ecatepec",
     description:
       "Explora Administración, Comercio y Negocios Internacionales y Mercadotecnia Digital en UNIVAMEX.",
+    heroImage: "/images/UNIVAMEX STOCK 11.jpg",
     decisionCopy:
       "Compara rutas enfocadas en gestión, comercio, finanzas, logística, mercados y comunicación comercial digital.",
     relatedQuestions: [
@@ -44,6 +47,7 @@ export const academicAreas: AcademicArea[] = [
     title: "Derecho y seguridad en Ecatepec",
     description:
       "Conoce Derecho, Criminología y Criminalística y la Maestría en Juicios Orales en UNIVAMEX.",
+    heroImage: "/images/UNIVAMEX STOCK 14.jpg",
     decisionCopy:
       "Este clúster permite comparar formación jurídica, análisis del delito, investigación criminalística y especialización en litigación oral.",
     relatedQuestions: [
@@ -58,6 +62,7 @@ export const academicAreas: AcademicArea[] = [
     title: "Educación y psicología en Ecatepec",
     description:
       "Compara Psicología, Pedagogía, Maestría en Educación y el doctorado interdisciplinario de UNIVAMEX.",
+    heroImage: "/images/UNIVAMEX STOCK 01.jpg",
     decisionCopy:
       "Encuentra una ruta desde licenciatura hasta posgrado para estudiar aprendizaje, desarrollo humano, intervención educativa e investigación.",
     relatedQuestions: [
@@ -72,6 +77,7 @@ export const academicAreas: AcademicArea[] = [
     title: "Carreras creativas y medios digitales en Ecatepec",
     description:
       "Explora Arquitectura, Diseño Gráfico, Comunicación y Arte Digital y Videojuegos en UNIVAMEX.",
+    heroImage: "/images/UNIVAMEX STOCK 15.jpg",
     decisionCopy:
       "Revisa programas que combinan expresión visual, comunicación, diseño, tecnología, producción multimedia y desarrollo de experiencias digitales.",
     relatedQuestions: [
@@ -86,6 +92,7 @@ export const academicAreas: AcademicArea[] = [
     title: "Programas de turismo en Ecatepec",
     description:
       "Conoce el Bachillerato Tecnológico en Turismo y la Licenciatura en Turismo de UNIVAMEX.",
+    heroImage: "/images/UNIVAMEX STOCK 03.jpg",
     decisionCopy:
       "Compara dos niveles de formación orientados a hospitalidad, servicios, promoción turística, eventos y atención al visitante.",
     relatedQuestions: [
@@ -100,6 +107,7 @@ export const academicAreas: AcademicArea[] = [
     title: "Programas de impacto social en Ecatepec",
     description:
       "Encuentra formación vinculada con intervención comunitaria, educación, psicología y desarrollo humano en UNIVAMEX.",
+    heroImage: "/images/UNIVAMEX STOCK 06.jpg",
     decisionCopy:
       "Esta ruta conecta programas para quienes buscan comprender necesidades sociales y participar en proyectos educativos, comunitarios o de bienestar.",
     relatedQuestions: [
@@ -113,4 +121,3 @@ export const academicAreas: AcademicArea[] = [
 export function getAreaBySlug(slug: string) {
   return academicAreas.find((area) => area.slug === slug);
 }
-

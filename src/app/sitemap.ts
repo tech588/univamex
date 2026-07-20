@@ -7,7 +7,6 @@ const staticRoutes = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/oferta-academica", priority: 0.95, changeFrequency: "weekly" },
   { path: "/universidad-en-ecatepec", priority: 0.95, changeFrequency: "monthly" },
-  { path: "/becas-y-colegiaturas", priority: 0.9, changeFrequency: "monthly" },
   { path: "/rvoe", priority: 0.85, changeFrequency: "monthly" },
   {
     path: "/oferta-academica/bachilleratos",

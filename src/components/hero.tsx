@@ -8,7 +8,13 @@ import { useEffect, useState } from "react";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { cn } from "@/lib/utils";
 
-const slides = [
+export type HeroSlide = {
+  src: string;
+  alt: string;
+  position: string;
+};
+
+const homeSlides = [
   {
     src: "/images/legacy/estudiantes-campus.jpg",
     alt: "Estudiantes de UNIVAMEX conviviendo en el campus",
@@ -26,7 +32,21 @@ const slides = [
   },
 ] as const;
 
-export function Hero() {
+type HeroProps = {
+  titleLines?: readonly string[];
+  description?: string;
+  slides?: readonly HeroSlide[];
+  whatsappQuestion?: string;
+  whatsappSource?: string;
+};
+
+export function Hero({
+  titleLines = ["Decídete a", "llegar más lejos"],
+  description = "Bachilleratos, licenciaturas y posgrados en Ecatepec, con acompañamiento para elegir tu programa e iniciar tu proceso.",
+  slides = homeSlides,
+  whatsappQuestion,
+  whatsappSource = "Hero principal",
+}: HeroProps = {}) {
   const [activeSlide, setActiveSlide] = useState(0);
   const reduceMotion = useReducedMotion();
 
@@ -40,13 +60,13 @@ export function Hero() {
     }, 5000);
 
     return () => window.clearTimeout(timeout);
-  }, [activeSlide, reduceMotion]);
+  }, [activeSlide, reduceMotion, slides.length]);
 
   return (
     <section
       aria-label="Presentación de UNIVAMEX"
       aria-roledescription="carrusel"
-      className="relative isolate min-h-[44rem] overflow-hidden bg-[#02183f] text-white sm:min-h-[46rem] lg:min-h-[42rem]"
+      className="relative isolate min-h-[44rem] overflow-hidden bg-[#02183f] text-white sm:min-h-[48rem] lg:min-h-[50rem]"
     >
       <div aria-hidden="true" className="absolute inset-0">
         {slides.map((slide, index) => {
@@ -89,7 +109,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(2,24,63,0.68)_0%,rgba(2,24,63,0.55)_32%,rgba(2,24,63,0.26)_57%,rgba(2,24,63,0.06)_100%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,24,63,0.55)_0%,rgba(2,24,63,0.08)_44%,rgba(2,24,63,0.45)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex min-h-[44rem] max-w-7xl items-center px-5 pb-24 pt-[8.5rem] sm:min-h-[46rem] sm:px-8 sm:pb-28 sm:pt-[9rem] lg:min-h-[42rem] lg:px-10 lg:pb-24 lg:pt-[8rem]">
+      <div className="relative z-10 mx-auto flex min-h-[44rem] max-w-7xl items-center px-5 pb-24 pt-[8.5rem] sm:min-h-[48rem] sm:px-8 sm:pb-28 sm:pt-[9rem] lg:min-h-[50rem] lg:px-10 lg:pb-28 lg:pt-[9rem]">
         <motion.div
           className="max-w-[46rem]"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
@@ -97,19 +117,20 @@ export function Hero() {
           transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
         >
           <h1 className="flex flex-col items-start gap-[0.12em] text-[clamp(2.3rem,11vw,2.75rem)] font-medium leading-[0.92] tracking-[-0.035em] drop-shadow-[0_2px_12px_rgba(2,24,63,0.5)] [font-family:var(--font-soft-display)] sm:text-[clamp(4rem,7.2vw,6rem)]">
-            <span className="whitespace-nowrap">Decídete a</span>
-            <span className="whitespace-nowrap">llegar más lejos</span>
+            {titleLines.map((line) => (
+              <span className="whitespace-nowrap" key={line}>{line}</span>
+            ))}
           </h1>
           <p className="mt-6 max-w-[38rem] text-base leading-7 text-white/88 sm:text-lg sm:leading-8">
-            Bachilleratos, licenciaturas y posgrados en Ecatepec, con
-            acompañamiento para elegir tu programa e iniciar tu proceso.
+            {description}
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
             <WhatsAppButton
               className="min-h-12 px-6 py-3.5"
               label="Solicitar informes"
-              source="Hero principal"
+              question={whatsappQuestion}
+              source={whatsappSource}
               variant="accent"
             />
             <Link

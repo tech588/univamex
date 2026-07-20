@@ -228,8 +228,8 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading title={`${program.shortName} en Ecatepec`} description={`Estudia ${program.name} en UNIVAMEX. La ficha reúne la información académica disponible para comparar esta opción con otros programas de ${program.area.toLowerCase()}.`} />
           <div className="grid gap-4 sm:grid-cols-2">
-            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/universidad-en-ecatepec"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">Campus y ubicación</h2><p className="mt-2 text-sm leading-6 text-slate-600">Consulta direcciones, horarios generales y la oferta de UNIVAMEX en Ecatepec.</p></Link>
-            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/becas-y-colegiaturas"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">Colegiaturas y Plan Beca</h2><p className="mt-2 text-sm leading-6 text-slate-600">Revisa los precios 2026 documentados y confirma las condiciones aplicables.</p></Link>
+            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/campus"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">Campus</h2><p className="mt-2 text-sm leading-6 text-slate-600">Consulta direcciones, mapas, rutas, espacios y el recorrido virtual 360.</p></Link>
+            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/rvoe"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">RVOE y validez académica</h2><p className="mt-2 text-sm leading-6 text-slate-600">Compara las claves publicadas junto con la modalidad y duración de cada programa.</p></Link>
           </div>
         </div>
       </section>

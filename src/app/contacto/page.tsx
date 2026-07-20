@@ -30,7 +30,7 @@ export default function ContactoPage() {
     <main>
       <PageHero
         title="Contacto"
-        description="Confirma inscripciones, costos, becas, horarios, grupos y ubicación con el equipo de UNIVAMEX."
+        description="Confirma inscripciones, horarios, grupos y ubicación con el equipo de UNIVAMEX."
         image="/images/UNIVAMEX5.png"
         imageClassName="object-[50%_center]"
       />
@@ -39,7 +39,7 @@ export default function ContactoPage() {
           <div>
             <SectionHeading
               title="Habla con admisiones"
-              description="Usa el canal que prefieras. Para temas de costos, becas, horarios o grupos disponibles, confirma siempre la información directamente con un asesor."
+              description="Usa el canal que prefieras. Para confirmar horarios, grupos disponibles o datos de inscripción, comunícate directamente con un asesor."
             />
             <div className="mt-8">
               <WhatsAppButton label="Escribir por WhatsApp" source="Contacto" />

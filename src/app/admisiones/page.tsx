@@ -28,7 +28,7 @@ export default function AdmisionesPage() {
           <div>
             <SectionHeading
               title="Documentos por nivel"
-              description="Revisa lo que necesitas para bachillerato, licenciatura, maestría o doctorado. Costos, becas, horarios, ubicación y fechas de inicio deben confirmarse con un asesor."
+              description="Revisa lo que necesitas para bachillerato, licenciatura, maestría o doctorado. Horarios, ubicación y fechas de inicio deben confirmarse con un asesor."
             />
             <div className="mt-8">
               <WhatsAppButton
@@ -98,7 +98,7 @@ export default function AdmisionesPage() {
               "Elige tu programa de interés.",
               "Revisa modalidad, duración, RVOE y campo laboral.",
               "Prepara los documentos de tu nivel.",
-              "Solicita orientación para confirmar costos, horarios y siguiente paso.",
+              "Solicita orientación para confirmar horarios, disponibilidad y siguiente paso.",
             ].map((step, index) => (
               <li className="flex gap-4 text-slate-700" key={step}>
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#1E3A8A] text-sm font-bold text-white">

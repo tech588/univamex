@@ -53,16 +53,17 @@ export default function QuienesSomosPage() {
             </div>
           </div>
 
-          <div className="relative min-h-[28rem] overflow-hidden bg-slate-200 lg:min-h-[35rem]">
+          <div className="bg-slate-200">
             <Image
-              src="/images/legacy/estudiantes-campus.jpg"
+              src="/images/UNIVAMEX STOCK 04.jpg"
               alt="Comunidad estudiantil de UNIVAMEX en el campus"
-              fill
+              width={1672}
+              height={941}
               priority
               sizes="(min-width: 1024px) 52vw, 100vw"
-              className="object-cover"
+              className="h-auto w-full"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-[#04215e]/94 p-6 text-white sm:p-8">
+            <div className="bg-[#04215e] p-6 text-white sm:p-8">
               <p className="font-heading text-2xl font-semibold leading-tight">
                 “{institutionalContent.motto}”
               </p>

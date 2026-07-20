@@ -5,7 +5,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 const nextSteps = [
   "Elige un programa o nivel académico.",
   "Revisa documentos y modalidad.",
-  "Confirma costos, horarios y grupos con un asesor.",
+  "Confirma horarios, grupos y disponibilidad con un asesor.",
 ] as const;
 
 export function FinalContactCta() {

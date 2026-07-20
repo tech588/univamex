@@ -9,7 +9,7 @@ import { ProgramLevelsPreview } from "@/components/program-levels-preview";
 
 export const metadata: Metadata = {
   title: "Universidad en Ecatepec | UNIVAMEX",
-  description: "Estudia bachillerato, licenciatura, maestría o doctorado en UNIVAMEX Ecatepec. Compara programas, modalidades, RVOE, planes y colegiaturas.",
+  description: "Estudia bachillerato, licenciatura, maestría o doctorado en UNIVAMEX Ecatepec. Compara programas, modalidades, RVOE y planes de estudio.",
   alternates: { canonical: "/" },
 };
 

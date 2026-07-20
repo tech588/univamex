@@ -20,19 +20,19 @@ const supportLinks = [
   {
     label: "Conocer campus",
     href: "/campus",
-    text: "Ubica sedes y abre el recorrido virtual.",
+    text: "Ubica sedes, instalaciones, rutas y recorrido virtual.",
   },
   {
     label: "Contactar asesor",
     href: "/contacto",
-    text: "Confirma costos, fechas, horarios y grupos.",
+    text: "Confirma fechas, horarios, grupos y datos pendientes.",
   },
 ] as const;
 
 export const metadata: Metadata = {
   title: "Preguntas frecuentes UNIVAMEX Ecatepec",
   description:
-    "Resuelve dudas sobre RVOE, duración, colegiaturas, admisiones, campus, modalidades e inicios de UNIVAMEX en Ecatepec.",
+    "Resuelve dudas sobre RVOE, duración, admisiones, campus, modalidades e inicios de UNIVAMEX en Ecatepec.",
   alternates: { canonical: "/faq" },
 };
 
@@ -42,8 +42,7 @@ export default function FaqPage() {
       <PageHero
         title="Preguntas frecuentes"
         description="Resuelve dudas clave antes de elegir programa, revisar documentos o hablar con admisiones."
-        image="/images/EVENTOS1.png"
-        imageClassName="object-[55%_center]"
+        image="/images/UNIVAMEX STOCK 01.jpg"
       />
 
       <section className="bg-[#F8FAFC] px-5 py-14 sm:px-8 lg:px-10">

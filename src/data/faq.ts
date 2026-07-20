@@ -25,11 +25,6 @@ export const faqItems = [
       "La información institucional contempla Campus Ciudad Azteca y Campus Las Américas. En la página de campus puedes revisar direcciones, referencias y el recorrido virtual.",
   },
   {
-    question: "¿Cómo consulto colegiaturas y becas?",
-    answer:
-      "Consulta la página de Becas y colegiaturas 2026 para revisar montos, pagos adicionales y condiciones documentadas. Antes de inscribirte, confirma con admisiones el precio aplicable a tu programa, modalidad y fecha de ingreso.",
-  },
-  {
     question: "¿Cómo elijo el programa correcto?",
     answer:
       "Empieza por nivel académico, área de interés, modalidad y campo laboral. La oferta académica permite filtrar programas y comparar fichas antes de solicitar orientación.",
