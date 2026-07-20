@@ -8,9 +8,10 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 import { academicSchedules } from "@/data/admissions";
 
 export const metadata: Metadata = {
-  title: "Admisiones",
+  title: "Admisiones UNIVAMEX en Ecatepec",
   description:
-    "Requisitos de admisión por nivel en UNIVAMEX y contacto para revisar documentos.",
+    "Requisitos, horarios generales, inicios y proceso de admisión por nivel en UNIVAMEX Ecatepec.",
+  alternates: { canonical: "/admisiones" },
 };
 
 export default function AdmisionesPage() {

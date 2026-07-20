@@ -4,9 +4,10 @@ import { SectionHeading } from "@/components/section-heading";
 import { programs } from "@/data/programs";
 
 export const metadata: Metadata = {
-  title: "Posgrados",
+  title: "Posgrados en Ecatepec",
   description:
-    "Maestrías y doctorado de UNIVAMEX para profesionistas e investigadores.",
+    "Maestrías y doctorado de UNIVAMEX en Ecatepec para profesionistas, docentes e investigadores.",
+  alternates: { canonical: "/oferta-academica/posgrados" },
 };
 
 export default function PosgradosPage() {

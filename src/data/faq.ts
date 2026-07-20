@@ -27,7 +27,7 @@ export const faqItems = [
   {
     question: "¿Cómo consulto colegiaturas y becas?",
     answer:
-      "Solicita la información vigente directamente con admisiones. El sitio no publica montos ni promociones para evitar que tomes una decisión con datos desactualizados.",
+      "Consulta la página de Becas y colegiaturas 2026 para revisar montos, pagos adicionales y condiciones documentadas. Antes de inscribirte, confirma con admisiones el precio aplicable a tu programa, modalidad y fecha de ingreso.",
   },
   {
     question: "¿Cómo elijo el programa correcto?",

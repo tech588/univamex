@@ -1,10 +1,11 @@
 import type { Program } from "@/types/content";
+import { studyPlans } from "@/data/study-plans";
 
 const commonBachilleratoRequirements = "Bachillerato" as const;
 const commonLicenciaturaRequirements = "Licenciatura" as const;
 const commonMaestriaRequirements = "Maestría" as const;
 
-export const programs: Program[] = [
+const programCatalog: Program[] = [
   {
     slug: "bachillerato-informatica-administrativa",
     name: "Bachillerato en Informática Administrativa",
@@ -200,9 +201,9 @@ export const programs: Program[] = [
     shortName: "Administración",
     level: "Licenciatura",
     area: "Negocios",
-    modality: "Mixta",
-    duration: "3 años con 4 meses",
-    rvoe: "20193623/2019-08-30",
+    modality: "Escolarizada / sabatina",
+    duration: "3 años a 3 años 4 meses, según modalidad",
+    rvoe: "20081913/AG2008",
     image: "/images/ADMINISTRACION.png",
     imageAlt: "Clase de administración con estudiantes y docente",
     description:
@@ -252,7 +253,7 @@ export const programs: Program[] = [
     level: "Licenciatura",
     area: "Creatividad y medios",
     modality: "Escolarizada",
-    duration: "por confirmar",
+    duration: "3 años con 4 meses",
     rvoe: "20253800",
     image: "/images/LICENCIATURAS.png",
     imageAlt: "Estudiantes de licenciatura en ceremonia académica",
@@ -302,11 +303,10 @@ export const programs: Program[] = [
     shortName: "Comercio Internacional",
     level: "Licenciatura",
     area: "Negocios",
-    modality: "Presencial",
+    modality: "Escolarizada",
     duration: "3 años con 4 meses",
     subjects: "50 asignaturas",
     rvoe: "20253797",
-    rvoeStatus: "review",
     image: "/images/UNIVAMEX26.png",
     imageAlt: "Estudiantes recibiendo reconocimientos académicos",
     description:
@@ -362,7 +362,7 @@ export const programs: Program[] = [
     level: "Licenciatura",
     area: "Creatividad y medios",
     modality: "Escolarizada",
-    duration: "por confirmar",
+    duration: "3 años con 4 meses",
     rvoe: "20260906",
     image: "/images/EVENTOS1.png",
     imageAlt: "Estudiantes presentando una actividad de comunicación",
@@ -412,7 +412,7 @@ export const programs: Program[] = [
     level: "Licenciatura",
     area: "Derecho y seguridad",
     modality: "Escolarizada",
-    duration: "por confirmar",
+    duration: "3 años con 4 meses",
     rvoe: "20260909",
     image: "/images/UNIVAMEX14.png",
     imageAlt: "Estudiantes en sala de juicios orales",
@@ -461,10 +461,9 @@ export const programs: Program[] = [
     shortName: "Derecho",
     level: "Licenciatura",
     area: "Derecho y seguridad",
-    modality: "Escolarizada / Mixta",
-    duration: "por confirmar",
-    rvoe: "20081912/AG2008 y 20193620/2019-08-30",
-    rvoeStatus: "review",
+    modality: "Escolarizada / sabatina",
+    duration: "3 años a 3 años 4 meses, según modalidad",
+    rvoe: "20081912/AG2008",
     image: "/images/DERECHO.png",
     imageAlt: "Estudiantes de derecho en mesa académica",
     description:
@@ -513,7 +512,7 @@ export const programs: Program[] = [
     level: "Licenciatura",
     area: "Creatividad y medios",
     modality: "Escolarizada",
-    duration: "por confirmar",
+    duration: "3 años con 4 meses",
     rvoe: "20260908",
     image: "/images/UNIVAMEX16.png",
     imageAlt: "Estudiantes en actividad visual y creativa",
@@ -563,10 +562,9 @@ export const programs: Program[] = [
     shortName: "Arte Digital y Videojuegos",
     level: "Licenciatura",
     area: "Creatividad y medios",
-    modality: "Escolarizada / No escolarizada",
-    duration: "por confirmar",
-    rvoe: "20260907 y 20260910",
-    rvoeStatus: "review",
+    modality: "Escolarizada",
+    duration: "3 años con 4 meses",
+    rvoe: "20260907",
     image: "/images/UNIVAMEX18.png",
     imageAlt: "Estudiantes en práctica escénica y creativa",
     description:
@@ -614,11 +612,10 @@ export const programs: Program[] = [
     shortName: "IA y Big Data",
     level: "Licenciatura",
     area: "Tecnología",
-    modality: "Presencial / línea",
+    modality: "Escolarizada",
     duration: "3 años con 4 meses",
     subjects: "50 asignaturas",
     rvoe: "20253798",
-    rvoeStatus: "review",
     image: "/images/SISTEMAS-COMPUTACIONALES.png",
     imageAlt: "Estudiantes en programa de sistemas computacionales",
     description:
@@ -686,8 +683,8 @@ export const programs: Program[] = [
     shortName: "Sistemas Computacionales",
     level: "Licenciatura",
     area: "Tecnología",
-    modality: "Mixta",
-    duration: "por confirmar",
+    modality: "Escolarizada / sabatina",
+    duration: "3 años a 3 años 4 meses, según modalidad",
     rvoe: "20193621/2019-08-30",
     image: "/images/UNIVAMEX11.png",
     imageAlt: "Comunidad académica en presentación institucional",
@@ -737,7 +734,7 @@ export const programs: Program[] = [
     level: "Licenciatura",
     area: "Negocios",
     modality: "Escolarizada",
-    duration: "por confirmar",
+    duration: "3 años con 4 meses",
     rvoe: "20260911",
     image: "/images/UNIVAMEX6.png",
     imageAlt: "Estudiantes en presentación académica y profesional",
@@ -786,10 +783,9 @@ export const programs: Program[] = [
     shortName: "Pedagogía",
     level: "Licenciatura",
     area: "Educación y desarrollo humano",
-    modality: "Escolarizada / Mixta",
-    duration: "por confirmar",
-    rvoe: "20081915/AG2008 y 20193622/2019-08-30",
-    rvoeStatus: "review",
+    modality: "Escolarizada / sabatina",
+    duration: "3 años a 3 años 4 meses, según modalidad",
+    rvoe: "20081915/AG2008",
     image: "/images/PEDAGOGIA.png",
     imageAlt: "Estudiantes de pedagogía en actividad educativa",
     description:
@@ -837,8 +833,8 @@ export const programs: Program[] = [
     shortName: "Psicología",
     level: "Licenciatura",
     area: "Educación y desarrollo humano",
-    modality: "Escolarizada",
-    duration: "por confirmar",
+    modality: "Escolarizada / sabatina",
+    duration: "3 años con 4 meses",
     rvoe: "20090903/AG2009",
     image: "/images/PSICOLOGIA.png",
     imageAlt: "Estudiantes de psicología en dinámica grupal",
@@ -888,7 +884,7 @@ export const programs: Program[] = [
     level: "Licenciatura",
     area: "Turismo y servicios",
     modality: "Escolarizada",
-    duration: "por confirmar",
+    duration: "3 años con 4 meses",
     rvoe: "20081916/AG2008",
     image: "/images/TURISMO1.png",
     imageAlt: "Estudiantes de turismo y gastronomía con platillos",
@@ -938,7 +934,7 @@ export const programs: Program[] = [
     shortName: "Juicios Orales",
     level: "Maestría",
     area: "Derecho y seguridad",
-    modality: "Presencial",
+    modality: "Sabatina",
     duration: "1 año con 8 meses",
     subjects: "20 asignaturas",
     rvoe: "20193619/2019-08-30",
@@ -990,7 +986,7 @@ export const programs: Program[] = [
     shortName: "Educación",
     level: "Maestría",
     area: "Educación y desarrollo humano",
-    modality: "Presencial",
+    modality: "Sabatina",
     duration: "1 año con 8 meses",
     subjects: "20 asignaturas",
     rvoe: "20193618/2019-08-30",
@@ -1106,6 +1102,25 @@ export const programs: Program[] = [
     featured: true,
   },
 ];
+
+export const programs: Program[] = programCatalog.map((program) => {
+  const studyPlan = studyPlans[program.slug];
+
+  if (!studyPlan) {
+    throw new Error(`No se encontró el plan de estudios de ${program.name}`);
+  }
+
+  const subjectCount = studyPlan.reduce(
+    (total, period) => total + period.items.length,
+    0,
+  );
+
+  return {
+    ...program,
+    subjects: `${subjectCount} asignaturas`,
+    studyPlan,
+  };
+});
 
 export function getProgramBySlug(slug: string) {
   return programs.find((program) => program.slug === slug);

@@ -33,9 +33,10 @@ const campusGallery = [
 ];
 
 export const metadata: Metadata = {
-  title: "Campus",
+  title: "Campus UNIVAMEX en Ecatepec",
   description:
-    "Conoce los campus de UNIVAMEX, referencias de ubicación y recorrido virtual 360.",
+    "Conoce Campus Ciudad Azteca y Campus Las Américas de UNIVAMEX en Ecatepec: direcciones, mapas, referencias y recorrido virtual 360.",
+  alternates: { canonical: "/campus" },
 };
 
 export default async function CampusPage({ searchParams }: CampusPageProps) {

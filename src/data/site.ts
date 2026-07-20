@@ -17,6 +17,7 @@ export const siteConfig = {
 export const navItems: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Oferta académica", href: "/oferta-academica" },
+  { label: "Becas y colegiaturas", href: "/becas-y-colegiaturas" },
   { label: "Admisiones", href: "/admisiones" },
   { label: "Campus", href: "/campus" },
   { label: "Quiénes somos", href: "/quienes-somos" },
@@ -25,6 +26,8 @@ export const navItems: NavItem[] = [
 
 export const footerNavItems: NavItem[] = [
   ...navItems,
+  { label: "Universidad en Ecatepec", href: "/universidad-en-ecatepec" },
+  { label: "RVOE", href: "/rvoe" },
   { label: "Preguntas frecuentes", href: "/faq" },
   { label: "Recorrido 360", href: "/recorrido-360" },
 ];

@@ -1,0 +1,238 @@
+- generic [active] [ref=f1e1]:
+  - link "Saltar al contenido" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link [ref=f1e5] [cursor=pointer]:
+        - /url: /
+        - img "UNIVAMEX Colegio Universitario" [ref=f1e6]
+      - button "Abrir menu" [ref=f1e7]
+  - main [ref=f1e10]:
+    - generic [ref=f1e12]:
+      - generic [ref=f1e13]:
+        - paragraph [ref=f1e14]: UNIVAMEX · Ciudad Azteca
+        - heading "Universidad en Ecatepec con bachilleratos, licenciaturas y posgrados" [level=1] [ref=f1e15]
+        - paragraph [ref=f1e16]: Estudia en una institución con 50 años de experiencia. Compara programas, modalidades, horarios, RVOE, planes de estudio y costos antes de iniciar tu proceso.
+        - generic [ref=f1e17]:
+          - link "Solicitar informes" [ref=f1e18] [cursor=pointer]:
+            - /url: https://wa.me/525529945381?text=Hola%2C%20tengo%20una%20duda%20sobre%20la%20oferta%20acad%C3%A9mica%20en%20Ecatepec%20en%20UNIVAMEX.
+          - link "Ver programas" [ref=f1e22] [cursor=pointer]:
+            - /url: /oferta-academica
+      - img "Campus Ciudad Azteca de UNIVAMEX en Ecatepec" [ref=f1e24]
+    - generic [ref=f1e26]:
+      - heading "Información para estudiar en Ecatepec" [level=2] [ref=f1e27]
+      - generic [ref=f1e28]:
+        - article [ref=f1e29]:
+          - heading "Campus Ciudad Azteca" [level=3] [ref=f1e33]
+          - paragraph [ref=f1e34]: Ajusco Mz. 532 Lt. 25 y 50, Col. Ciudad Azteca 3a. Sección, C.P. 55120 Ecatepec de Morelos, Estado de México.
+          - link "Mapa y recorrido 360" [ref=f1e35] [cursor=pointer]:
+            - /url: /campus
+        - article [ref=f1e38]:
+          - heading "Atención e inscripciones" [level=3] [ref=f1e42]
+          - paragraph [ref=f1e43]: Lunes a sábado, de 8:00 a 18:00 h. Las inscripciones pueden realizarse dentro del horario de atención.
+          - link "Revisar requisitos" [ref=f1e44] [cursor=pointer]:
+            - /url: /admisiones
+        - article [ref=f1e47]:
+          - heading "Modalidades e inicios" [level=3] [ref=f1e48]
+          - paragraph [ref=f1e49]: Hay rutas escolarizadas, sabatinas y en línea según el nivel y programa. Los inicios generales indicados son enero, mayo y septiembre; bachillerato inicia en agosto o septiembre.
+          - link "Resolver dudas" [ref=f1e50] [cursor=pointer]:
+            - /url: /faq
+    - generic [ref=f1e54]:
+      - paragraph [ref=f1e55]: Programas prioritarios
+      - heading "Carreras y posgrados con ficha completa" [level=2] [ref=f1e56]
+      - paragraph [ref=f1e57]: Cada ficha reúne plan de estudios en HTML, perfil, campo laboral, modalidad, duración, RVOE y requisitos.
+      - generic [ref=f1e58]:
+        - article [ref=f1e59]:
+          - img "Clase de administración con estudiantes y docente" [ref=f1e61]
+          - generic [ref=f1e62]:
+            - generic [ref=f1e63]:
+              - generic [ref=f1e64]: Licenciatura
+              - generic [ref=f1e65]: Escolarizada / sabatina
+            - heading [level=3] [ref=f1e66]:
+              - link "Licenciatura en Administración" [ref=f1e67] [cursor=pointer]:
+                - /url: /programas/licenciatura-administracion
+            - paragraph [ref=f1e68]: Formación en administración, contabilidad, recursos humanos, finanzas, logística, mercadotecnia, calidad y emprendimiento.
+            - generic [ref=f1e69]:
+              - generic [ref=f1e74]:
+                - term [ref=f1e75]: Duración
+                - definition [ref=f1e76]: 3 años a 3 años 4 meses, según modalidad
+              - generic [ref=f1e81]:
+                - term [ref=f1e82]: RVOE
+                - definition [ref=f1e83]: RVOE 20081913/AG2008
+            - generic [ref=f1e84]:
+              - link "Ver programa" [ref=f1e85] [cursor=pointer]:
+                - /url: /programas/licenciatura-administracion
+              - link "Informes" [ref=f1e88] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Licenciatura%20en%20Administraci%C3%B3n%20en%20UNIVAMEX.
+        - article [ref=f1e92]:
+          - img "Estudiantes de derecho en mesa académica" [ref=f1e94]
+          - generic [ref=f1e95]:
+            - generic [ref=f1e96]:
+              - generic [ref=f1e97]: Licenciatura
+              - generic [ref=f1e98]: Escolarizada / sabatina
+            - heading [level=3] [ref=f1e99]:
+              - link "Licenciatura en Derecho" [ref=f1e100] [cursor=pointer]:
+                - /url: /programas/licenciatura-derecho
+            - paragraph [ref=f1e101]: Formación en derecho civil, penal, constitucional, fiscal, mercantil, laboral, amparo y práctica forense.
+            - generic [ref=f1e102]:
+              - generic [ref=f1e107]:
+                - term [ref=f1e108]: Duración
+                - definition [ref=f1e109]: 3 años a 3 años 4 meses, según modalidad
+              - generic [ref=f1e114]:
+                - term [ref=f1e115]: RVOE
+                - definition [ref=f1e116]: RVOE 20081912/AG2008
+            - generic [ref=f1e117]:
+              - link "Ver programa" [ref=f1e118] [cursor=pointer]:
+                - /url: /programas/licenciatura-derecho
+              - link "Informes" [ref=f1e121] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Licenciatura%20en%20Derecho%20en%20UNIVAMEX.
+        - article [ref=f1e125]:
+          - img "Estudiantes en programa de sistemas computacionales" [ref=f1e127]
+          - generic [ref=f1e128]:
+            - generic [ref=f1e129]:
+              - generic [ref=f1e130]: Licenciatura
+              - generic [ref=f1e131]: Escolarizada
+            - heading [level=3] [ref=f1e132]:
+              - link "Ingeniería en Inteligencia Artificial y Big Data" [ref=f1e133] [cursor=pointer]:
+                - /url: /programas/ingenieria-ia-big-data
+            - paragraph [ref=f1e134]: Programa orientado a resolver problemas complejos usando datos, matemáticas y programación para crear modelos inteligentes y apoyar decisiones.
+            - generic [ref=f1e135]:
+              - generic [ref=f1e140]:
+                - term [ref=f1e141]: Duración
+                - definition [ref=f1e142]: 3 años con 4 meses
+              - generic [ref=f1e147]:
+                - term [ref=f1e148]: RVOE
+                - definition [ref=f1e149]: RVOE 20253798
+            - generic [ref=f1e150]:
+              - link "Ver programa" [ref=f1e151] [cursor=pointer]:
+                - /url: /programas/ingenieria-ia-big-data
+              - link "Informes" [ref=f1e154] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Inteligencia%20Artificial%20y%20Big%20Data%20en%20UNIVAMEX.
+        - article [ref=f1e158]:
+          - img "Comunidad académica en presentación institucional" [ref=f1e160]
+          - generic [ref=f1e161]:
+            - generic [ref=f1e162]:
+              - generic [ref=f1e163]: Licenciatura
+              - generic [ref=f1e164]: Escolarizada / sabatina
+            - heading [level=3] [ref=f1e165]:
+              - link "Ingeniería en Sistemas Computacionales" [ref=f1e166] [cursor=pointer]:
+                - /url: /programas/ingenieria-sistemas-computacionales
+            - paragraph [ref=f1e167]: Formación en programación, cálculo, bases de datos, redes, sistemas operativos, seguridad, software, IA y centros de cómputo.
+            - generic [ref=f1e168]:
+              - generic [ref=f1e173]:
+                - term [ref=f1e174]: Duración
+                - definition [ref=f1e175]: 3 años a 3 años 4 meses, según modalidad
+              - generic [ref=f1e180]:
+                - term [ref=f1e181]: RVOE
+                - definition [ref=f1e182]: RVOE 20193621/2019-08-30
+            - generic [ref=f1e183]:
+              - link "Ver programa" [ref=f1e184] [cursor=pointer]:
+                - /url: /programas/ingenieria-sistemas-computacionales
+              - link "Informes" [ref=f1e187] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ingenier%C3%ADa%20en%20Sistemas%20Computacionales%20en%20UNIVAMEX.
+        - article [ref=f1e191]:
+          - img "Estudiantes de pedagogía en actividad educativa" [ref=f1e193]
+          - generic [ref=f1e194]:
+            - generic [ref=f1e195]:
+              - generic [ref=f1e196]: Licenciatura
+              - generic [ref=f1e197]: Escolarizada / sabatina
+            - heading [level=3] [ref=f1e198]:
+              - link "Licenciatura en Pedagogía" [ref=f1e199] [cursor=pointer]:
+                - /url: /programas/licenciatura-pedagogia
+            - paragraph [ref=f1e200]: Formación en teoría pedagógica, didáctica, currículo, evaluación, educación especial, administración educativa e innovación.
+            - generic [ref=f1e201]:
+              - generic [ref=f1e206]:
+                - term [ref=f1e207]: Duración
+                - definition [ref=f1e208]: 3 años a 3 años 4 meses, según modalidad
+              - generic [ref=f1e213]:
+                - term [ref=f1e214]: RVOE
+                - definition [ref=f1e215]: RVOE 20081915/AG2008
+            - generic [ref=f1e216]:
+              - link "Ver programa" [ref=f1e217] [cursor=pointer]:
+                - /url: /programas/licenciatura-pedagogia
+              - link "Informes" [ref=f1e220] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Licenciatura%20en%20Pedagog%C3%ADa%20en%20UNIVAMEX.
+        - article [ref=f1e224]:
+          - img "Estudiantes de psicología en dinámica grupal" [ref=f1e226]
+          - generic [ref=f1e227]:
+            - generic [ref=f1e228]:
+              - generic [ref=f1e229]: Licenciatura
+              - generic [ref=f1e230]: Escolarizada / sabatina
+            - heading [level=3] [ref=f1e231]:
+              - link "Licenciatura en Psicología" [ref=f1e232] [cursor=pointer]:
+                - /url: /programas/licenciatura-psicologia
+            - paragraph [ref=f1e233]: Programa con bases biológicas, psicometría, evaluación, neuropsicología, psicología laboral, comunitaria, educativa, salud y psicoterapia.
+            - generic [ref=f1e234]:
+              - generic [ref=f1e239]:
+                - term [ref=f1e240]: Duración
+                - definition [ref=f1e241]: 3 años con 4 meses
+              - generic [ref=f1e246]:
+                - term [ref=f1e247]: RVOE
+                - definition [ref=f1e248]: RVOE 20090903/AG2009
+            - generic [ref=f1e249]:
+              - link "Ver programa" [ref=f1e250] [cursor=pointer]:
+                - /url: /programas/licenciatura-psicologia
+              - link "Informes" [ref=f1e253] [cursor=pointer]:
+                - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Licenciatura%20en%20Psicolog%C3%ADa%20en%20UNIVAMEX.
+  - contentinfo [ref=f1e257]:
+    - generic [ref=f1e258]:
+      - generic [ref=f1e259]:
+        - img "UNIVAMEX" [ref=f1e260]
+        - paragraph [ref=f1e261]: Colegio Universitario del Valle de México - UNIVAMEX. Decídete a llegar más lejos estudiando lo que te apasiona.
+        - link "Solicitar informes" [ref=f1e263] [cursor=pointer]:
+          - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+      - generic [ref=f1e267]:
+        - heading "Navegación" [level=2] [ref=f1e268]
+        - list [ref=f1e269]:
+          - listitem [ref=f1e270]:
+            - link "Inicio" [ref=f1e271] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f1e272]:
+            - link "Oferta académica" [ref=f1e273] [cursor=pointer]:
+              - /url: /oferta-academica
+          - listitem [ref=f1e274]:
+            - link "Becas y colegiaturas" [ref=f1e275] [cursor=pointer]:
+              - /url: /becas-y-colegiaturas
+          - listitem [ref=f1e276]:
+            - link "Admisiones" [ref=f1e277] [cursor=pointer]:
+              - /url: /admisiones
+          - listitem [ref=f1e278]:
+            - link "Campus" [ref=f1e279] [cursor=pointer]:
+              - /url: /campus
+          - listitem [ref=f1e280]:
+            - link "Quiénes somos" [ref=f1e281] [cursor=pointer]:
+              - /url: /quienes-somos
+          - listitem [ref=f1e282]:
+            - link "Contacto" [ref=f1e283] [cursor=pointer]:
+              - /url: /contacto
+          - listitem [ref=f1e284]:
+            - link "Universidad en Ecatepec" [ref=f1e285] [cursor=pointer]:
+              - /url: /universidad-en-ecatepec
+          - listitem [ref=f1e286]:
+            - link "RVOE" [ref=f1e287] [cursor=pointer]:
+              - /url: /rvoe
+          - listitem [ref=f1e288]:
+            - link "Preguntas frecuentes" [ref=f1e289] [cursor=pointer]:
+              - /url: /faq
+          - listitem [ref=f1e290]:
+            - link "Recorrido 360" [ref=f1e291] [cursor=pointer]:
+              - /url: /recorrido-360
+      - generic [ref=f1e292]:
+        - heading "Contacto" [level=2] [ref=f1e293]
+        - list [ref=f1e294]:
+          - listitem [ref=f1e295]:
+            - link "55-80-82-57-96" [ref=f1e298] [cursor=pointer]:
+              - /url: tel:5580825796
+          - listitem [ref=f1e299]:
+            - link "informes@univamex.edu.mx" [ref=f1e303] [cursor=pointer]:
+              - /url: mailto:informes@univamex.edu.mx
+          - listitem [ref=f1e304]:
+            - generic [ref=f1e308]: Lunes a sábado, de 8:00 a 18:00 h
+          - listitem [ref=f1e309]:
+            - generic [ref=f1e316]: Colegio Universitario del Valle de México - UNIVAMEX
+          - listitem [ref=f1e317]:
+            - link "Instagram oficial" [ref=f1e321] [cursor=pointer]:
+              - /url: https://www.instagram.com/univamex_oficial/
+  - link "Solicitar informes por WhatsApp" [ref=f1e323] [cursor=pointer]:
+    - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+  - button "Open Next.js Dev Tools" [ref=f1e332] [cursor=pointer]

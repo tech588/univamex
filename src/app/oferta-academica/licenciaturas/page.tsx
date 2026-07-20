@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { LevelPage } from "@/components/level-page";
 
 export const metadata: Metadata = {
-  title: "Licenciaturas",
+  title: "Licenciaturas en Ecatepec",
   description:
-    "Licenciaturas e ingenierías de UNIVAMEX por área profesional, modalidad y duración.",
+    "Compara licenciaturas e ingenierías en Ecatepec por área, modalidad, duración, RVOE y plan de estudios en UNIVAMEX.",
+  alternates: { canonical: "/oferta-academica/licenciaturas" },
 };
 
 export default function LicenciaturasPage() {

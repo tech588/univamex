@@ -1,0 +1,161 @@
+- generic [active] [ref=e1]:
+  - link "Saltar al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "UNIVAMEX Colegio Universitario" [ref=e6]
+      - navigation "Navegación principal" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Inicio" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "Oferta académica" [ref=e12] [cursor=pointer]:
+              - /url: /oferta-academica
+          - listitem [ref=e13]:
+            - link "Becas y colegiaturas" [ref=e14] [cursor=pointer]:
+              - /url: /becas-y-colegiaturas
+          - listitem [ref=e15]:
+            - link "Admisiones" [ref=e16] [cursor=pointer]:
+              - /url: /admisiones
+          - listitem [ref=e17]:
+            - link "Campus" [ref=e18] [cursor=pointer]:
+              - /url: /campus
+          - listitem [ref=e19]:
+            - link "Quiénes somos" [ref=e20] [cursor=pointer]:
+              - /url: /quienes-somos
+          - listitem [ref=e21]:
+            - link "Contacto" [ref=e22] [cursor=pointer]:
+              - /url: /contacto
+      - link "Solicitar informes" [ref=e24] [cursor=pointer]:
+        - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - paragraph [ref=e32]: Información oficial · ciclo 2026
+      - heading "Becas y colegiaturas UNIVAMEX" [level=1] [ref=e33]
+      - paragraph [ref=e34]: Compara pagos mensuales y condiciones antes de inscribirte. Confirma con admisiones que el plan siga vigente para tu programa, modalidad y fecha de ingreso.
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - article [ref=e38]:
+          - heading "Bachillerato tecnológico" [level=2] [ref=e39]
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - term [ref=e42]: Colegiatura normal
+              - definition [ref=e43]: $2,990 MXN
+            - generic [ref=e44]:
+              - term [ref=e45]: Plan Beca / pago puntual
+              - definition [ref=e46]: $2,490 MXN
+          - paragraph [ref=e47]: Pago mensual puntual. Sin inscripción, reinscripción, credencial ni seguro escolar.
+        - article [ref=e48]:
+          - heading "Licenciatura escolarizada" [level=2] [ref=e49]
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - term [ref=e52]: Colegiatura normal
+              - definition [ref=e53]: $2,990 MXN
+            - generic [ref=e54]:
+              - term [ref=e55]: Plan Beca / pago puntual
+              - definition [ref=e56]: $2,490 MXN
+          - paragraph [ref=e57]: Pago mensual puntual. Precios congelados durante la carrera.
+        - article [ref=e58]:
+          - heading "Licenciatura mixta / sabatina" [level=2] [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - term [ref=e62]: Colegiatura normal
+              - definition [ref=e63]: $2,490 MXN
+            - generic [ref=e64]:
+              - term [ref=e65]: Plan Beca / pago puntual
+              - definition [ref=e66]: $1,245 MXN
+          - paragraph [ref=e67]: Plan Beca de 50% incluido en el precio de colegiaturas, sujeto a condiciones.
+        - article [ref=e68]:
+          - heading "Maestría" [level=2] [ref=e69]
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - term [ref=e72]: Colegiatura normal
+              - definition [ref=e73]: $2,200 MXN
+            - generic [ref=e74]:
+              - term [ref=e75]: Plan Beca / pago puntual
+              - definition [ref=e76]: $1,800 MXN
+          - paragraph [ref=e77]: Colegiatura mensual durante 20 meses. Inscripción o reinscripción cuatrimestral de $1,490 MXN.
+        - article [ref=e78]:
+          - heading "Doctorado" [level=2] [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - term [ref=e82]: Colegiatura normal
+              - definition [ref=e83]: $2,990 MXN
+            - generic [ref=e84]:
+              - term [ref=e85]: Plan Beca / pago puntual
+              - definition [ref=e86]: $2,490 MXN
+          - paragraph [ref=e87]: Inscripción o reinscripción cuatrimestral de $1,490 MXN. Existe promoción documentada para egresados de la Maestría en Educación UNIVAMEX.
+      - generic [ref=e88]:
+        - heading "Condiciones que debes revisar" [level=2] [ref=e89]
+        - list [ref=e90]:
+          - listitem [ref=e91]: Los pagos puntuales se realizan durante los primeros 3 días de cada mes.
+          - listitem [ref=e92]: Las reinscripciones deben hacerse en las fechas indicadas para conservar el Plan Beca.
+          - listitem [ref=e93]: Bachillerato y licenciatura contemplan gastos de incorporación a la SEP de $1,600 MXN por semestre o cuatrimestre, según el nivel.
+          - listitem [ref=e94]: La modalidad de las clases puede ajustarse a las indicaciones de la SEP.
+        - link "Confirmar precio vigente" [ref=e96] [cursor=pointer]:
+          - /url: https://wa.me/525529945381?text=Hola%2C%20tengo%20una%20duda%20sobre%20colegiaturas%20y%20Plan%20Beca%202026%20en%20UNIVAMEX.
+  - contentinfo [ref=e100]:
+    - generic [ref=e101]:
+      - generic [ref=e102]:
+        - img "UNIVAMEX" [ref=e103]
+        - paragraph [ref=e104]: Colegio Universitario del Valle de México - UNIVAMEX. Decídete a llegar más lejos estudiando lo que te apasiona.
+        - link "Solicitar informes" [ref=e106] [cursor=pointer]:
+          - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+      - generic [ref=e110]:
+        - heading "Navegación" [level=2] [ref=e111]
+        - list [ref=e112]:
+          - listitem [ref=e113]:
+            - link "Inicio" [ref=e114] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e115]:
+            - link "Oferta académica" [ref=e116] [cursor=pointer]:
+              - /url: /oferta-academica
+          - listitem [ref=e117]:
+            - link "Becas y colegiaturas" [ref=e118] [cursor=pointer]:
+              - /url: /becas-y-colegiaturas
+          - listitem [ref=e119]:
+            - link "Admisiones" [ref=e120] [cursor=pointer]:
+              - /url: /admisiones
+          - listitem [ref=e121]:
+            - link "Campus" [ref=e122] [cursor=pointer]:
+              - /url: /campus
+          - listitem [ref=e123]:
+            - link "Quiénes somos" [ref=e124] [cursor=pointer]:
+              - /url: /quienes-somos
+          - listitem [ref=e125]:
+            - link "Contacto" [ref=e126] [cursor=pointer]:
+              - /url: /contacto
+          - listitem [ref=e127]:
+            - link "Universidad en Ecatepec" [ref=e128] [cursor=pointer]:
+              - /url: /universidad-en-ecatepec
+          - listitem [ref=e129]:
+            - link "RVOE" [ref=e130] [cursor=pointer]:
+              - /url: /rvoe
+          - listitem [ref=e131]:
+            - link "Preguntas frecuentes" [ref=e132] [cursor=pointer]:
+              - /url: /faq
+          - listitem [ref=e133]:
+            - link "Recorrido 360" [ref=e134] [cursor=pointer]:
+              - /url: /recorrido-360
+      - generic [ref=e135]:
+        - heading "Contacto" [level=2] [ref=e136]
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - link "55-80-82-57-96" [ref=e141] [cursor=pointer]:
+              - /url: tel:5580825796
+          - listitem [ref=e142]:
+            - link "informes@univamex.edu.mx" [ref=e146] [cursor=pointer]:
+              - /url: mailto:informes@univamex.edu.mx
+          - listitem [ref=e147]:
+            - generic [ref=e151]: Lunes a sábado, de 8:00 a 18:00 h
+          - listitem [ref=e152]:
+            - generic [ref=e159]: Colegio Universitario del Valle de México - UNIVAMEX
+          - listitem [ref=e160]:
+            - link "Instagram oficial" [ref=e164] [cursor=pointer]:
+              - /url: https://www.instagram.com/univamex_oficial/
+  - link "Solicitar informes por WhatsApp" [ref=e166] [cursor=pointer]:
+    - /url: https://wa.me/525529945381?text=Hola%2C%20quiero%20informes%20de%20UNIVAMEX.
+  - button "Open Next.js Dev Tools" [ref=e175] [cursor=pointer]

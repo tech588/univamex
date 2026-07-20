@@ -17,6 +17,7 @@ export type RvoeStatus = "confirmed" | "review";
 
 export type StudyBlock = {
   title: string;
+  phase?: string;
   items: string[];
 };
 

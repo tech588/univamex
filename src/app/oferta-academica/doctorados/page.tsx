@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { LevelPage } from "@/components/level-page";
 
 export const metadata: Metadata = {
-  title: "Doctorados",
+  title: "Doctorado en Educación y Neurociencias",
   description:
-    "Explora los doctorados de UNIVAMEX por modalidad, duración y área de investigación.",
+    "Conoce el Doctorado en Educación, Neurociencias y Perspectiva de Género de UNIVAMEX: modalidad, duración, RVOE y plan.",
+  alternates: { canonical: "/oferta-academica/doctorados" },
 };
 
 export default function DoctoradosPage() {

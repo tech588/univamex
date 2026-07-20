@@ -4,13 +4,15 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { ProgramFinder } from "@/components/program-finder";
 import { SectionHeading } from "@/components/section-heading";
+import { academicAreas } from "@/data/areas";
 import { programs } from "@/data/programs";
 import { parseProgramLevel } from "@/lib/program-levels";
 
 export const metadata: Metadata = {
-  title: "Oferta académica",
+  title: "Oferta académica en Ecatepec",
   description:
-    "Explora bachilleratos, licenciaturas, maestrías y doctorado de UNIVAMEX por nivel, área y modalidad.",
+    "Explora bachilleratos, licenciaturas, maestrías y doctorado de UNIVAMEX en Ecatepec por nivel, área y modalidad.",
+  alternates: { canonical: "/oferta-academica" },
 };
 
 type OfertaAcademicaPageProps = {
@@ -87,6 +89,18 @@ export default async function OfertaAcademicaPage({
               syncLevelToUrl
             />
           </div>
+          <section className="mt-14 border-t border-slate-200 pt-10">
+            <h2 className="font-heading text-3xl font-semibold text-[#04215e]">Explora por área profesional</h2>
+            <p className="mt-3 max-w-3xl leading-7 text-slate-600">Compara programas relacionados por plan de estudios, perfil, modalidad, duración y campo laboral.</p>
+            <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {academicAreas.map((area) => (
+                <Link className="border border-slate-200 bg-white p-5 transition hover:border-[#1E40AF]" href={`/areas/${area.slug}`} key={area.slug}>
+                  <span className="font-editorial text-xl font-semibold text-[#071a3d]">{area.title}</span>
+                  <span className="mt-2 block text-sm leading-6 text-slate-600">{area.description}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
     </main>

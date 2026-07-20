@@ -19,9 +19,10 @@ import { programs } from "@/data/programs";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Contacto",
+  title: "Contacto y campus UNIVAMEX Ecatepec",
   description:
-    "Contacta a UNIVAMEX por teléfono, WhatsApp, correo o Facebook para solicitar informes.",
+    "Contacta admisiones UNIVAMEX en Ecatepec por teléfono, WhatsApp o correo. Consulta horarios y ubicación de Ciudad Azteca y Las Américas.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function ContactoPage() {

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { LevelPage } from "@/components/level-page";
 
 export const metadata: Metadata = {
-  title: "Maestrías",
+  title: "Maestrías en Ecatepec",
   description:
-    "Explora las maestrías de UNIVAMEX por modalidad, duración y área profesional.",
+    "Explora la Maestría en Educación y la Maestría en Juicios Orales de UNIVAMEX en Ecatepec.",
+  alternates: { canonical: "/oferta-academica/maestrias" },
 };
 
 export default function MaestriasPage() {

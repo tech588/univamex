@@ -160,13 +160,14 @@ test("la página institucional usa información real consolidada", async () => {
   assert.match(page, /Lema y escudo/);
 });
 
-test("el sitio no publica montos ni precios numéricos", async () => {
-  const files = await collectFiles(path.join(root, "src"));
-  const contents = await Promise.all(files.map((file) => readFile(file, "utf8")));
+test("los precios oficiales indican ciclo, condiciones y validación", async () => {
+  const page = await source("src/app/becas-y-colegiaturas/page.tsx");
 
-  for (const content of contents) {
-    assert.doesNotMatch(content, /\$\s*\d[\d,.]*/);
-  }
+  assert.match(page, /ciclo 2026/i);
+  assert.match(page, /Plan Beca/);
+  assert.match(page, /gastos de incorporación a la SEP/);
+  assert.match(page, /confirma con admisiones/i);
+  assert.match(page, /\$2,490 MXN/);
 });
 
 test("los mensajes generales de WhatsApp no exponen la página de origen", async () => {

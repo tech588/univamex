@@ -79,9 +79,6 @@ export const metadata: Metadata = {
   keywords: seoConfig.keywords,
   creator: siteConfig.fullName,
   publisher: siteConfig.fullName,
-  alternates: {
-    canonical: canonicalUrl("/"),
-  },
   icons: {
     icon: [
       { url: "/favicon.ico" },

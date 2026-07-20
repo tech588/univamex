@@ -30,9 +30,10 @@ const supportLinks = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Preguntas frecuentes",
+  title: "Preguntas frecuentes UNIVAMEX Ecatepec",
   description:
-    "Preguntas frecuentes sobre RVOE, duración, admisiones, campus y horarios en UNIVAMEX.",
+    "Resuelve dudas sobre RVOE, duración, colegiaturas, admisiones, campus, modalidades e inicios de UNIVAMEX en Ecatepec.",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FaqPage() {

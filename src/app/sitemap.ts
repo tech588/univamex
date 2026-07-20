@@ -1,10 +1,14 @@
 import type { MetadataRoute } from "next";
 import { programs } from "@/data/programs";
+import { academicAreas } from "@/data/areas";
 import { canonicalUrl } from "@/data/seo";
 
 const staticRoutes = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/oferta-academica", priority: 0.95, changeFrequency: "weekly" },
+  { path: "/universidad-en-ecatepec", priority: 0.95, changeFrequency: "monthly" },
+  { path: "/becas-y-colegiaturas", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/rvoe", priority: 0.85, changeFrequency: "monthly" },
   {
     path: "/oferta-academica/bachilleratos",
     priority: 0.85,
@@ -35,11 +39,10 @@ const staticRoutes = [
   { path: "/admisiones", priority: 0.85, changeFrequency: "monthly" },
   { path: "/contacto", priority: 0.75, changeFrequency: "monthly" },
   { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/recorrido-360", priority: 0.65, changeFrequency: "monthly" },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = new Date("2026-07-20T00:00:00-05:00");
 
   return [
     ...staticRoutes.map((route) => ({
@@ -53,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: program.featured ? 0.82 : 0.72,
+    })),
+    ...academicAreas.map((area) => ({
+      url: canonicalUrl(`/areas/${area.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.78,
     })),
   ];
 }

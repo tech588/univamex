@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, BriefcaseBusiness, BrainCircuit } from "lucide-react";
-import { Accordion } from "@/components/accordion";
 import { AdmissionsChecklist } from "@/components/admissions-checklist";
 import { ProgramCard } from "@/components/program-card";
 import { SectionHeading } from "@/components/section-heading";
+import { StudyPlan } from "@/components/study-plan";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { seoConfig } from "@/data/seo";
 import {
@@ -36,8 +36,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: program.name,
-    description: `${program.description} Solicita informes de ${program.name} en UNIVAMEX.`,
+    title: `${program.shortName} en Ecatepec`,
+    description: `${program.description} Consulta modalidad, duración, RVOE, plan de estudios y admisiones de ${program.name} en Ecatepec.`,
     alternates: {
       canonical: `/programas/${program.slug}`,
     },
@@ -75,9 +75,36 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
   }
 
   const related = getRelatedPrograms(program);
+  const programUrl = `https://www.univamex.com/programas/${program.slug}`;
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: program.name,
+      description: program.description,
+      url: programUrl,
+      provider: {
+        "@type": "CollegeOrUniversity",
+        name: "Colegio Universitario del Valle de México - UNIVAMEX",
+        url: "https://www.univamex.com/",
+      },
+      educationalLevel: program.level,
+      availableLanguage: "es-MX",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.univamex.com/" },
+        { "@type": "ListItem", position: 2, name: "Oferta académica", item: "https://www.univamex.com/oferta-academica" },
+        { "@type": "ListItem", position: 3, name: program.name, item: programUrl },
+      ],
+    },
+  ];
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <section className="bg-[#F8FAFC] px-5 py-10 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <Link
@@ -198,6 +225,16 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
       </section>
 
       <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <SectionHeading title={`${program.shortName} en Ecatepec`} description={`Estudia ${program.name} en UNIVAMEX. La ficha reúne la información académica disponible para comparar esta opción con otros programas de ${program.area.toLowerCase()}.`} />
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/universidad-en-ecatepec"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">Campus y ubicación</h2><p className="mt-2 text-sm leading-6 text-slate-600">Consulta direcciones, horarios generales y la oferta de UNIVAMEX en Ecatepec.</p></Link>
+            <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/becas-y-colegiaturas"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">Colegiaturas y Plan Beca</h2><p className="mt-2 text-sm leading-6 text-slate-600">Revisa los precios 2026 documentados y confirma las condiciones aplicables.</p></Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
           <div>
             <BriefcaseBusiness
@@ -240,9 +277,9 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading
             title="Plan de estudios"
-            description="Contenido en formato escaneable para móvil. El asesor puede apoyarte con detalles de horarios, costos y grupos disponibles."
+            description="Consulta todas las asignaturas del programa, organizadas según el periodo y la etapa formativa indicados en su documento académico."
           />
-          <Accordion items={program.studyPlan} />
+          <StudyPlan items={program.studyPlan} />
         </div>
       </section>
 

@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# repo-local content that should stay out of deployments
+# local reference documentation and legacy material (not versioned)
 docs/
 univamex/
 univamex-web/
