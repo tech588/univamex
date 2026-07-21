@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:homepage": "node --test src/__tests__/homepage-redesign.test.mjs"
+    "test:frontend": "node --test src/__tests__/frontend-responsive.test.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

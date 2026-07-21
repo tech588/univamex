@@ -45,17 +45,17 @@ export default function FaqPage() {
         image="/images/UNIVAMEX STOCK 01.jpg"
       />
 
-      <section className="bg-[#F8FAFC] px-5 py-14 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1.22fr]">
+      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-10">
           <div>
             <SectionHeading
               title="Respuestas rápidas para decidir"
               description="El objetivo de esta página es quitar fricción: primero resuelve lo básico, luego compara programas o confirma detalles con un asesor."
             />
-            <div className="mt-8 grid gap-3">
+            <div className="mt-5 grid gap-2 sm:mt-8 sm:gap-3">
               {supportLinks.map((item) => (
                 <Link
-                  className="group border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5 transition hover:border-[#04215e]/40 hover:shadow-md"
+                  className="group border border-slate-200 bg-white p-4 shadow-sm shadow-slate-900/5 transition hover:border-[#04215e]/40 hover:shadow-md sm:p-5"
                   href={item.href}
                   key={item.href}
                 >
@@ -80,10 +80,10 @@ export default function FaqPage() {
           <div className="grid gap-4">
             {faqItems.map((item) => (
               <details
-                className="group border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5 open:border-[#04215e]/35"
+                className="group border border-slate-200 bg-white p-4 shadow-sm shadow-slate-900/5 open:border-[#04215e]/35 sm:p-5"
                 key={item.question}
               >
-                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-left font-editorial text-xl font-semibold leading-snug text-[#071a3d] marker:hidden">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 text-left font-editorial text-lg font-semibold leading-snug text-[#071a3d] marker:hidden sm:gap-4 sm:text-xl">
                   <span>{item.question}</span>
                   <CircleHelp
                     aria-hidden="true"

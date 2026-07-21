@@ -55,8 +55,8 @@ export default function UniversidadEnEcatepecPage() {
         whatsappSource="Universidad en Ecatepec"
       />
 
-      <section className="bg-white px-5 py-14 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-5 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <SectionHeading
             title="Información para estudiar en Ecatepec"
             description="UNIVAMEX reúne su oferta académica, proceso de admisión, sedes y documentos de cada programa para ayudarte a comparar opciones."
@@ -67,10 +67,10 @@ export default function UniversidadEnEcatepecPage() {
         </div>
       </section>
 
-      <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
+      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-5 md:grid-cols-3">
-            <article className="border border-slate-200 bg-white p-6">
+          <div className="grid gap-3 sm:gap-5 md:grid-cols-3">
+            <article className="border border-slate-200 bg-white p-4 sm:p-6">
               <MapPin
                 className="h-6 w-6 text-[#1E40AF]"
                 aria-hidden="true"
@@ -89,7 +89,7 @@ export default function UniversidadEnEcatepecPage() {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </article>
-            <article className="border border-slate-200 bg-white p-6">
+            <article className="border border-slate-200 bg-white p-4 sm:p-6">
               <Clock3
                 className="h-6 w-6 text-[#1E40AF]"
                 aria-hidden="true"
@@ -109,7 +109,7 @@ export default function UniversidadEnEcatepecPage() {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </article>
-            <article className="border border-slate-200 bg-white p-6">
+            <article className="border border-slate-200 bg-white p-4 sm:p-6">
               <h2 className="font-editorial text-xl font-semibold text-[#071a3d]">
                 Modalidades e inicios
               </h2>
@@ -129,13 +129,13 @@ export default function UniversidadEnEcatepecPage() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
+      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Carreras y posgrados con ficha completa"
             description="Cada ficha reúne plan de estudios, perfil, campo laboral, modalidad, duración, RVOE y requisitos."
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid gap-4 sm:mt-8 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((program) => (
               <ProgramCard key={program.slug} program={program} />
             ))}

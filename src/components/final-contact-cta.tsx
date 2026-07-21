@@ -10,13 +10,13 @@ const nextSteps = [
 
 export function FinalContactCta() {
   return (
-    <section className="bg-[#04215e] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+    <section className="bg-[#04215e] px-4 py-10 text-white sm:px-6 sm:py-14 lg:px-10 lg:py-20">
+      <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
         <div>
           <p className="text-sm font-bold text-[#e7a928]">
             Guía directa
           </p>
-          <h2 className="mt-3 max-w-3xl font-heading text-[2rem] font-semibold leading-[0.98] tracking-normal sm:text-4xl lg:text-5xl">
+          <h2 className="mt-2 max-w-3xl font-heading text-[1.75rem] font-semibold leading-[1.04] tracking-normal sm:mt-3 sm:text-4xl sm:leading-[0.98] lg:text-5xl">
             Si ya tienes una carrera en mente, el siguiente paso es hablar con
             admisiones
           </h2>
@@ -26,7 +26,7 @@ export function FinalContactCta() {
           </p>
         </div>
 
-        <div className="border border-white/15 bg-white/8 p-6">
+        <div className="border border-white/15 bg-white/8 p-4 sm:p-6">
           <ul className="grid gap-4">
             {nextSteps.map((step) => (
               <li className="flex gap-3 text-sm leading-6 text-white/82" key={step}>

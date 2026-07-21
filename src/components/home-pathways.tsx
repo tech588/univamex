@@ -74,27 +74,27 @@ export function HomePathways() {
   return (
     <section
       aria-label="Historias de la experiencia UNIVAMEX"
-      className="bg-[#f3f6fb] px-5 py-14 text-[#071a3d] sm:px-8 sm:py-16 lg:px-10 lg:py-20"
+      className="bg-[#f3f6fb] px-4 py-10 text-[#071a3d] sm:px-6 sm:py-14 lg:px-10 lg:py-20"
       onBlurCapture={() => setIsInteracting(false)}
       onFocusCapture={() => setIsInteracting(true)}
       onMouseEnter={() => setIsInteracting(true)}
       onMouseLeave={() => setIsInteracting(false)}
     >
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,0.43fr)_minmax(0,0.57fr)] lg:items-center lg:gap-14">
+      <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[minmax(0,0.43fr)_minmax(0,0.57fr)] lg:items-center lg:gap-14">
         <div>
           <p className="text-sm font-bold text-[#b45309]">Tu ruta en UNIVAMEX</p>
-          <h2 className="mt-3 max-w-[20ch] text-balance font-heading text-[2rem] font-semibold leading-[1.02] text-[#04215e] sm:text-[2.55rem] lg:text-[2.8rem]">
+          <h2 className="mt-2 max-w-[20ch] text-balance font-heading text-[1.75rem] font-semibold leading-[1.04] text-[#04215e] sm:mt-3 sm:text-[2.55rem] sm:leading-[1.02] lg:text-[2.8rem]">
             Elegir programa también debe sentirse acompañado
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:mt-6 sm:max-w-md sm:text-base sm:leading-7">
+          <p className="mt-3 max-w-xl text-sm leading-5 text-slate-600 sm:mt-6 sm:max-w-md sm:text-base sm:leading-7">
             Recorre el valor académico, el proceso de admisión y los campus sin
             perder el contexto de tu decisión.
           </p>
 
-          <div className="mt-6 flex items-center gap-2 sm:mt-8">
+          <div className="mt-4 flex items-center gap-2 sm:mt-8">
             <button
               aria-label="Historia anterior"
-              className="grid h-12 w-12 place-items-center border border-[#cbd5e1] bg-white text-[#04215e] transition duration-200 hover:border-[#04215e] hover:bg-[#04215e] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
+              className="grid h-11 w-11 place-items-center border border-[#cbd5e1] bg-white text-[#04215e] transition duration-200 hover:border-[#04215e] hover:bg-[#04215e] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:h-12 sm:w-12"
               type="button"
               onClick={() =>
                 setActiveIndex((index) =>
@@ -106,7 +106,7 @@ export function HomePathways() {
             </button>
             <button
               aria-label="Historia siguiente"
-              className="grid h-12 w-12 place-items-center border border-[#cbd5e1] bg-white text-[#04215e] transition duration-200 hover:border-[#04215e] hover:bg-[#04215e] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
+              className="grid h-11 w-11 place-items-center border border-[#cbd5e1] bg-white text-[#04215e] transition duration-200 hover:border-[#04215e] hover:bg-[#04215e] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:h-12 sm:w-12"
               type="button"
               onClick={() =>
                 setActiveIndex((index) => (index + 1) % stories.length)
@@ -121,7 +121,7 @@ export function HomePathways() {
                   : "Pausar avance automático"
               }
               aria-pressed={isManuallyPaused}
-              className="grid h-12 w-12 place-items-center border border-[#cbd5e1] bg-white text-[#04215e] transition duration-200 hover:border-[#04215e] hover:bg-[#04215e] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
+              className="grid h-11 w-11 place-items-center border border-[#cbd5e1] bg-white text-[#04215e] transition duration-200 hover:border-[#04215e] hover:bg-[#04215e] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928] sm:h-12 sm:w-12"
               type="button"
               onClick={() => setIsManuallyPaused((paused) => !paused)}
             >
@@ -133,7 +133,7 @@ export function HomePathways() {
             </button>
           </div>
 
-          <div aria-hidden="true" className="mt-6 grid grid-cols-3 gap-2 sm:mt-8">
+          <div aria-hidden="true" className="mt-4 grid grid-cols-3 gap-2 sm:mt-8">
             {stories.map((story, index) => (
               <span className="h-1 bg-slate-300" key={story.title}>
                 <motion.span
@@ -147,7 +147,7 @@ export function HomePathways() {
         </div>
 
         <div className="min-w-0 overflow-hidden bg-white shadow-2xl shadow-slate-950/10">
-          <div aria-live="polite" className="relative min-h-[31rem] overflow-hidden sm:min-h-[34rem]">
+          <div aria-live="polite" className="relative min-h-[25rem] overflow-hidden sm:min-h-[34rem]">
             <AnimatePresence initial={false} mode="sync">
               <motion.article
                 className="absolute inset-0 overflow-hidden bg-[#04215e] text-white"
@@ -166,7 +166,7 @@ export function HomePathways() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,33,94,0.04)_18%,rgba(4,33,94,0.42)_48%,rgba(4,33,94,0.98)_100%)]" />
 
-                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-9">
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8 lg:p-9">
                   <div className="flex items-center justify-between gap-4">
                     <span className="grid h-11 w-11 place-items-center border border-white/60 bg-[#04215e]/35 backdrop-blur-sm">
                       <activeStory.icon aria-hidden="true" className="h-5 w-5" />
@@ -175,17 +175,17 @@ export function HomePathways() {
                       0{activeIndex + 1}
                     </span>
                   </div>
-                  <p className="mt-5 text-sm font-bold text-[#f2bd45]">
+                  <p className="mt-3 text-sm font-bold text-[#f2bd45] sm:mt-5">
                     {activeStory.note}
                   </p>
-                  <h3 className="mt-2 font-editorial text-3xl font-semibold leading-none sm:text-4xl">
+                  <h3 className="mt-1.5 font-editorial text-2xl font-semibold leading-none sm:mt-2 sm:text-4xl">
                     {activeStory.title}
                   </h3>
-                  <p className="mt-4 max-w-xl text-sm leading-6 text-white/82 sm:text-base sm:leading-7">
+                  <p className="mt-3 max-w-xl text-sm leading-5 text-white/82 sm:mt-4 sm:text-base sm:leading-7">
                     {activeStory.description}
                   </p>
                   <Link
-                    className="mt-5 inline-flex min-h-11 items-center gap-2 border-b border-[#e7a928] text-sm font-bold text-white transition hover:border-white"
+                    className="mt-3 inline-flex min-h-10 items-center gap-2 border-b border-[#e7a928] text-sm font-bold text-white transition hover:border-white sm:mt-5 sm:min-h-11"
                     href={activeStory.href}
                   >
                     {activeStory.cta}

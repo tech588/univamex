@@ -17,7 +17,7 @@ const levelCopy: Record<ProgramLevel, string> = {
 export function LevelPage({ level }: { level: ProgramLevel }) {
   return (
     <main>
-      <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
+      <section className="bg-[#F8FAFC] px-4 py-9 sm:px-6 sm:py-12 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <BreadcrumbTrail
             backHref="/oferta-academica"
@@ -27,15 +27,15 @@ export function LevelPage({ level }: { level: ProgramLevel }) {
               { label: level },
             ]}
           />
-          <div className="mt-8">
-            <h1 className="font-heading text-[2.5rem] font-semibold leading-[0.98] text-[#04215e] sm:text-5xl">
+          <div className="mt-5 sm:mt-8">
+            <h1 className="font-heading text-[2rem] font-semibold leading-[1.02] text-[#04215e] sm:text-5xl sm:leading-[0.98]">
               {level}
             </h1>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-lg sm:leading-8">
               {levelCopy[level]} Elige un programa y habla con un asesor para resolver dudas.
             </p>
           </div>
-          <div className="mt-8">
+          <div className="mt-5 sm:mt-8">
             <ProgramFinder
               programs={programs}
               initialLevel={level}

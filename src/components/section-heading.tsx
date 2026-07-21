@@ -18,11 +18,11 @@ export function SectionHeading({
         align === "center" && "mx-auto text-center",
       )}
     >
-      <h2 className="font-heading text-[2rem] font-semibold leading-[0.98] tracking-normal text-[#04215e] sm:text-4xl lg:text-5xl">
+      <h2 className="font-heading text-[1.75rem] font-semibold leading-[1.04] tracking-normal text-[#04215e] sm:text-4xl sm:leading-[0.98] lg:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-lg leading-8 text-slate-600">{description}</p>
+        <p className="mt-3 text-base leading-6 text-slate-600 sm:mt-4 sm:text-lg sm:leading-8">{description}</p>
       ) : null}
     </div>
   );

@@ -85,8 +85,8 @@ export function GuidedWhatsAppForm({
   }
 
   return (
-    <form className="border border-white/18 bg-white/8 p-6 sm:p-8" noValidate onSubmit={handleSubmit}>
-      <div className="grid gap-5">
+    <form className="border border-white/18 bg-white/8 p-4 sm:p-8" noValidate onSubmit={handleSubmit}>
+      <div className="grid gap-4 sm:gap-5">
         <div>
           <label className="block text-sm font-bold text-white" htmlFor="lead-name">
             Nombre <span aria-hidden="true" className="text-[#e7a928]">*</span>
@@ -100,7 +100,7 @@ export function GuidedWhatsAppForm({
             value={name}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "lead-name-error" : undefined}
-            className="mt-2 min-h-12 w-full border border-white/30 bg-white px-4 text-base text-[#071a3d] outline-none transition focus:border-[#e7a928] focus:ring-2 focus:ring-[#e7a928]/30"
+            className="mt-1.5 min-h-11 w-full border border-white/30 bg-white px-3 text-base text-[#071a3d] outline-none transition focus:border-[#e7a928] focus:ring-2 focus:ring-[#e7a928]/30 sm:mt-2 sm:min-h-12 sm:px-4"
             onChange={(event) => {
               setName(event.target.value);
               if (errors.name) setErrors((current) => ({ ...current, name: undefined }));
@@ -124,7 +124,7 @@ export function GuidedWhatsAppForm({
             value={interest}
             aria-invalid={Boolean(errors.interest)}
             aria-describedby={errors.interest ? "lead-interest-error" : undefined}
-            className="mt-2 min-h-12 w-full border border-white/30 bg-white px-4 text-base text-[#071a3d] outline-none transition focus:border-[#e7a928] focus:ring-2 focus:ring-[#e7a928]/30"
+            className="mt-1.5 min-h-11 w-full border border-white/30 bg-white px-3 text-base text-[#071a3d] outline-none transition focus:border-[#e7a928] focus:ring-2 focus:ring-[#e7a928]/30 sm:mt-2 sm:min-h-12 sm:px-4"
             onChange={(event) => {
               setInterest(event.target.value);
               if (errors.interest) setErrors((current) => ({ ...current, interest: undefined }));
@@ -157,7 +157,7 @@ export function GuidedWhatsAppForm({
             id="lead-campus"
             name="campus"
             value={campus}
-            className="mt-2 min-h-12 w-full border border-white/30 bg-white px-4 text-base text-[#071a3d] outline-none transition focus:border-[#e7a928] focus:ring-2 focus:ring-[#e7a928]/30"
+            className="mt-1.5 min-h-11 w-full border border-white/30 bg-white px-3 text-base text-[#071a3d] outline-none transition focus:border-[#e7a928] focus:ring-2 focus:ring-[#e7a928]/30 sm:mt-2 sm:min-h-12 sm:px-4"
             onChange={(event) => setCampus(event.target.value)}
           >
             <option value="">Sin preferencia</option>
@@ -171,7 +171,7 @@ export function GuidedWhatsAppForm({
       </div>
 
       <button
-        className="mt-6 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 bg-[#e7a928] px-6 text-sm font-bold text-[#071a3d] transition hover:bg-[#f0bd4b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className="mt-4 inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 bg-[#e7a928] px-4 text-sm font-bold text-[#071a3d] transition hover:bg-[#f0bd4b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:mt-6 sm:min-h-12 sm:px-6"
         type="submit"
       >
         <MessageCircle aria-hidden="true" className="h-5 w-5" />

@@ -58,9 +58,9 @@ export function WhatsAppButton({
 
 export function FloatingWhatsApp() {
   return (
-    <div className="fixed bottom-5 right-5 z-40 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom))] right-3 z-40 sm:bottom-6 sm:right-6">
       <WhatsAppButton
-        className="h-14 w-14 !rounded-full p-0 shadow-xl shadow-slate-950/25 sm:h-16 sm:w-16 [&>span]:sr-only"
+        className="h-12 w-12 !rounded-full p-0 shadow-xl shadow-slate-950/25 sm:h-16 sm:w-16 [&>span]:sr-only"
         label="Solicitar informes por WhatsApp"
         source="Acceso flotante"
         variant="floating"

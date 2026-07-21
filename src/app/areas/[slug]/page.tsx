@@ -73,8 +73,8 @@ export default async function AreaPage({ params }: AreaPageProps) {
         image={area.heroImage}
       />
 
-      <section className="bg-[#F8FAFC] px-5 py-14 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-5 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <BreadcrumbTrail
               backHref="/oferta-academica"
@@ -84,18 +84,18 @@ export default async function AreaPage({ params }: AreaPageProps) {
                 { label: area.title },
               ]}
             />
-            <p className="mt-5 text-sm font-bold text-[#B45309]">
+            <p className="mt-3 text-sm font-bold text-[#B45309] sm:mt-5">
               Área académica · Ecatepec
             </p>
           </div>
           <div>
-            <h2 className="font-editorial text-3xl font-semibold leading-snug text-[#04215e] sm:text-4xl">
+            <h2 className="font-editorial text-2xl font-semibold leading-tight text-[#04215e] sm:text-4xl sm:leading-snug">
               Una ruta para comparar programas afines
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7">
               {area.decisionCopy}
             </p>
-            <div className="mt-7">
+            <div className="mt-4 sm:mt-7">
               <WhatsAppButton
                 label="Pedir orientación"
                 question={`programas de ${area.name} en Ecatepec`}
@@ -106,13 +106,13 @@ export default async function AreaPage({ params }: AreaPageProps) {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
+      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Programas relacionados"
             description="Abre cada ficha para revisar el plan de estudios, la modalidad, la duración y el RVOE publicados."
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid gap-4 sm:mt-8 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
             {areaPrograms.map((program) => (
               <ProgramCard key={program.slug} program={program} />
             ))}
@@ -120,26 +120,26 @@ export default async function AreaPage({ params }: AreaPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#EFF6FF] px-5 py-16 sm:px-8 lg:px-10">
+      <section className="bg-[#EFF6FF] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Preguntas para comparar tu ruta"
             description="Usa estas preguntas como guía antes de decidir o pedir orientación."
           />
-          <div className="mt-7 grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-3 sm:mt-7 sm:gap-4 md:grid-cols-3">
             {area.relatedQuestions.map((question) => (
               <article
-                className="border border-blue-100 bg-white p-5"
+                className="border border-blue-100 bg-white p-4 sm:p-5"
                 key={question}
               >
                 <CircleHelp
                   aria-hidden="true"
                   className="h-5 w-5 text-[#1E40AF]"
                 />
-                <h3 className="mt-4 font-editorial text-xl font-semibold text-[#071a3d]">
+                <h3 className="mt-3 font-editorial text-lg font-semibold leading-snug text-[#071a3d] sm:mt-4 sm:text-xl">
                   {question}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
+                <p className="mt-2 text-sm leading-5 text-slate-600 sm:mt-3 sm:leading-6">
                   Revisa las fichas, el plan de estudios, la modalidad, la
                   duración y el RVOE antes de decidir.
                 </p>
@@ -147,7 +147,7 @@ export default async function AreaPage({ params }: AreaPageProps) {
             ))}
           </div>
           <Link
-            className="mt-8 inline-flex min-h-11 items-center gap-2 font-bold text-[#1E3A8A]"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 font-bold text-[#1E3A8A] sm:mt-8"
             href="/admisiones"
           >
             Revisar admisiones

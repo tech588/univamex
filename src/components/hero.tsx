@@ -66,7 +66,7 @@ export function Hero({
     <section
       aria-label="Presentación de UNIVAMEX"
       aria-roledescription="carrusel"
-      className="relative isolate min-h-[44rem] overflow-hidden bg-[#02183f] text-white sm:min-h-[48rem] lg:min-h-[50rem]"
+      className="relative isolate min-h-[38rem] overflow-hidden bg-[#02183f] text-white sm:min-h-[48rem] lg:min-h-[50rem]"
     >
       <div aria-hidden="true" className="absolute inset-0">
         {slides.map((slide, index) => {
@@ -109,14 +109,14 @@ export function Hero({
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(2,24,63,0.68)_0%,rgba(2,24,63,0.55)_32%,rgba(2,24,63,0.26)_57%,rgba(2,24,63,0.06)_100%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,24,63,0.55)_0%,rgba(2,24,63,0.08)_44%,rgba(2,24,63,0.45)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex min-h-[44rem] max-w-7xl items-center px-5 pb-24 pt-[8.5rem] sm:min-h-[48rem] sm:px-8 sm:pb-28 sm:pt-[9rem] lg:min-h-[50rem] lg:px-10 lg:pb-28 lg:pt-[9rem]">
+      <div className="relative z-10 mx-auto flex min-h-[38rem] max-w-7xl items-center px-4 pb-16 pt-[6.75rem] sm:min-h-[48rem] sm:px-8 sm:pb-28 sm:pt-[9rem] lg:min-h-[50rem] lg:px-10 lg:pb-28 lg:pt-[9rem]">
         <motion.div
           className="max-w-[46rem]"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="flex flex-col items-start gap-[0.12em] text-[clamp(2.3rem,11vw,2.75rem)] font-medium leading-[0.92] tracking-[-0.035em] drop-shadow-[0_2px_12px_rgba(2,24,63,0.5)] [font-family:var(--font-soft-display)] sm:text-[clamp(4rem,7.2vw,6rem)]">
+          <h1 className="flex flex-col items-start gap-[0.08em] text-[clamp(2.05rem,10vw,2.6rem)] font-medium leading-[0.95] tracking-[-0.035em] drop-shadow-[0_2px_12px_rgba(2,24,63,0.5)] [font-family:var(--font-soft-display)] sm:gap-[0.12em] sm:text-[clamp(4rem,7.2vw,6rem)] sm:leading-[0.92]">
             {titleLines.map((line) => (
               <span className="whitespace-nowrap" key={line}>{line}</span>
             ))}
@@ -125,7 +125,7 @@ export function Hero({
             {description}
           </p>
 
-          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
+          <div className="mt-6 flex flex-col items-start gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-8">
             <WhatsAppButton
               className="min-h-12 px-6 py-3.5"
               label="Solicitar informes"

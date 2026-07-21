@@ -24,6 +24,10 @@ export function buildWhatsAppMessage(context: WhatsAppContext = {}) {
     return `${introduction}${interest}${campus} Quiero conocer requisitos, horarios, modalidades y fechas de inicio.`;
   }
 
+  if (context.program && context.question) {
+    return `Hola, quiero información sobre ${context.program} en UNIVAMEX. Tengo una duda sobre ${context.question}.`;
+  }
+
   if (context.program) {
     return `Hola, quiero información sobre ${context.program} en UNIVAMEX.`;
   }

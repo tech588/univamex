@@ -65,7 +65,7 @@ textarea {
 }
 
 main:not(.home-main) {
-  padding-top: 5rem;
+  padding-top: 4.25rem;
 }
 
 .home-main {
@@ -96,6 +96,12 @@ main:not(.home-main) {
 
 .text-balance {
   text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  main:not(.home-main) {
+    padding-top: 5rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

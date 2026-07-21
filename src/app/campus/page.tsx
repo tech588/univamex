@@ -98,14 +98,14 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
         image="/images/CAMPUS CIUDAD AZTECA.png"
       />
 
-      <section className="bg-[#F8FAFC] px-5 py-14 sm:px-8 lg:px-10">
+      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Dos sedes en Ecatepec"
             description="Revisa la dirección, las referencias y los espacios generales de cada sede para preparar tu visita."
           />
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div className="mt-5 grid gap-4 sm:mt-8 sm:gap-6 lg:grid-cols-2">
             {campuses.map((campus) => (
               <article
                 className="overflow-hidden border border-slate-200 bg-white shadow-sm shadow-slate-900/5"
@@ -120,7 +120,7 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6 sm:p-7">
+                <div className="p-4 sm:p-7">
                   <p className="text-xs font-bold text-[#b45309]">
                     {campus.shortName}
                   </p>
@@ -148,7 +148,7 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
                     ))}
                   </ul>
                   <Link
-                    className="mt-6 inline-flex min-h-11 items-center gap-2 border border-[#cbd5e1] px-4 text-sm font-bold text-[#1e3a8a] transition hover:border-[#04215e] hover:bg-[#eff6ff]"
+                    className="mt-4 inline-flex min-h-11 items-center gap-2 border border-[#cbd5e1] px-4 text-sm font-bold text-[#1e3a8a] transition hover:border-[#04215e] hover:bg-[#eff6ff] sm:mt-6"
                     href={campus.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -161,7 +161,7 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 border border-slate-200 bg-white p-5 text-sm text-slate-700 shadow-sm shadow-slate-900/5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-5 flex flex-col gap-3 border border-slate-200 bg-white p-4 text-sm text-slate-700 shadow-sm shadow-slate-900/5 sm:mt-8 sm:flex-row sm:items-center sm:justify-between sm:p-5">
             <div className="flex gap-3">
               <Phone
                 aria-hidden="true"
@@ -179,13 +179,13 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
+      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Espacios del campus"
             description="Fotografías de los espacios académicos, de atención y convivencia de UNIVAMEX. Las imágenes se muestran completas y sin recorte."
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-8 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
             {installationGallery.map((item) => (
               <figure
                 className="overflow-hidden border border-slate-200 bg-[#F8FAFC] shadow-sm shadow-slate-900/5"
@@ -209,14 +209,14 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
+      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Mapas y rutas para llegar"
             description="Abre la ubicación de cada sede o inicia una ruta en Google Maps desde tres puntos de referencia de Ecatepec. El trayecto se calcula al momento de abrirlo."
           />
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div className="mt-5 grid gap-4 sm:mt-8 sm:gap-6 lg:grid-cols-2">
             {campuses.map((campus) => (
               <article
                 className="overflow-hidden border border-slate-200 bg-white shadow-sm shadow-slate-900/5"
@@ -230,7 +230,7 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
                 />
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <h2 className="font-editorial text-2xl font-semibold text-[#04215e]">
                     {campus.name}
                   </h2>
@@ -259,13 +259,13 @@ export default async function CampusPage({ searchParams }: CampusPageProps) {
       </section>
 
       <section
-        className="bg-white px-5 py-16 sm:px-8 lg:px-10"
+        className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16"
         id="recorrido-360"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 max-w-3xl">
             <p className="text-sm font-bold text-[#b45309]">Recorrido virtual</p>
-            <h2 className="mt-3 font-heading text-[2rem] font-semibold leading-[0.98] tracking-normal text-[#04215e] sm:text-4xl lg:text-5xl">
+            <h2 className="mt-2 font-heading text-[1.75rem] font-semibold leading-[1.04] tracking-normal text-[#04215e] sm:mt-3 sm:text-4xl sm:leading-[0.98] lg:text-5xl">
               Explora el campus en 360
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">

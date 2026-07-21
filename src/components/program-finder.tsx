@@ -103,11 +103,11 @@ export function ProgramFinder({
   }
 
   return (
-    <section className="min-w-0 border border-slate-200 bg-white p-4 shadow-sm shadow-slate-900/5 sm:p-5">
-      <div className="grid min-w-0 gap-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <section className="min-w-0 border border-slate-200 bg-white p-3 shadow-sm shadow-slate-900/5 sm:p-5">
+      <div className="grid min-w-0 gap-2.5 sm:gap-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <label className="grid min-w-0 gap-1 text-sm font-semibold text-slate-700">
           <span>Buscar programa</span>
-          <span className="flex min-h-12 min-w-0 items-center gap-3 border border-slate-200 bg-slate-50 px-4 focus-within:border-[#1E40AF] focus-within:bg-white">
+          <span className="flex min-h-11 min-w-0 items-center gap-2 border border-slate-200 bg-slate-50 px-3 focus-within:border-[#1E40AF] focus-within:bg-white sm:min-h-12 sm:gap-3 sm:px-4">
             <Search aria-hidden="true" className="h-5 w-5 shrink-0 text-slate-500" />
             <input
               className="min-w-0 flex-1 bg-transparent text-base text-[#0F172A] outline-none placeholder:text-slate-500"
@@ -140,7 +140,7 @@ export function ProgramFinder({
         />
       </div>
 
-      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-3 flex items-center justify-between gap-3 sm:mt-4">
         <p className="text-sm font-semibold text-slate-600" aria-live="polite">
           {filteredPrograms.length} {filteredPrograms.length === 1 ? "programa encontrado" : "programas encontrados"}
         </p>
@@ -154,12 +154,12 @@ export function ProgramFinder({
         </button>
       </div>
 
-      <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-4 grid gap-4 sm:mt-5 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
         {filteredPrograms.map((program) => (
           <ProgramCard key={program.slug} program={program} />
         ))}
         {filteredPrograms.length === 0 ? (
-          <div className="border border-slate-200 bg-[#f8fafc] p-6 md:col-span-2 xl:col-span-3">
+          <div className="border border-slate-200 bg-[#f8fafc] p-4 sm:p-6 md:col-span-2 xl:col-span-3">
             <h3 className="font-editorial text-2xl font-semibold text-[#04215e]">
               No encontramos programas con esos filtros
             </h3>
@@ -193,7 +193,7 @@ function FilterSelect({ label, value, options, onChange }: FilterSelectProps) {
     <label className="grid gap-1 text-sm font-semibold text-slate-700">
       <span>{label}</span>
       <select
-        className="min-h-12 min-w-0 border border-slate-200 bg-white px-3 text-base font-medium text-[#0F172A] outline-none transition focus:border-[#1E40AF] focus:ring-2 focus:ring-[#1E40AF]/15"
+        className="min-h-11 min-w-0 border border-slate-200 bg-white px-3 text-base font-medium text-[#0F172A] outline-none transition focus:border-[#1E40AF] focus:ring-2 focus:ring-[#1E40AF]/15 sm:min-h-12"
         value={value}
         onChange={(event) => onChange(event.target.value)}
       >

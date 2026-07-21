@@ -63,19 +63,19 @@ const levelCards: Array<{
 export function ProgramLevelsPreview() {
   return (
     <section
-      className="relative z-10 -mt-px bg-[#f8fafc] px-5 py-16 text-[#071a3d] sm:px-8 sm:py-20 lg:px-10"
+      className="relative z-10 -mt-px bg-[#f8fafc] px-4 py-10 text-[#071a3d] sm:px-6 sm:py-14 lg:px-10 lg:py-20"
       id="oferta"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-sm font-bold text-[#b45309]">
               Oferta académica vigente
             </p>
-            <h2 className="mt-3 font-heading text-[2rem] font-semibold leading-[1.02] sm:text-4xl lg:text-5xl">
+            <h2 className="mt-2 font-heading text-[1.75rem] font-semibold leading-[1.04] sm:mt-3 sm:text-4xl sm:leading-[1.02] lg:text-5xl">
               Elige el nivel que quieres estudiar
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-lg sm:leading-7">
               Explora cada nivel y continúa a su página para conocer programas,
               modalidades y fichas académicas.
             </p>
@@ -89,7 +89,7 @@ export function ProgramLevelsPreview() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-12 xl:grid-rows-2">
+        <div className="mt-6 grid gap-3 sm:mt-8 sm:gap-4 md:grid-cols-2 xl:mt-10 xl:grid-cols-12 xl:grid-rows-2">
           {levelCards.map((card) => {
             const count = programs.filter(
               (program) => program.level === card.level,
@@ -97,11 +97,11 @@ export function ProgramLevelsPreview() {
 
             return (
               <article
-                className={`group relative min-h-[22rem] min-w-0 overflow-hidden border border-slate-200 bg-[#071a3d] ${card.layout}`}
+                className={`group relative min-h-[17rem] min-w-0 overflow-hidden border border-slate-200 bg-[#071a3d] sm:min-h-[22rem] ${card.layout}`}
                 key={card.level}
               >
                 <Link
-                  className="relative flex h-full min-h-[inherit] flex-col justify-between overflow-hidden p-6 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-[#f2bd46] sm:p-8"
+                  className="relative flex h-full min-h-[inherit] flex-col justify-between overflow-hidden p-4 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-[#f2bd46] sm:p-8"
                   href={card.href}
                 >
                   <Image
@@ -123,13 +123,13 @@ export function ProgramLevelsPreview() {
                   </div>
 
                   <div className="relative z-10 max-w-xl">
-                    <h3 className="font-editorial text-[1.8rem] font-semibold leading-none text-white sm:text-[2.15rem]">
+                    <h3 className="font-editorial text-[1.55rem] font-semibold leading-none text-white sm:text-[2.15rem]">
                       {card.title}
                     </h3>
-                    <p className="mt-3 max-w-lg text-sm leading-6 text-white/78 sm:text-base">
+                    <p className="mt-2 max-w-lg text-sm leading-5 text-white/78 sm:mt-3 sm:text-base sm:leading-6">
                       {card.description}
                     </p>
-                    <span className="mt-5 inline-flex min-h-11 items-center border-b border-[#f2bd46] text-sm font-bold text-white">
+                    <span className="mt-3 inline-flex min-h-10 items-center border-b border-[#f2bd46] text-sm font-bold text-white sm:mt-5 sm:min-h-11">
                       Explorar {card.title.toLowerCase()}
                     </span>
                   </div>

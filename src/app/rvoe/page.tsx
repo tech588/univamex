@@ -20,7 +20,7 @@ export default function RvoePage() {
         image="/images/UNIVAMEX STOCK 0.png"
       />
 
-      <section className="bg-[#F8FAFC] px-5 py-14 sm:px-8 lg:px-10">
+      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Validez académica por programa"
@@ -29,7 +29,7 @@ export default function RvoePage() {
           <div className="mt-10 grid gap-3">
             {programs.map((program) => (
               <Link
-                className="grid gap-2 border border-slate-200 bg-white p-5 transition hover:border-[#1E40AF] sm:grid-cols-[1fr_auto] sm:items-center"
+                className="grid gap-1.5 border border-slate-200 bg-white p-3 transition hover:border-[#1E40AF] sm:grid-cols-[1fr_auto] sm:items-center sm:gap-2 sm:p-5"
                 href={`/programas/${program.slug}`}
                 key={program.slug}
               >

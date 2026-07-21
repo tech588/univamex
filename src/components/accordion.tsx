@@ -9,7 +9,7 @@ export function Accordion({ items }: AccordionProps) {
     <div className="divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white">
       {items.map((item, index) => (
         <details
-          className="group p-5 open:bg-slate-50"
+          className="group p-4 open:bg-slate-50 sm:p-5"
           key={item.title}
           open={index === 0}
         >
@@ -21,9 +21,9 @@ export function Accordion({ items }: AccordionProps) {
               </span>
             </span>
           </summary>
-          <ul className="mt-4 grid gap-2 text-sm leading-6 text-slate-700 sm:grid-cols-2">
+          <ul className="mt-3 grid gap-1.5 text-sm leading-5 text-slate-700 sm:mt-4 sm:grid-cols-2 sm:gap-2 sm:leading-6">
             {item.items.map((entry) => (
-              <li className="rounded-md bg-white px-3 py-2" key={entry}>
+              <li className="rounded-md bg-white px-3 py-1.5 sm:py-2" key={entry}>
                 {entry}
               </li>
             ))}

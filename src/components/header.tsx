@@ -42,7 +42,7 @@ export function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
-      <div className="mx-auto flex min-h-[5.25rem] w-full max-w-7xl items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-[4.25rem] w-full max-w-7xl items-center justify-between gap-3 px-3 sm:min-h-[5.25rem] sm:gap-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="group flex min-h-12 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7a928]"
@@ -54,8 +54,8 @@ export function Header() {
             width={1920}
             height={1080}
             priority
-            sizes="(min-width: 768px) 267px, 207px"
-            className="h-[4.45rem] w-[12.9rem] object-contain object-left sm:h-[4.8rem] sm:w-[16.65rem]"
+            sizes="(min-width: 768px) 267px, 176px"
+            className="h-[3.65rem] w-[11rem] object-contain object-left sm:h-[4.8rem] sm:w-[16.65rem]"
           />
         </Link>
 
@@ -125,7 +125,7 @@ export function Header() {
         {mobileOpen ? (
           <motion.div
             id="mobile-navigation"
-            className="fixed inset-x-0 top-[5.25rem] z-50 max-h-[calc(100dvh-5.25rem)] overflow-y-auto border-y border-[#d9e0ec] bg-white px-3 py-5 text-[#04215e] shadow-xl shadow-slate-950/10 xl:hidden"
+            className="fixed inset-x-0 top-[4.25rem] z-50 max-h-[calc(100dvh-4.25rem)] overflow-y-auto border-y border-[#d9e0ec] bg-white px-3 py-3 text-[#04215e] shadow-xl shadow-slate-950/10 sm:top-[5.25rem] sm:max-h-[calc(100dvh-5.25rem)] sm:py-5 xl:hidden"
             initial={reduceMotion ? false : { y: -18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={reduceMotion ? undefined : { y: -18, opacity: 0 }}
@@ -137,7 +137,7 @@ export function Header() {
                   <li key={item.href}>
                     <Link
                       className={cn(
-                        "flex min-h-12 items-center border-b border-[#d9e0ec] px-1 text-sm font-bold transition hover:bg-[#04215e]/6",
+                        "flex min-h-11 items-center border-b border-[#d9e0ec] px-1 text-sm font-bold transition hover:bg-[#04215e]/6 sm:min-h-12",
                         item.href === "/"
                           ? pathname === item.href
                             ? "text-[#04215e]"
@@ -154,7 +154,7 @@ export function Header() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-5">
+              <div className="mt-3 sm:mt-5">
                 <WhatsAppButton
                   className="w-full border-[#04215e] px-4 text-[#04215e]"
                   label="Solicitar informes"

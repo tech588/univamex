@@ -48,3 +48,5 @@ legacy-old-web/
 .agents/
 skills-lock.json
 *.md
+!AGENTS.md
+!DESIGN.md

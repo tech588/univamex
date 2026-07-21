@@ -7,7 +7,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 export function Footer() {
   return (
     <footer className="bg-[#0F172A] text-white">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-10">
+      <div className="mx-auto grid w-full max-w-7xl gap-7 px-4 py-9 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-10">
         <div>
           <Image
             src="/logos/Logo Horizontal/blanco.png"
@@ -20,7 +20,7 @@ export function Footer() {
             {siteConfig.fullName}. Decídete a llegar más lejos estudiando lo
             que te apasiona.
           </p>
-          <div className="mt-6">
+          <div className="mt-4 sm:mt-6">
             <WhatsAppButton
               label="Solicitar informes"
               source="Footer"
@@ -33,7 +33,7 @@ export function Footer() {
           <h2 className="text-sm font-bold text-slate-300">
             Navegación
           </h2>
-          <ul className="mt-4 space-y-3">
+          <ul className="mt-3 space-y-2 sm:mt-4 sm:space-y-3">
             {footerNavItems.map((item) => (
               <li key={item.href}>
                 <Link
@@ -51,7 +51,7 @@ export function Footer() {
           <h2 className="text-sm font-bold text-slate-300">
             Contacto
           </h2>
-          <ul className="mt-4 space-y-3 text-sm text-slate-300">
+          <ul className="mt-3 space-y-2 text-sm text-slate-300 sm:mt-4 sm:space-y-3">
             <li className="flex gap-2">
               <Phone aria-hidden="true" className="mt-0.5 h-4 w-4" />
               <a className="transition hover:text-white" href={`tel:${siteConfig.phone.replaceAll("-", "")}`}>

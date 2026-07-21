@@ -17,13 +17,13 @@ export default function PosgradosPage() {
 
   return (
     <main>
-      <section className="bg-[#F8FAFC] px-5 py-12 sm:px-8 lg:px-10">
+      <section className="bg-[#F8FAFC] px-4 py-9 sm:px-6 sm:py-12 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Posgrados"
             description="Maestrías y doctorado para fortalecer tu práctica profesional, investigación e impacto educativo."
           />
-          <div className="mt-8">
+          <div className="mt-5 sm:mt-8">
             <ProgramFinder programs={posgrados} />
           </div>
         </div>

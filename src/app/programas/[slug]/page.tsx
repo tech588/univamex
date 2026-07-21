@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BriefcaseBusiness, BrainCircuit } from "lucide-react";
 import { AdmissionsChecklist } from "@/components/admissions-checklist";
 import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { ProgramCard } from "@/components/program-card";
+import { ProgramInsights } from "@/components/program-insights";
 import { SectionHeading } from "@/components/section-heading";
 import { StudyPlan, StudyPlanOverview } from "@/components/study-plan";
 import { WhatsAppButton } from "@/components/whatsapp-button";
@@ -107,10 +107,11 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
-      <section className="bg-[#F8FAFC] px-5 py-10 sm:px-8 lg:px-10">
+      <section className="bg-[#F8FAFC] px-4 py-7 sm:px-6 sm:py-10 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <BreadcrumbTrail
             backHref={programLevelRoutes[program.level]}
+            compact
             items={[
               { href: "/", label: "Inicio" },
               { href: "/oferta-academica", label: "Oferta académica" },
@@ -119,18 +120,20 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
             ]}
           />
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="text-sm font-bold text-[#B45309]">
-                {program.level} · {program.area}
-              </p>
-              <h1 className="mt-3 font-heading text-4xl font-semibold leading-[0.98] tracking-normal text-[#04215e] sm:text-5xl">
-                {program.name}
-              </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                {program.promise}
-              </p>
-              <dl className="mt-8 grid grid-cols-2 gap-3">
+          <div className="mt-4 grid gap-4 sm:mt-6 sm:gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-10">
+            <div className="contents lg:block">
+              <div className="order-0">
+                <p className="text-sm font-bold text-[#B45309]">
+                  {program.level} · {program.area}
+                </p>
+                <h1 className="mt-2 font-heading text-[2rem] font-semibold leading-[1.02] tracking-normal text-[#04215e] sm:mt-3 sm:text-5xl sm:leading-[0.98]">
+                  {program.name}
+                </h1>
+                <p className="mt-3 max-w-2xl text-base leading-6 text-slate-600 sm:mt-5 sm:text-lg sm:leading-8">
+                  {program.promise}
+                </p>
+              </div>
+              <dl className="order-2 grid grid-cols-2 gap-2 sm:gap-3 lg:mt-8">
                 {[
                   ["Modalidad", program.modality],
                   ["Duración", program.duration],
@@ -138,7 +141,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
                   ["Materias", program.subjects ?? "por confirmar"],
                 ].map(([label, value]) => (
                   <div
-                    className="min-w-0 rounded-lg border border-slate-200 bg-white p-3 sm:p-4"
+                    className="min-w-0 rounded-lg border border-slate-200 bg-white p-2.5 sm:p-4"
                     key={label}
                   >
                     <dt className="text-xs font-bold text-slate-500">
@@ -153,10 +156,10 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
                   </div>
                 ))}
               </dl>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="order-3 grid grid-cols-2 gap-2 sm:flex sm:gap-3 lg:mt-8">
                 <WhatsAppButton program={program.name} />
                 <Link
-                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#CBD5E1] bg-white px-5 py-3 text-sm font-semibold text-[#1E3A8A] transition hover:border-[#1E40AF] hover:bg-[#EFF6FF]"
+                  className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#CBD5E1] bg-white px-3 py-2 text-sm font-semibold text-[#1E3A8A] transition hover:border-[#1E40AF] hover:bg-[#EFF6FF] sm:px-5 sm:py-3"
                   href="/admisiones"
                 >
                   Ver requisitos
@@ -164,7 +167,7 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/10">
+            <div className="relative order-1 aspect-[16/10] overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/10 lg:order-none lg:aspect-[4/3]">
               <Image
                 src={program.image}
                 alt={program.imageAlt}
@@ -178,33 +181,35 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
           <SectionHeading
             title="Resumen del programa"
             description={program.description}
           />
-          <div className="rounded-lg border border-slate-200 bg-[#F8FAFC] p-6">
-            <h2 className="font-editorial text-2xl font-semibold leading-snug text-[#04215e]">
-              Para quién es
-            </h2>
-            <ul className="mt-5 grid gap-3 text-slate-700">
+          <details className="group border-y border-slate-200 bg-[#F8FAFC]" open>
+            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-3 font-editorial text-lg font-semibold text-[#04215e] marker:hidden sm:min-h-14 sm:px-4 sm:text-xl">
+              <span>¿Este programa es para ti?</span>
+              <span aria-hidden="true" className="text-2xl font-normal leading-none text-[#1e40af] transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <ul className="divide-y divide-slate-200 border-t border-slate-200 px-3 sm:px-4">
               {(program.entryProfile ?? [
                 "Aspirantes con interés en el área profesional del programa.",
                 "Personas que buscan una ruta académica con aplicación práctica.",
                 "Estudiantes que quieren resolver dudas con asesoría directa.",
-              ]).map((item) => (
-                <li className="rounded-lg bg-white px-4 py-3" key={item}>
-                  {item}
+              ]).map((item, index) => (
+                <li className="grid grid-cols-[1.75rem_1fr] gap-2 py-2.5 text-sm leading-5 text-slate-700 sm:py-3" key={item}>
+                  <span className="font-editorial font-semibold tabular-nums text-[#1e40af]">{String(index + 1).padStart(2, "0")}</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </details>
         </div>
       </section>
 
-      <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
           <div>
             <SectionHeading
               title="Plan de estudios"
@@ -220,88 +225,35 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
         </div>
       </section>
 
-      <section className="bg-[#EFF6FF] px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <BrainCircuit
-              aria-hidden="true"
-              className="h-9 w-9 text-[#1E40AF]"
-            />
-            <SectionHeading
-              title="IA en tu carrera"
-              description="Aplicaciones concretas de inteligencia artificial conectadas con tu formación y campo laboral."
-            />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {program.aiApplications.map((application) => (
-              <div
-                className="rounded-lg border border-blue-100 bg-white p-5 font-semibold text-[#0F172A]"
-                key={application}
-              >
-                {application}
-              </div>
-            ))}
-          </div>
+      <section className="bg-[#EFF6FF] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <ProgramInsights
+            aiApplications={program.aiApplications}
+            careerField={program.careerField}
+            graduateProfile={program.graduateProfile}
+            programName={program.name}
+          />
         </div>
       </section>
 
-      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
           <SectionHeading title={`${program.shortName} en Ecatepec`} description={`Estudia ${program.name} en UNIVAMEX. La ficha reúne la información académica disponible para comparar esta opción con otros programas de ${program.area.toLowerCase()}.`} />
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-2 sm:gap-4">
             <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/campus"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">Campus</h2><p className="mt-2 text-sm leading-6 text-slate-600">Consulta direcciones, mapas, rutas, espacios y el recorrido virtual 360.</p></Link>
             <Link className="border border-slate-200 bg-[#F8FAFC] p-5" href="/rvoe"><h2 className="font-editorial text-xl font-semibold text-[#04215e]">RVOE y validez académica</h2><p className="mt-2 text-sm leading-6 text-slate-600">Compara las claves publicadas junto con la modalidad y duración de cada programa.</p></Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
-          <div>
-            <BriefcaseBusiness
-              aria-hidden="true"
-              className="h-9 w-9 text-[#1E40AF]"
-            />
-            <h2 className="mt-4 font-editorial text-3xl font-semibold leading-snug text-[#04215e]">
-              Perfil de egreso
-            </h2>
-            <ul className="mt-6 flex flex-wrap gap-3">
-              {program.graduateProfile.map((item) => (
-                <li
-                  className="rounded-lg border border-slate-200 bg-[#F8FAFC] px-4 py-3 text-sm font-semibold text-slate-700"
-                  key={item}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-editorial text-3xl font-semibold leading-snug text-[#04215e]">
-              Campo laboral
-            </h2>
-            <ul className="mt-6 flex flex-wrap gap-3">
-              {program.careerField.map((item) => (
-                <li
-                  className="rounded-lg bg-[#1E3A8A] px-4 py-3 text-sm font-semibold text-white"
-                  key={item}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
           <div>
             <SectionHeading
               title="Requisitos de admisión"
               description="Documentos solicitados para iniciar tu proceso."
             />
-            <div className="mt-8">
+            <div className="mt-5 sm:mt-8">
               <WhatsAppButton
                 label="Revisar documentos"
                 program={program.name}
@@ -313,13 +265,13 @@ export default async function ProgramPage({ params }: ProgramPageProps) {
       </section>
 
       {related.length ? (
-        <section className="bg-[#F8FAFC] px-5 py-16 sm:px-8 lg:px-10">
+        <section className="bg-[#F8FAFC] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-7xl">
             <SectionHeading
               title="Programas relacionados"
               description="Compara opciones cercanas por área o nivel."
             />
-            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-5 grid gap-4 sm:mt-8 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
               {related.map((candidate) => (
                 <ProgramCard key={candidate.slug} program={candidate} />
               ))}
